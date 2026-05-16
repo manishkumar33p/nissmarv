@@ -1,0 +1,87 @@
+.plumbing-page {
+    background: #f4f7ff;
+  }
+  
+  .plumbing-hero {
+    position: relative;
+    height: 300px;
+  }
+  
+  .plumbing-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .plumbing-filters {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .plumbing-filters input {
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .plumbing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  .plumbing-card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  
+  .plumbing-card button {
+    margin-top: 10px;
+    padding: 8px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+
+  .plumbing-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .plumbing-card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+  }
+  
+  .plumbing-card:hover {
+    transform: translateY(-5px);
+  }
