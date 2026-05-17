@@ -39,126 +39,126 @@ import { MdPadding } from 'react-icons/md';
 
 // Sample product data
 const products = [
-  { id: 1, name: "Interior Design", image: marv13, price: "$499", description: "A stylish modern sofa for your living room." },
-  { id: 2, name: "Wall Panel", image: marv14, price: "$799", description: "A beautiful wooden dining table set for 6." },
-  { id: 3, name: "Wooden Flooring", image: marv9, price: "$150", description: "Ergonomic office chair with adjustable height." },
+  { id: 1, name: "Interior Design", image: marv13, price: "499", description: "A stylish modern sofa for your living room." },
+  { id: 2, name: "Wall Panel", image: marv14, price: "799", description: "A beautiful wooden dining table set for 6." },
+  { id: 3, name: "Wooden Flooring", image: marv9, price: "150", description: "Ergonomic office chair with adjustable height." },
     {
     id: 4,
     name: "Printed Wallpaper",
     image: marv16, // All products will use this image
-    price: "$249",
+    price: "249",
     description: "Spacious bookshelf for your books and decor.",
   },
   {
     id: 5,
     name: "False Ceiling Service",
     image: marv17, // All products will use this image
-    price: "$199",
+    price: "199",
     description: "Sleek coffee table with glass top and wooden base.",
   },
   {
     id: 6,
     name: "PVC Ceiling Panels",
     image: marv18, // All products will use this image
-    price: "$349",
+    price: "349",
     description: "Comfortable recliner chair for your living room.",
   },
   {
     id: 7,
     name: "Vinyl Flooring Service",
     image: marv19, // All products will use this image
-    price: "$1299",
+    price: "1299",
     description: "Luxury king-size bed frame for a restful sleep.",
   },
   {
     id: 8,
     name: "PVC Wallpaper",
     image: marv20, // All products will use this image
-    price: "$399",
+    price: "399",
     description: "Multifunctional storage cabinet for organization.",
   },
   {
     id: 9,
     name: "Design Blinds",
     image: marv21,  // All products will use this image
-    price: "$120",
+    price: "120",
     description: "Comfortable dining chair with cushion seat.",
   },
   {
     id: 10,
     name: "Bedroom Interior Design",
     image: marv22, // All products will use this image
-    price: "$299",
+    price: "299",
     description: "Sleek TV stand for your entertainment space.",
   },
   {
     id: 11,
     name: "Flooring",
     image: marv23, // All products will use this image
-    price: "$499",
+    price: "499",
     description: "A stylish modern sofa for your living room.",
   },
   {
     id: 12,
     name: "Artificial Turf",
     image: marv24, // All products will use this image
-    price: "$799",
+    price: "799",
     description: "A beautiful wooden dining table set for 6.",
   },
   {
     id: 13,
     name: "Floor Tiles",
     image: marv25, // All products will use this image
-    price: "$150",
+    price: "150",
     description: "Ergonomic office chair with adjustable height.",
   },
   {
     id: 14,
     name: "Roller Vertical Blinds",
     image: marv26, // All products will use this image
-    price: "$249",
+    price: "249",
     description: "Spacious bookshelf for your books and decor.",
   },
   {
     id: 15,
     name: "Royal luxury Emulsion",
     image: marv27, // All products will use this image
-    price: "$199",
+    price: "199",
     description: "Sleek coffee table with glass top and wooden base.",
   },
   {
     id: 16,
     name: "Wall Painting Service",
     image: marv28, // All products will use this image
-    price: "$349",
+    price: "349",
     description: "Comfortable recliner chair for your living room.",
   },
   {
     id: 17,
     name: "PVC Marble Sheet Products",
     image: marv29, // All products will use this image
-    price: "$1299",
+    price: "1299",
     description: "Luxury king-size bed frame for a restful sleep.",
   },
   {
     id: 18,
     name: "Grid Ceiling Tiles",
     image: marv30, // All products will use this image
-    price: "$399",
+    price: "399",
     description: "Multifunctional storage cabinet for organization.",
   },
   {
     id: 19,
     name: "PVC False Ceiling Panels",
     image: marv31, // All products will use this image
-    price: "$120",
+    price: "120",
     description: "Comfortable dining chair with cushion seat.",
   },
   {
     id: 20,
     name: "Wooden Small Temple",
     image: marv32, // All products will use this image
-    price: "$299",
+    price: "299",
     description: "Sleek TV stand for your entertainment space.",
   },
   // Add other products...

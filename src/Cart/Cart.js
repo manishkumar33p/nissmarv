@@ -643,6 +643,142 @@
 
 
 
+// import React, { useState, useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
+// import NavBar from "../Navbar/Navbar";
+// import "./Cart.css";
+
+// const Cart = () => {
+//   const [cart, setCart] = useState([]);
+//   const [total, setTotal] = useState(0);
+
+//   const navigate = useNavigate();
+
+//   // LOAD CART
+//   useEffect(() => {
+//     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+//     setCart(storedCart);
+//     calculateTotal(storedCart);
+//   }, []);
+
+//   // SAFE PRICE PARSER (MAIN FIX)
+//   const getPriceValue = (price) => {
+//     if (typeof price === "number") return price;
+
+//     if (typeof price === "string") {
+//       return Number(price.replace(/[^\d.]/g, "")) || 0;
+//     }
+
+//     return 0;
+//   };
+
+//   // TOTAL CALCULATION
+//   const calculateTotal = (items) => {
+//     const sum = items.reduce((acc, item) => {
+//       return acc + getPriceValue(item.price);
+//     }, 0);
+
+//     setTotal(sum.toFixed(2));
+//   };
+
+//   // REMOVE ITEM
+//   const removeItemFromCart = (index) => {
+//     const updated = cart.filter((_, i) => i !== index);
+//     setCart(updated);
+//     localStorage.setItem("cart", JSON.stringify(updated));
+//     calculateTotal(updated);
+//   };
+
+//   // CHECKOUT
+//   const proceedToCheckout = () => {
+//     if (cart.length === 0) {
+//       alert("Cart is empty");
+//       return;
+//     }
+//     navigate("/checkout");
+//   };
+
+//   return (
+//     <div className="cart-page">
+
+//       <NavBar />
+
+//       {/* HEADER */}
+//       <div className="cart-header">
+//         <h1>Your Shopping Cart 🛒</h1>
+//         <p>Review your selected packages before checkout</p>
+//       </div>
+
+//       {/* MAIN */}
+//       <div className="cart-container">
+
+//         {/* LEFT SIDE */}
+//         <div className="cart-items">
+
+//           {cart.length === 0 ? (
+//             <div className="empty-cart">
+//               <h2>Your cart is empty</h2>
+//               <p>Add packages or products to continue</p>
+//             </div>
+//           ) : (
+//             cart.map((item, index) => (
+//               <div key={index} className="cart-card">
+
+//                 {item.image && (
+//                   <img src={item.image} alt={item.title || item.name} />
+//                 )}
+
+//                 <div className="cart-info">
+//                   <h3>{item.title || item.name}</h3>
+//                   <p className="price">
+//                     ₹ {getPriceValue(item.price)}
+//                   </p>
+
+//                   {item.subtitle && (
+//                     <p className="desc">{item.subtitle}</p>
+//                   )}
+//                 </div>
+
+//                 <button
+//                   className="remove-btn"
+//                   onClick={() => removeItemFromCart(index)}
+//                 >
+//                   Remove
+//                 </button>
+
+//               </div>
+//             ))
+//           )}
+
+//         </div>
+
+//         {/* RIGHT SIDE */}
+//         <div className="cart-summary">
+
+//           <h2>Order Summary</h2>
+
+//           <div className="summary-box">
+//             <p>Total Items: {cart.length}</p>
+//             <h3>Total: ₹{total}</h3>
+//           </div>
+
+//           <button
+//             className="checkout-btn"
+//             onClick={proceedToCheckout}
+//           >
+//             Proceed to Checkout
+//           </button>
+
+//         </div>
+
+//       </div>
+
+//     </div>
+//   );
+// };
+
+// export default Cart;
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../Navbar/Navbar";
@@ -661,24 +797,22 @@ const Cart = () => {
     calculateTotal(storedCart);
   }, []);
 
-  // SAFE PRICE PARSER (MAIN FIX)
-  const getPriceValue = (price) => {
+  // SAFE PRICE CALCULATION
+  const getPriceNumber = (price) => {
     if (typeof price === "number") return price;
-
     if (typeof price === "string") {
-      return Number(price.replace(/[^\d.]/g, "")) || 0;
+      return parseFloat(price.replace(/[^\d]/g, "")) || 0;
     }
-
     return 0;
   };
 
-  // TOTAL CALCULATION
+  // TOTAL
   const calculateTotal = (items) => {
     const sum = items.reduce((acc, item) => {
-      return acc + getPriceValue(item.price);
+      return acc + getPriceNumber(item.price);
     }, 0);
 
-    setTotal(sum.toFixed(2));
+    setTotal(sum);
   };
 
   // REMOVE ITEM
@@ -703,46 +837,28 @@ const Cart = () => {
 
       <NavBar />
 
-      {/* HEADER */}
       <div className="cart-header">
-        <h1>Your Shopping Cart 🛒</h1>
-        <p>Review your selected packages before checkout</p>
+        <h1>Your Cart 🛒</h1>
       </div>
 
-      {/* MAIN */}
       <div className="cart-container">
 
-        {/* LEFT SIDE */}
         <div className="cart-items">
 
           {cart.length === 0 ? (
-            <div className="empty-cart">
-              <h2>Your cart is empty</h2>
-              <p>Add packages or products to continue</p>
-            </div>
+            <h2>No items in cart</h2>
           ) : (
             cart.map((item, index) => (
               <div key={index} className="cart-card">
 
-                {item.image && (
-                  <img src={item.image} alt={item.title || item.name} />
-                )}
+                {item.image && <img src={item.image} alt="" />}
 
-                <div className="cart-info">
+                <div>
                   <h3>{item.title || item.name}</h3>
-                  <p className="price">
-                    ₹ {getPriceValue(item.price)}
-                  </p>
-
-                  {item.subtitle && (
-                    <p className="desc">{item.subtitle}</p>
-                  )}
+                  <p>₹{getPriceNumber(item.price)}</p>
                 </div>
 
-                <button
-                  className="remove-btn"
-                  onClick={() => removeItemFromCart(index)}
-                >
+                <button onClick={() => removeItemFromCart(index)}>
                   Remove
                 </button>
 
@@ -752,27 +868,15 @@ const Cart = () => {
 
         </div>
 
-        {/* RIGHT SIDE */}
         <div className="cart-summary">
+          <h2>Total: ₹{total}</h2>
 
-          <h2>Order Summary</h2>
-
-          <div className="summary-box">
-            <p>Total Items: {cart.length}</p>
-            <h3>Total: ₹{total}</h3>
-          </div>
-
-          <button
-            className="checkout-btn"
-            onClick={proceedToCheckout}
-          >
-            Proceed to Checkout
+          <button onClick={proceedToCheckout}>
+            Checkout
           </button>
-
         </div>
 
       </div>
-
     </div>
   );
 };
