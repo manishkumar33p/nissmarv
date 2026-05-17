@@ -1,18 +1,18 @@
 import React, { useState , useEffect} from 'react'; 
 import { NavLink } from "react-router-dom";
-import Sidebar from '../Sidebar/Sidebar';
+
 import "../Electronics/Electronics"
 import "../Shop/Shop.css";
-import MarvVideo1 from '../marvv2.mp4';
+
 import Plumber2 from '../Plumber2.avif';
 import Laptop from '../Laptop.jfif';
 import Software from '../Software.jfif';
 import MarvVideo2 from '../marvv3.mp4';
 import Marvv99 from '../marvv99.mp4';
-import Marvv97 from '../marvv97.mp4';
+
 import Marvv96 from '../marvv96.mp4';
 import NavBar from '../Navbar/Navbar';
-import marv8 from "../marv8.jpg";
+
 import marv9 from "../marv9.png";
 import Footer from "../Footer/Footer";
 import marv13 from "../marv13.jpg"
@@ -34,7 +34,7 @@ import marv29 from "../marv29.jpg"
 import marv30 from "../marv30.jpg"
 import marv31 from "../marv31.jpg"
 import marv32 from "../marv32.jpg"
-import { MdPadding } from 'react-icons/md';
+
 // other image imports...
 
 // Sample product data
@@ -166,7 +166,7 @@ const products = [
 
 const Shop = () => {
   const [cart, setCart] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState(products);
+  // const [filteredProducts, setFilteredProducts] = useState(products);
 
   // Load cart from localStorage if any
   useEffect(() => {
@@ -174,23 +174,23 @@ const Shop = () => {
     setCart(savedCart);
   }, []);
 
-  const handleFilterChange = (type, value) => {
-    let updatedProducts = products;
+  // const handleFilterChange = (type, value) => {
+  //   let updatedProducts = products;
 
-    if (type === "category" && value) {
-      updatedProducts = updatedProducts.filter(product => product.category === value);
-    }
+  //   if (type === "category" && value) {
+  //     updatedProducts = updatedProducts.filter(product => product.category === value);
+  //   }
 
-    if (type === "price" && value) {
-      const [min, max] = value.split("-").map(num => parseInt(num));
-      updatedProducts = updatedProducts.filter(product => {
-        const productPrice = parseInt(product.price.replace('$', ''));
-        return productPrice >= min && productPrice <= max;
-      });
-    }
+  //   if (type === "price" && value) {
+  //     const [min, max] = value.split("-").map(num => parseInt(num));
+  //     updatedProducts = updatedProducts.filter(product => {
+  //       const productPrice = parseInt(product.price.replace('$', ''));
+  //       return productPrice >= min && productPrice <= max;
+  //     });
+  //   }
 
-    setFilteredProducts(updatedProducts);
-  };
+  //   setFilteredProducts(updatedProducts);
+  // };
 
 
   // Function to handle adding product to cart

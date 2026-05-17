@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 import "./Project.css";
 
 import HeroVideo from "../marvv99.mp4"; // 👈 your video

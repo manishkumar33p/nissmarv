@@ -5,7 +5,7 @@ import Footer from "../Footer/Footer";
 import MarvVideo2 from '../marvv3.mp4';
 
 // YOUR IMAGES ONLY
-import Plumber2 from "../Plumber2.avif";
+
 import Laptop from "../Laptop.jfif";
 import Software from "../Software.jfif";
 

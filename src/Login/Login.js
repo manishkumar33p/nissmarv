@@ -66,8 +66,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavBar from '../Navbar/Navbar';
-import Footer from "../Footer/Footer";
+
 
 import './Login.css';
 import Navbar from '../Navbar/Navbar';

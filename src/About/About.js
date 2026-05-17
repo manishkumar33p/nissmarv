@@ -455,7 +455,7 @@ import NavBar from '../Navbar/Navbar';
 import Footer from "../Footer/Footer";
 import './About.css';
 import { NavLink } from "react-router-dom";
-import MarvVideo from '../marvv.mp4';
+
 import MarvVideo1 from '../marvv2.mp4';
 import MarvVideo2 from '../marvv3.mp4';
 import Project from "../Project/Project";
@@ -477,7 +477,7 @@ import Marv53Image from '../marv53.jfif';
 import Marv55Image from '../marv55.jpeg';
 import Marv56Image from '../marv56.jpeg';
 import Marv57Image from '../marv57.jpeg';
-import Marv16Image from '../marv16.jpg';
+
 import WhatsAppLogo from '../whatsapp-logo.jfif'; // Import WhatsApp logo
 import N from "../N.jpeg"
 import Plumber from "../Plumber.jfif"
@@ -510,22 +510,22 @@ const About = () => {
 
   // Handle automatic image change every 10 seconds
 
-   const [activeTab, setActiveTab] = useState("Rent");
+
   
-      const data = {
-          Buy: {
-              title: "Buy Your Dream Property",
-              desc: "Best properties available for buying in your budget.",
-          },
-          PG: {
-              title: "Find Best PG Rooms",
-              desc: "Affordable PG options for students and working professionals.",
-          },
-          Rent: {
-              title: "Rent Comfortable Homes",
-              desc: "Houses and flats available for rent in top locations.",
-          }
-      };
+      // const data = {
+      //     Buy: {
+      //         title: "Buy Your Dream Property",
+      //         desc: "Best properties available for buying in your budget.",
+      //     },
+      //     PG: {
+      //         title: "Find Best PG Rooms",
+      //         desc: "Affordable PG options for students and working professionals.",
+      //     },
+      //     Rent: {
+      //         title: "Rent Comfortable Homes",
+      //         desc: "Houses and flats available for rent in top locations.",
+      //     }
+      // };
   useEffect(() => {
     if (!isHovered) {
       const id = setInterval(() => {
@@ -552,20 +552,20 @@ const About = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();  // Prevent default form submission
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();  // Prevent default form submission
 
-    // Gather form data
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const phone = e.target.phone.value;
+  //   // Gather form data
+  //   const name = e.target.name.value;
+  //   const email = e.target.email.value;
+  //   const phone = e.target.phone.value;
 
-    // Do something with the form data, like sending it to an API or printing it
-    console.log('Form submitted', { name, email, phone });
+  //   // Do something with the form data, like sending it to an API or printing it
+  //   console.log('Form submitted', { name, email, phone });
 
-    // Optionally, reset the form after submission
-    e.target.reset();
-  };
+  //   // Optionally, reset the form after submission
+  //   e.target.reset();
+  // };
 
 
   return (
@@ -577,25 +577,25 @@ const About = () => {
           <div className="image-gallery">
             <NavLink to="/interior" className="image-link">
 
-              <img src={MarvImage} alt="Category Image 1" className="circular-image" />
+              <img src={MarvImage} alt="home interior" className="circular-image" />
               <h4>INTERIOR</h4>
             </NavLink>
             <NavLink to="/packages" className="image-link">
-              <img src={Marv51Image} alt="Category Image 2" className="circular-image" />
+              <img src={Marv51Image} alt="website design" className="circular-image" />
               <h4>SOFTWARE</h4>
             </NavLink>
             <NavLink to="/electronics" className="image-link">
-              <img src={Marv53Image} alt="Category Image 3" className="circular-image" />
+              <img src={Marv53Image} alt="electronic service" className="circular-image" />
               <h4>LAPTOP</h4>
             </NavLink>
             <NavLink to="/plumbing" className="image-link">
-              <img src={Plumber} alt="Category Image 1" className="circular-image" />
+              <img src={Plumber} alt="plumbing service" className="circular-image" />
               <h4>PLUMBING</h4>
             </NavLink>
             
 
             <NavLink to="/packages" className="image-link">
-              <img src={Property} alt="Category Image 1" className="circular-image" />
+              <img src={Property} alt="property services" className="circular-image" />
               <h4>PROPERTY</h4>
             </NavLink>
            
@@ -770,7 +770,7 @@ Rent
         <div className="about-container">
           <div className="about-content">
             <div className="about-image">
-              <img src={Marv2Image} alt="Category Image 1" />
+              <img src={Marv2Image} alt="about company" />
             </div>
             <div className="about-text">
               <h1>About Us</h1>
