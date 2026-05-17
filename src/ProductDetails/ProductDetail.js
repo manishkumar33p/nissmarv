@@ -1,7 +1,7 @@
 import React, { useState , useEffect} from 'react';
 import NavBar from '../Navbar/Navbar';
 import "../ProductDetails/ProductDetails.css";
-import Footer from "../Footer/Footer";
+
 import { useParams } from 'react-router-dom';
 import marv13 from "../marv13.jpg"
 import marv14 from "../marv14.jpg"

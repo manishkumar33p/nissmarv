@@ -138,7 +138,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { IoCart, IoClose, IoMenu } from "react-icons/io5"; // Import cart icon
 import "./Navbar.css";
-import logo1 from "../logo1.png"; // Your logo
+
 import marv7 from "../marv7.png"; // Your logo
 
 const Navbar = () => {

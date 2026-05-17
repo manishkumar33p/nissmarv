@@ -89,15 +89,15 @@ const Footer = () => {
           <h3>Connect With Us</h3>
 
           <div className="footer__socials">
-            <a href="#" target="_blank" rel="noreferrer">
+            <a href="/packages" target="_blank" rel="noreferrer">
               <FaFacebookF />
             </a>
 
-            <a href="#" target="_blank" rel="noreferrer">
+            <a href="/buy" target="_blank" rel="noreferrer">
               <FaInstagram />
             </a>
 
-            <a href="#" target="_blank" rel="noreferrer">
+            <a href="/buy" target="_blank" rel="noreferrer">
               <FaLinkedinIn />
             </a>
           </div>

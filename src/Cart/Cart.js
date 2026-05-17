@@ -791,6 +791,8 @@ const Cart = () => {
   const navigate = useNavigate();
 
   // LOAD CART
+  
+  // eslint-disable-next-line
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(storedCart);
