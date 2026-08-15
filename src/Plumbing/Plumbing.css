@@ -1,0 +1,1286 @@
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.plumbing-page {
+  width: 100%;
+  overflow-x: hidden;
+  background: #ffffff;
+  color: #222;
+}
+
+
+/* =========================================================
+   PLUMBING HERO
+========================================================= */
+
+.plumbing-hero {
+  position: relative;
+  width: 100%;
+  min-height: 720px;
+  overflow: hidden;
+}
+
+.fullscreen-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.plumbing-overlay-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62);
+}
+
+.plumbing-overlay {
+  position: relative;
+  z-index: 2;
+
+  min-height: 720px;
+
+  max-width: 1400px;
+  margin: auto;
+
+  padding: 100px 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 60px;
+}
+
+
+/* =========================================================
+   LEFT HERO
+========================================================= */
+
+.plumbing-left {
+  width: 55%;
+  color: white;
+}
+
+.plumbing-tag {
+  display: inline-block;
+
+  padding: 8px 18px;
+
+  border: 1px solid rgba(255,255,255,0.5);
+
+  border-radius: 30px;
+
+  font-size: 14px;
+
+  margin-bottom: 20px;
+}
+
+.plumbing-left h1 {
+  font-size: 58px;
+  line-height: 1.08;
+
+  margin: 0 0 25px;
+
+  font-weight: 800;
+}
+
+.plumbing-left h1 span {
+  display: block;
+
+  color: #f5a623;
+
+  margin-top: 8px;
+}
+
+.plumbing-left p {
+  max-width: 700px;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+
+  color: rgba(255,255,255,0.9);
+
+  margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.plumbing-search-box {
+  display: flex;
+
+  max-width: 700px;
+
+  background: white;
+
+  padding: 7px;
+
+  border-radius: 10px;
+
+  gap: 5px;
+}
+
+.plumbing-search-box select,
+.plumbing-search-box input {
+  border: none;
+
+  outline: none;
+
+  padding: 15px;
+
+  font-size: 14px;
+}
+
+.plumbing-search-box select {
+  width: 190px;
+}
+
+.plumbing-search-box input {
+  flex: 1;
+}
+
+.plumbing-search-box button {
+  border: none;
+
+  padding: 0 25px;
+
+  background: #f5a623;
+
+  color: #111;
+
+  font-weight: 700;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.plumbing-buttons {
+  display: flex;
+
+  gap: 15px;
+
+  margin-top: 25px;
+}
+
+.plumbing-buttons button {
+  padding: 14px 25px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-weight: 700;
+
+  font-size: 15px;
+}
+
+.plumbing-btn-primary {
+  border: none;
+
+  background: #f5a623;
+
+  color: #111;
+}
+
+.plumbing-btn-secondary {
+  background: transparent;
+
+  color: white;
+
+  border: 1px solid white;
+}
+
+
+/* =========================================================
+   HERO RIGHT
+========================================================= */
+
+.plumbing-right {
+  width: 40%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.plumbing-hero-card {
+  width: 100%;
+
+  max-width: 430px;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.plumbing-hero-card img {
+  width: 100%;
+
+  height: 350px;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.plumbing-small-cards {
+  display: flex;
+
+  gap: 15px;
+
+  width: 100%;
+
+  max-width: 430px;
+}
+
+.plumbing-small-card {
+  flex: 1;
+
+  padding: 20px;
+
+  text-align: center;
+
+  background: rgba(255,255,255,0.13);
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  border-radius: 14px;
+
+  color: white;
+}
+
+.plumbing-small-card h3 {
+  margin: 0;
+
+  font-size: 28px;
+
+  color: #f5a623;
+}
+
+.plumbing-small-card p {
+  margin: 5px 0 0;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+  text-align: center;
+
+  padding: 70px 20px 35px;
+}
+
+.section-heading span {
+  color: #f5a623;
+
+  font-weight: 700;
+
+  font-size: 14px;
+
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  font-size: 42px;
+
+  margin: 10px 0;
+}
+
+.section-heading p {
+  color: #666;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   PLUMBING FILTER
+========================================================= */
+
+.plumbing-filters {
+  max-width: 1200px;
+
+  margin: 0 auto 35px;
+
+  padding: 0 20px;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 15px;
+}
+
+.plumbing-filters input {
+  width: 300px;
+
+  padding: 14px 16px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  font-size: 15px;
+}
+
+.plumbing-filters input:focus {
+  border-color: #f5a623;
+}
+
+
+/* =========================================================
+   PLUMBING GRID
+========================================================= */
+
+.plumbing-grid {
+  max-width: 1250px;
+
+  margin: auto;
+
+  padding: 0 20px 80px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 25px;
+}
+
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
+.service-card {
+  background: white;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  border: 1px solid #eee;
+
+  box-shadow:
+    0 5px 25px rgba(0,0,0,0.07);
+
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.12);
+}
+
+.service-image {
+  width: 100%;
+
+  height: 210px;
+
+  overflow: hidden;
+}
+
+.service-image img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: 0.4s;
+}
+
+.service-card:hover .service-image img {
+  transform: scale(1.06);
+}
+
+.service-content {
+  padding: 20px;
+}
+
+.service-label {
+  display: inline-block;
+
+  font-size: 11px;
+
+  color: #f5a623;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 8px;
+}
+
+.service-content h3 {
+  font-size: 18px;
+
+  margin: 5px 0 10px;
+
+  min-height: 45px;
+}
+
+.service-price {
+  font-size: 20px;
+
+  font-weight: 800;
+
+  margin: 0 0 15px;
+}
+
+.service-actions {
+  display: flex;
+
+  gap: 8px;
+}
+
+.service-actions button {
+  flex: 1;
+
+  padding: 11px 8px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  font-weight: 700;
+
+  background: #f5a623;
+}
+
+.service-actions .cart-button {
+  background: #222;
+
+  color: white;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.service-divider {
+  max-width: 1200px;
+
+  margin: 20px auto 0;
+
+  padding: 50px 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+.service-divider span {
+  height: 1px;
+
+  background: #ddd;
+
+  flex: 1;
+}
+
+.service-divider h2 {
+  font-size: 22px;
+
+  white-space: nowrap;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   CARPENTER SECTION
+========================================================= */
+
+.carpenter-section {
+  background: #f7f7f7;
+
+  padding: 30px 20px 90px;
+}
+
+
+/* =========================================================
+   CARPENTER HEADING
+========================================================= */
+
+.carpenter-heading {
+  max-width: 900px;
+
+  margin: auto;
+
+  text-align: center;
+
+  padding: 30px 0 45px;
+}
+
+.carpenter-tag {
+  display: inline-block;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  color: #f5a623;
+
+  margin-bottom: 15px;
+}
+
+.carpenter-heading h2 {
+  font-size: 45px;
+
+  margin: 0;
+
+  line-height: 1.15;
+}
+
+.carpenter-heading h2 span {
+  display: block;
+
+  color: #b47a16;
+
+  margin-top: 8px;
+}
+
+.carpenter-heading p {
+  margin-top: 18px;
+
+  color: #666;
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   CARPENTER FILTER
+========================================================= */
+
+.carpenter-filter {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 35px;
+}
+
+.carpenter-filter button {
+  padding: 10px 20px;
+
+  background: white;
+
+  border: 1px solid #ddd;
+
+  border-radius: 30px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.carpenter-filter button:hover {
+  border-color: #f5a623;
+}
+
+.carpenter-filter .active-category {
+  background: #f5a623;
+
+  border-color: #f5a623;
+
+  color: #111;
+}
+
+
+/* =========================================================
+   CARPENTER GRID
+========================================================= */
+
+.carpenter-grid {
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 25px;
+}
+
+
+/* =========================================================
+   CARPENTER CARD
+========================================================= */
+
+.carpenter-card {
+  background: white;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 25px rgba(0,0,0,0.07);
+
+  border: 1px solid #eee;
+
+  transition: 0.3s;
+}
+
+.carpenter-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.12);
+}
+
+.carpenter-image {
+  width: 100%;
+
+  height: 220px;
+
+  overflow: hidden;
+}
+
+.carpenter-image img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: 0.4s;
+}
+
+.carpenter-card:hover
+.carpenter-image img {
+  transform: scale(1.07);
+}
+
+.carpenter-info {
+  padding: 20px;
+}
+
+.carpenter-info > span {
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  color: #b47a16;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.carpenter-info h3 {
+  margin: 8px 0;
+
+  font-size: 19px;
+
+  min-height: 45px;
+}
+
+.carpenter-info p {
+  font-size: 20px;
+
+  font-weight: 800;
+
+  margin: 10px 0 15px;
+}
+
+.carpenter-info button {
+  width: 100%;
+
+  border: none;
+
+  padding: 12px;
+
+  background: #222;
+
+  color: white;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  font-weight: 700;
+}
+
+.carpenter-info button:hover {
+  background: #f5a623;
+
+  color: #111;
+}
+
+
+/* =========================================================
+   CARPENTER HIGHLIGHT
+========================================================= */
+
+.carpenter-highlight {
+  max-width: 1000px;
+
+  margin: 70px auto 0;
+
+  text-align: center;
+}
+
+.carpenter-highlight h2 {
+  font-size: 30px;
+
+  margin-bottom: 30px;
+}
+
+.carpenter-highlight-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 15px;
+}
+
+.carpenter-highlight-grid div {
+  background: white;
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+  font-weight: 600;
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,0.06);
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,0.7);
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+}
+
+.modal-box {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 500px;
+
+  background: white;
+
+  border-radius: 15px;
+
+  padding: 30px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.3);
+
+  animation: modalOpen 0.25s ease;
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+.modal-close {
+  position: absolute;
+
+  right: 15px;
+
+  top: 12px;
+
+  width: 35px;
+
+  height: 35px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f1f1f1;
+
+  font-size: 25px;
+
+  cursor: pointer;
+}
+
+.modal-box h2 {
+  margin: 0 40px 5px 0;
+
+  font-size: 25px;
+}
+
+.modal-box > p {
+  color: #f5a623;
+
+  font-size: 19px;
+
+  font-weight: 700;
+
+  margin-bottom: 25px;
+}
+
+.modal-box label {
+  display: block;
+
+  margin: 15px 0 7px;
+
+  font-weight: 700;
+}
+
+.modal-box input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 7px;
+
+  outline: none;
+
+  font-size: 15px;
+}
+
+.modal-box input:focus {
+  border-color: #f5a623;
+}
+
+
+/* =========================================================
+   QUICK HOURS
+========================================================= */
+
+.quick-hours {
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+.quick-hours button {
+  padding: 10px 15px;
+
+  background: #f5f5f5;
+
+  border: 1px solid #ddd;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+
+.quick-hours .active-hour {
+  background: #f5a623;
+
+  border-color: #f5a623;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   MODAL TOTAL
+========================================================= */
+
+.modal-total {
+  margin-top: 25px;
+
+  padding: 15px;
+
+  background: #f7f7f7;
+
+  border-radius: 8px;
+
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   MODAL ACTIONS
+========================================================= */
+
+.modal-actions {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  flex: 1;
+
+  padding: 13px;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  font-weight: 700;
+}
+
+.cancel-btn {
+  background: #eee;
+
+  border: none;
+}
+
+.confirm-btn {
+  background: #f5a623;
+
+  border: none;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.service-message {
+  position: fixed;
+
+  right: 25px;
+
+  bottom: 25px;
+
+  z-index: 10000;
+
+  background: #222;
+
+  color: white;
+
+  padding: 15px 22px;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,0.25);
+
+  font-weight: 600;
+}
+
+.no-service {
+  grid-column: 1 / -1;
+
+  text-align: center;
+
+  padding: 60px 20px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .plumbing-overlay {
+    padding: 80px 30px;
+  }
+
+  .plumbing-left h1 {
+    font-size: 45px;
+  }
+
+  .plumbing-grid,
+  .carpenter-grid {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .plumbing-hero {
+    min-height: auto;
+  }
+
+  .plumbing-overlay {
+    min-height: auto;
+
+    padding: 80px 20px 60px;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 40px;
+  }
+
+  .plumbing-left {
+    width: 100%;
+  }
+
+  .plumbing-left h1 {
+    font-size: 36px;
+  }
+
+  .plumbing-left p {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+  .plumbing-search-box {
+    flex-direction: column;
+
+    padding: 10px;
+  }
+
+  .plumbing-search-box select {
+    width: 100%;
+  }
+
+  .plumbing-search-box input {
+    width: 100%;
+
+    box-sizing: border-box;
+  }
+
+  .plumbing-search-box button {
+    padding: 14px;
+  }
+
+  .plumbing-buttons {
+    flex-direction: column;
+  }
+
+  .plumbing-buttons button {
+    width: 100%;
+  }
+
+  .plumbing-right {
+    width: 100%;
+  }
+
+  .plumbing-hero-card img {
+    height: 260px;
+  }
+
+  .plumbing-small-cards {
+    max-width: none;
+  }
+
+  .section-heading {
+    padding-top: 50px;
+  }
+
+  .section-heading h2 {
+    font-size: 32px;
+  }
+
+  .plumbing-filters {
+    flex-direction: column;
+
+    padding: 0 20px;
+  }
+
+  .plumbing-filters input {
+    width: 100%;
+
+    box-sizing: border-box;
+  }
+
+  .plumbing-grid {
+    grid-template-columns: 1fr;
+
+    padding-bottom: 50px;
+  }
+
+  .service-image {
+    height: 230px;
+  }
+
+  .service-divider {
+    padding: 35px 15px;
+
+    gap: 10px;
+  }
+
+  .service-divider h2 {
+    font-size: 16px;
+  }
+
+  .carpenter-section {
+    padding: 20px 15px 60px;
+  }
+
+  .carpenter-heading {
+    padding: 25px 0 35px;
+  }
+
+  .carpenter-heading h2 {
+    font-size: 32px;
+  }
+
+  .carpenter-heading h2 span {
+    margin-top: 5px;
+  }
+
+  .carpenter-filter {
+    gap: 7px;
+  }
+
+  .carpenter-filter button {
+    padding: 9px 14px;
+
+    font-size: 13px;
+  }
+
+  .carpenter-grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .carpenter-image {
+    height: 240px;
+  }
+
+  .carpenter-highlight {
+    margin-top: 50px;
+  }
+
+  .carpenter-highlight-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 10px;
+  }
+
+  .carpenter-highlight-grid div {
+    padding: 15px 8px;
+
+    font-size: 13px;
+  }
+
+  .modal-box {
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 25px 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .service-message {
+    left: 15px;
+
+    right: 15px;
+
+    bottom: 15px;
+
+    text-align: center;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .plumbing-left h1 {
+    font-size: 30px;
+  }
+
+  .plumbing-small-card {
+    padding: 15px 8px;
+  }
+
+  .plumbing-small-card h3 {
+    font-size: 24px;
+  }
+
+  .carpenter-heading h2 {
+    font-size: 28px;
+  }
+
+  .carpenter-highlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

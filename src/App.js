@@ -1,0 +1,94 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import About from './About/About';
+import DataEntry from './DataEntry/DataEntry';
+import ContactUs from './ContactUs/ContactUs';
+import Dashboard from './Dashboard/Dashboard';
+import NavBar from './Navbar/Navbar';
+import Footer from "./Footer/Footer";
+import Login from './Login/Login';
+import Checkout from './Checkout/Checkout';
+import PaymentGateway from './PaymentGateway/PaymentGateway';
+import CartContext from "./CartContext/CartContext";
+import ProductCard from './ProductCard/ProductCard';
+import Shop from './Shop/Shop';
+import ProductDetail from './ProductDetails/ProductDetail';
+import Cart from './Cart/Cart';
+import Electronics from './Electronics/Electronics';
+import Sidebar from './Sidebar/Sidebar';
+import Project from './Project/Project';
+import BuyPage from './BuyPage/BuyPage';
+import Packages from './Packages/Packages';
+import Interior from './Interior/Interior';
+import Plumbing from './Plumbing/Plumbing';
+import Admin from './Project/Admin';
+import ProjectLogin from './Project/ProjectLogin';
+import PropertyDetail from "./Project/PropertyDetail";
+import InstaHelp from './Instahelp/Instahelp';
+import Carpenter from './Carpenter/Carpenter';
+import SecurityAgency from './SecurityAgency/SecurityAgency';
+import TeacherPage from './TeacherPage/TeacherPage';
+import CCTVPage from './CCTVPage/CCTVPage';
+import TailorPage from './TailorPage/TailorPage';
+import BookingsPage from './TailorPage/BookingPage';
+import TailorLogin from './TailorPage/TailorLogin';
+import Catering from './Catering/Catering';
+import Laundry from './Laundry/Laundry';
+import Property from './Property/Property';
+import PropertyAdmin from './PropertyAdmin/PropertyAdmin';
+import EventManagement from './EventManagement/EventManagement';
+
+
+function App() {
+  return (
+    <Router>
+      <NavBar />
+
+        <div >
+          <Routes>
+            <Route path="/" element={<About />} />
+            <Route path="/data-entry" element={<DataEntry />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/navBar" element={<NavBar />} />
+            <Route path='/footer' element={<Footer />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/checkout' element={<Checkout />} />
+            <Route path='/paymentgateway' element={<PaymentGateway />} />
+            <Route path='/productcard' element={<ProductCard />} />
+            <Route path='cartcontext' element={<CartContext />} />
+            <Route path="/shop" element={<Shop />} /> {/* Corrected this line */}
+            <Route path="/product/:id" element={<ProductDetail />} /> {/* Corrected this line */}
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/electronics' element={<Electronics />} />
+            <Route path='/sidebar' element={<Sidebar />} />
+            <Route path='/project' element={<Project />} />
+            <Route path="/buy" element={<BuyPage />} />
+            <Route path="/packages" element={<Packages />} />
+            <Route path="/interior" element={<Interior />} />
+            <Route path="/plumbing" element={<Plumbing />} />
+            <Route path="/admin" element={<ProjectLogin />} />
+            <Route path="/admin/dashboard" element={<Admin />} />
+            <Route path="/property-detail" element={<PropertyDetail />}/>
+            <Route path="/instahelp" element={<InstaHelp />}/>
+             <Route path="/carpenter" element={<Carpenter />}/>
+             <Route path="/security" element={<SecurityAgency />}/>
+             <Route path="/teacher" element={<TeacherPage />}/>
+             <Route path="/cctv" element={<CCTVPage />}/>
+             <Route path ="/tailor" element={<TailorPage />} />
+             <Route path ="/bp" element={<BookingsPage />} />
+              <Route path ="/tlogin" element={<TailorLogin />} />
+<Route path ="/catering" element={<Catering />} />
+<Route path ="/laundry" element={<Laundry />} />
+<Route path ="/property" element={<Property />} />
+<Route path="/property-admin" element={<PropertyAdmin />} />
+<Route   path="/events"    element={<EventManagement />}
+/>
+          </Routes>
+        </div>
+     
+    </Router>
+  );
+}
+
+export default App;
