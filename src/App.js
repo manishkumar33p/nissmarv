@@ -37,8 +37,9 @@ import Laundry from './Laundry/Laundry';
 import Property from './Property/Property';
 import PropertyAdmin from './PropertyAdmin/PropertyAdmin';
 import EventManagement from './EventManagement/EventManagement';
-
-
+import Industry from './Industry/Industry';
+import CustomerLogin from './CustomerLogin/CustomerLogin';
+import ChatBot from "./ChatBot/ChatBot";
 function App() {
   return (
     <Router>
@@ -84,9 +85,16 @@ function App() {
 <Route path="/property-admin" element={<PropertyAdmin />} />
 <Route   path="/events"    element={<EventManagement />}
 />
+
+<Route path="/customerlogin" element={<CustomerLogin />} />
+ <Route
+            path="/chatbot"
+            element={<ChatBot />}
+          />
+<Route path="/industry" element={<Industry />} />
           </Routes>
         </div>
-     
+     <ChatBot />
     </Router>
   );
 }

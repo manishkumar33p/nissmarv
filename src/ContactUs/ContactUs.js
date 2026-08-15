@@ -1,213 +1,3 @@
-
-// import React, { useState, useRef } from 'react';
-// import NavBar from '../Navbar/Navbar';
-// import './ContactUs.css';
-// import Footer from "../Footer/Footer";
-// import { FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
-// import emailjs from '@emailjs/browser';
-
-// import MarvVideo from "../marvv3.mp4";
-
-// const ContactUs = () => {
-
-//     const form = useRef();
-
-//     const [formData, setFormData] = useState({
-//         name: '',
-//         email: '',
-//         phone: '',
-//         subject: '',
-//         message: ''
-//     });
-
-//     const [confirmationMessage, setConfirmationMessage] = useState('');
-
-//     const handleChange = (e) => {
-//         const { name, value } = e.target;
-
-//         setFormData({
-//             ...formData,
-//             [name]: value
-//         });
-//     };
-
-//     const handleSubmit = (e) => {
-//         e.preventDefault();
-
-//         const existingData =
-//             JSON.parse(localStorage.getItem('contactData')) || [];
-
-//         localStorage.setItem(
-//             'contactData',
-//             JSON.stringify([...existingData, formData])
-//         );
-
-//         emailjs.sendForm(
-//             'service_3z8pkj1',
-//             'template_zfanfmp',
-//             form.current,
-//             'dKgJCNwJ0irTaeaZ1'
-//         )
-//         .then(() => {
-
-//             setConfirmationMessage(
-//                 'Your message has been successfully sent!'
-//             );
-
-//             setFormData({
-//                 name: '',
-//                 email: '',
-//                 phone: '',
-//                 subject: '',
-//                 message: ''
-//             });
-
-//         })
-//         .catch((error) => {
-
-//             console.log(error.text);
-
-//             setConfirmationMessage(
-//                 'Something went wrong. Please try again.'
-//             );
-
-//         });
-//     };
-
-//     return (
-//         <div className="contact-page">
-
-//             <NavBar />
-
-//             <video className="contact-video" autoPlay loop muted>
-//                 <source src={MarvVideo} type="video/mp4" />
-//             </video>
-
-//             <div className="contact-overlay"></div>
-
-//             <div className="contact-container">
-
-//                 {/* LEFT SIDE */}
-//                 <div className="contact-left">
-
-//                     <span className="contact-tag">Contact NISS</span>
-
-//                     <h1>
-//                         Let’s Build Something
-//                         <span> Amazing Together</span>
-//                     </h1>
-
-//                     <p>
-//                         Contact us for software, interiors,
-//                         plumbing, laptops, real estate,
-//                         and digital services.
-//                     </p>
-
-//                     <div className="contact-cards">
-
-//                         <div className="contact-card">
-//                             <FaMapMarkerAlt className="contact-icon" />
-//                             <h3>Address</h3>
-//                             <p>Ground Floor, 122A, New Gandhi Nagar, Ghaziabad, Uttar Pradesh 201001</p>
-//                         </div>
-
-//                         <div className="contact-card">
-//                             <FaPhone className="contact-icon" />
-//                             <h3>Phone</h3>
-//                             <p>+91 9958424916</p>
-//                         </div>
-
-//                         <div className="contact-card">
-//                             <FaEnvelope className="contact-icon" />
-//                             <h3>Email</h3>
-//                             <p>technologiesniss@gmail.com</p>
-//                         </div>
-
-//                     </div>
-
-//                 </div>
-
-//                 {/* RIGHT FORM */}
-//                 <div className="contact-right">
-
-//                     <form
-//                         ref={form}
-//                         className="contact-form"
-//                         onSubmit={handleSubmit}
-//                     >
-
-//                         <h2>Send Message</h2>
-
-//                         <input
-//                             type="text"
-//                             name="name"
-//                             placeholder="Your Name"
-//                             value={formData.name}
-//                             onChange={handleChange}
-//                             required
-//                         />
-
-//                         <input
-//                             type="email"
-//                             name="email"
-//                             placeholder="Your Email"
-//                             value={formData.email}
-//                             onChange={handleChange}
-//                             required
-//                         />
-
-//                         <input
-//                             type="text"
-//                             name="phone"
-//                             placeholder="Mobile Number"
-//                             value={formData.phone}
-//                             onChange={handleChange}
-//                             required
-//                         />
-
-//                         <input
-//                             type="text"
-//                             name="subject"
-//                             placeholder="Subject"
-//                             value={formData.subject}
-//                             onChange={handleChange}
-//                             required
-//                         />
-
-//                         <textarea
-//                             name="message"
-//                             rows="5"
-//                             placeholder="Your Message"
-//                             value={formData.message}
-//                             onChange={handleChange}
-//                             required
-//                         ></textarea>
-
-//                         <button type="submit">
-//                             Send Message
-//                         </button>
-
-//                         {confirmationMessage && (
-//                             <p className="confirmation-message">
-//                                 {confirmationMessage}
-//                             </p>
-//                         )}
-
-//                     </form>
-
-//                 </div>
-
-//             </div>
-
-//             <Footer />
-
-//         </div>
-//     );
-// };
-
-// export default ContactUs;
-
-
 import React, { useState, useRef } from "react";
 import "./ContactUs.css";
 import Footer from "../Footer/Footer";
@@ -224,7 +14,7 @@ import emailjs from "@emailjs/browser";
 import MarvVideo from "../marvv3.mp4";
 
 const ContactUs = () => {
-  const form = useRef();
+  const form = useRef(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -234,8 +24,9 @@ const ContactUs = () => {
     message: "",
   });
 
-  const [confirmationMessage, setConfirmationMessage] = useState("");
   const [sending, setSending] = useState(false);
+  const [confirmationMessage, setConfirmationMessage] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const services = [
     "Software Development",
@@ -270,22 +61,44 @@ const ContactUs = () => {
       ...prev,
       [name]: value,
     }));
+
+    setConfirmationMessage("");
+    setSuccess(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (sending) return;
+
+    if (!formData.name.trim()) {
+      setConfirmationMessage("Please enter your name.");
+      return;
+    }
+
+    if (!formData.email.trim()) {
+      setConfirmationMessage("Please enter your email.");
+      return;
+    }
+
+    if (!formData.phone.trim()) {
+      setConfirmationMessage("Please enter your mobile number.");
+      return;
+    }
 
     if (!formData.service) {
       setConfirmationMessage("Please select a service.");
       return;
     }
 
+    if (!formData.message.trim()) {
+      setConfirmationMessage("Please enter your requirement.");
+      return;
+    }
+
     setSending(true);
     setConfirmationMessage("");
-
-    // Save enquiry locally
-    const existingData =
-      JSON.parse(localStorage.getItem("contactData")) || [];
+    setSuccess(false);
 
     const enquiry = {
       ...formData,
@@ -293,48 +106,59 @@ const ContactUs = () => {
       createdAt: new Date().toISOString(),
     };
 
-    localStorage.setItem(
-      "contactData",
-      JSON.stringify([...existingData, enquiry])
-    );
+    /* SAVE DATA LOCALLY */
+    try {
+      const existingData =
+        JSON.parse(localStorage.getItem("contactData")) || [];
 
-    emailjs
-      .sendForm(
+      localStorage.setItem(
+        "contactData",
+        JSON.stringify([...existingData, enquiry])
+      );
+    } catch (error) {
+      console.log("Local storage error:", error);
+    }
+
+    /* SEND EMAIL */
+    try {
+      await emailjs.sendForm(
         "service_3z8pkj1",
         "template_zfanfmp",
         form.current,
         "dKgJCNwJ0irTaeaZ1"
-      )
-      .then(() => {
-        setConfirmationMessage(
-          "Your enquiry has been sent successfully! Our team will contact you soon."
-        );
+      );
 
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: "",
-        });
+      setSuccess(true);
 
-        setSending(false);
-      })
-      .catch((error) => {
-        console.log(error);
+      setConfirmationMessage(
+        "Your enquiry has been sent successfully! Our team will contact you soon."
+      );
 
-        setConfirmationMessage(
-          "Your enquiry was saved, but email could not be sent. Please contact us directly."
-        );
-
-        setSending(false);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
       });
+    } catch (error) {
+      console.log("EmailJS Error:", error);
+
+      setSuccess(false);
+
+      setConfirmationMessage(
+        "Your enquiry has been saved. Email service is temporarily unavailable. Please contact us on WhatsApp."
+      );
+    }
+
+    setSending(false);
   };
 
   return (
     <div className="contact-page">
 
-      {/* BACKGROUND VIDEO */}
+      {/* ================= VIDEO BACKGROUND ================= */}
+
       <div className="contact-video-wrapper">
         <video
           className="contact-video"
@@ -349,7 +173,8 @@ const ContactUs = () => {
         <div className="contact-overlay"></div>
       </div>
 
-      {/* HERO */}
+      {/* ================= HERO ================= */}
+
       <section className="contact-hero">
 
         <div className="contact-hero-content">
@@ -359,7 +184,7 @@ const ContactUs = () => {
           </span>
 
           <h1>
-            Let’s Build
+            Let's Build
             <span> Something Amazing</span>
           </h1>
 
@@ -373,17 +198,17 @@ const ContactUs = () => {
 
             <div>
               <FaCheckCircle />
-              Professional Team
+              <span>Professional Team</span>
             </div>
 
             <div>
               <FaCheckCircle />
-              Quick Response
+              <span>Quick Response</span>
             </div>
 
             <div>
               <FaCheckCircle />
-              Reliable Services
+              <span>Reliable Services</span>
             </div>
 
           </div>
@@ -392,22 +217,32 @@ const ContactUs = () => {
 
       </section>
 
-      {/* MAIN CONTACT AREA */}
+      {/* ================= MAIN CONTACT ================= */}
+
       <section className="contact-main">
 
-        {/* LEFT */}
+        {/* ================= LEFT SIDE ================= */}
+
         <div className="contact-left">
 
           <div className="contact-heading">
+
             <span>GET IN TOUCH</span>
-            <h2>We’re Here To Help</h2>
+
+            <h2>
+              We're Here To Help
+            </h2>
+
             <p>
               Have a project, service requirement or business
               enquiry? Select your requirement and send us a message.
             </p>
+
           </div>
 
           <div className="contact-cards">
+
+            {/* ADDRESS */}
 
             <div className="contact-card">
 
@@ -415,15 +250,20 @@ const ContactUs = () => {
                 <FaMapMarkerAlt />
               </div>
 
-              <div>
+              <div className="contact-card-content">
+
                 <h3>Our Office</h3>
+
                 <p>
                   Ground Floor, 122A, New Gandhi Nagar,
                   Ghaziabad, Uttar Pradesh 201001
                 </p>
+
               </div>
 
             </div>
+
+            {/* PHONE */}
 
             <div className="contact-card">
 
@@ -431,12 +271,19 @@ const ContactUs = () => {
                 <FaPhone />
               </div>
 
-              <div>
+              <div className="contact-card-content">
+
                 <h3>Call Us</h3>
-                <p>+91 99584 24916</p>
+
+                <a href="tel:+919958424916">
+                  +91 99584 24916
+                </a>
+
               </div>
 
             </div>
+
+            {/* EMAIL */}
 
             <div className="contact-card">
 
@@ -444,12 +291,19 @@ const ContactUs = () => {
                 <FaEnvelope />
               </div>
 
-              <div>
+              <div className="contact-card-content">
+
                 <h3>Email Us</h3>
-                <p>technologiesniss@gmail.com</p>
+
+                <a href="mailto:technologiesniss@gmail.com">
+                  technologiesniss@gmail.com
+                </a>
+
               </div>
 
             </div>
+
+            {/* WHATSAPP */}
 
             <div className="contact-card">
 
@@ -457,9 +311,23 @@ const ContactUs = () => {
                 <FaWhatsapp />
               </div>
 
-              <div>
+              <div className="contact-card-content">
+
                 <h3>WhatsApp</h3>
-                <p>Quick response on WhatsApp</p>
+
+                <p>
+                  Quick response on WhatsApp
+                </p>
+
+                <a
+                  href="https://wa.me/919958424916"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="whatsapp-link"
+                >
+                  Chat With Us →
+                </a>
+
               </div>
 
             </div>
@@ -468,56 +336,70 @@ const ContactUs = () => {
 
         </div>
 
-        {/* RIGHT FORM */}
+        {/* ================= RIGHT FORM ================= */}
+
         <div className="contact-right">
 
           <form
             ref={form}
             className="contact-form"
             onSubmit={handleSubmit}
+            noValidate
           >
 
             <div className="form-title">
 
               <span>CONTACT US</span>
 
-              <h2>Send Your Enquiry</h2>
+              <h2>
+                Send Your Enquiry
+              </h2>
 
               <p>
-                Select the service you are interested in.
+                Fill in your details and tell us what you need.
               </p>
 
             </div>
 
             {/* NAME */}
+
             <div className="form-group">
 
-              <label>Your Name</label>
+              <label htmlFor="name">
+                Your Name *
+              </label>
 
               <input
+                id="name"
                 type="text"
                 name="name"
                 placeholder="Enter your name"
                 value={formData.name}
                 onChange={handleChange}
+                autoComplete="name"
                 required
               />
 
             </div>
 
             {/* EMAIL + PHONE */}
+
             <div className="form-row">
 
               <div className="form-group">
 
-                <label>Email Address</label>
+                <label htmlFor="email">
+                  Email Address *
+                </label>
 
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   placeholder="Enter your email"
                   value={formData.email}
                   onChange={handleChange}
+                  autoComplete="email"
                   required
                 />
 
@@ -525,14 +407,20 @@ const ContactUs = () => {
 
               <div className="form-group">
 
-                <label>Mobile Number</label>
+                <label htmlFor="phone">
+                  Mobile Number *
+                </label>
 
                 <input
+                  id="phone"
                   type="tel"
                   name="phone"
                   placeholder="Enter mobile number"
                   value={formData.phone}
                   onChange={handleChange}
+                  autoComplete="tel"
+                  inputMode="numeric"
+                  maxLength="10"
                   required
                 />
 
@@ -540,12 +428,16 @@ const ContactUs = () => {
 
             </div>
 
-            {/* SERVICE DROPDOWN */}
+            {/* SERVICE */}
+
             <div className="form-group">
 
-              <label>Select Your Requirement</label>
+              <label htmlFor="service">
+                Select Your Requirement *
+              </label>
 
               <select
+                id="service"
                 name="service"
                 value={formData.service}
                 onChange={handleChange}
@@ -557,7 +449,10 @@ const ContactUs = () => {
                 </option>
 
                 {services.map((service, index) => (
-                  <option key={index} value={service}>
+                  <option
+                    key={index}
+                    value={service}
+                  >
                     {service}
                   </option>
                 ))}
@@ -567,13 +462,17 @@ const ContactUs = () => {
             </div>
 
             {/* MESSAGE */}
+
             <div className="form-group">
 
-              <label>Your Message</label>
+              <label htmlFor="message">
+                Your Message *
+              </label>
 
               <textarea
+                id="message"
                 name="message"
-                rows="5"
+                rows="6"
                 placeholder="Tell us about your requirement..."
                 value={formData.message}
                 onChange={handleChange}
@@ -582,32 +481,57 @@ const ContactUs = () => {
 
             </div>
 
-            {/* HIDDEN SUBJECT FOR EMAILJS */}
+            {/* EMAILJS SUBJECT */}
+
             <input
               type="hidden"
               name="subject"
-              value={formData.service}
+              value={`New Enquiry - ${formData.service}`}
               readOnly
             />
 
-            {/* SUBMIT */}
+            {/* SUBMIT BUTTON */}
+
             <button
               type="submit"
               className="contact-submit"
               disabled={sending}
             >
 
-              {sending ? "Sending..." : "Send Enquiry →"}
+              {sending ? (
+                <>
+                  <span className="loading-spinner"></span>
+                  Sending...
+                </>
+              ) : (
+                <>
+                  Send Enquiry →
+                </>
+              )}
 
             </button>
 
             {/* MESSAGE */}
+
             {confirmationMessage && (
-              <div className="confirmation-message">
+              <div
+                className={
+                  success
+                    ? "confirmation-message success"
+                    : "confirmation-message"
+                }
+              >
+
                 <FaCheckCircle />
-                <span>{confirmationMessage}</span>
+
+                <span>
+                  {confirmationMessage}
+                </span>
+
               </div>
             )}
+
+            {/* WHATSAPP */}
 
             <div className="form-bottom">
 
@@ -632,12 +556,18 @@ const ContactUs = () => {
 
       </section>
 
-      {/* SERVICES STRIP */}
+      {/* ================= SERVICES ================= */}
+
       <section className="contact-services">
 
         <div className="contact-services-title">
+
           <span>OUR SERVICES</span>
-          <h2>How Can We Help You?</h2>
+
+          <h2>
+            How Can We Help You?
+          </h2>
+
         </div>
 
         <div className="contact-service-grid">

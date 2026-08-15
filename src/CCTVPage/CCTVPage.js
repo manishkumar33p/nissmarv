@@ -169,7 +169,7 @@
 import React, { useState } from "react";
 import "./CCTVPage.css";
 
-import NavBar from "../Navbar/Navbar";
+// import NavBar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
 import MarvVideo2 from "../marvv3.mp4";
@@ -313,7 +313,7 @@ const CCTVPage = () => {
   return (
     <div className="cctv-page">
 
-      <NavBar />
+      {/* <NavBar /> */}
 
       {/* =====================================================
           HERO

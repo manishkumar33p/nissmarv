@@ -609,15 +609,15 @@ const Navbar = () => {
 
             {/* INDUSTRIES */}
 
-            <li className="nav__item">
+            {/* <li className="nav__item">
               <NavLink
-                to="/shop"
+                to="/industry"
                 className="nav__link"
                 onClick={closeMenu}
               >
                 Industries
               </NavLink>
-            </li>
+            </li> */}
 
             {/* ================= SERVICES ================= */}
 
