@@ -41,6 +41,12 @@ import Industry from './Industry/Industry';
 import CustomerLogin from './CustomerLogin/CustomerLogin';
 import ChatBot from "./ChatBot/ChatBot";
 import CustomerDashboard from './CustomerDashboard/CustomerDashboard';
+import FieldStaffLogin from "./FieldStaffLogin/FieldStaffLogin";
+import FieldStaffDashboard from "./FieldStaffDashboard/FieldStaffDashboard";
+import AddVendor from "./AddVendor/AddVendor";
+import VendorLogin from "./VendorLogin/VendorLogin";
+import VendorDashboard from "./VendorDashboard/VendorDashboard";
+
 
 function App() {
   return (
@@ -87,7 +93,15 @@ function App() {
 <Route path="/property-admin" element={<PropertyAdmin />} />
 <Route   path="/events"    element={<EventManagement />}
 />
+<Route
+  path="/field-staff-login"
+  element={<FieldStaffLogin />}
+/>
 
+<Route
+  path="/field-staff-dashboard"
+  element={<FieldStaffDashboard />}
+/>
 <Route path="/customerlogin" element={<CustomerLogin />} />
  <Route
             path="/chatbot"
@@ -98,6 +112,21 @@ function App() {
 <Route
   path="/customer-dashboard"
   element={<CustomerDashboard />}
+/>
+
+<Route
+  path="/add-vendor"
+  element={<AddVendor />}
+/>
+
+<Route
+  path="/vendor-login"
+  element={<VendorLogin />}
+/>
+
+<Route
+  path="/vendor-dashboard"
+  element={<VendorDashboard />}
 />
           </Routes>
 

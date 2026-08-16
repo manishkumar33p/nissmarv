@@ -1,0 +1,183 @@
+.field-login-page {
+  min-height: 100vh;
+  padding: 120px 20px 60px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 101, 0, 0.12),
+      transparent 35%
+    ),
+    #f5f7fb;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.field-login-card {
+  width: 100%;
+  max-width: 460px;
+
+  padding: 38px;
+
+  background: white;
+
+  border: 1px solid #e5e9f1;
+  border-radius: 22px;
+
+  box-shadow:
+    0 20px 60px rgba(20, 35, 60, 0.10);
+
+  box-sizing: border-box;
+}
+
+.field-login-header {
+  margin-bottom: 28px;
+}
+
+.field-login-header span {
+  color: #ff6500;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.field-login-header h1 {
+  margin: 8px 0;
+
+  color: #17233c;
+
+  font-size: 32px;
+}
+
+.field-login-header p {
+  margin: 0;
+
+  color: #727b89;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.field-form-group {
+  margin-bottom: 18px;
+}
+
+.field-form-group label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #26344d;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.field-form-group input {
+  width: 100%;
+
+  padding: 14px 15px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #dfe4ec;
+  border-radius: 10px;
+
+  outline: none;
+
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.field-form-group input:focus {
+  border-color: #ff6500;
+
+  box-shadow:
+    0 0 0 3px rgba(255, 101, 0, 0.10);
+}
+
+.field-login-error {
+  margin-bottom: 15px;
+
+  padding: 11px 13px;
+
+  border-radius: 9px;
+
+  background: #fff0f0;
+
+  color: #d62828;
+
+  font-size: 13px;
+}
+
+.field-login-button {
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #ff6500;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.field-login-button:hover {
+  transform: translateY(-2px);
+
+  background: #e95700;
+}
+
+.field-login-demo {
+  margin-top: 22px;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  background: #f4f6fa;
+
+  color: #667085;
+
+  font-size: 12px;
+}
+
+.field-login-demo strong {
+  color: #17233c;
+}
+
+.field-login-demo p {
+  margin: 4px 0;
+}
+
+@media (max-width: 480px) {
+
+  .field-login-page {
+    padding: 100px 15px 40px;
+  }
+
+  .field-login-card {
+    padding: 25px 20px;
+    border-radius: 17px;
+  }
+
+  .field-login-header h1 {
+    font-size: 27px;
+  }
+
+}

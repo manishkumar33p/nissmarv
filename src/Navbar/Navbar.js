@@ -264,6 +264,14 @@ const Navbar = () => {
       name: "Dashboard",
       path: "/login",
     },
+    {
+    name: "Field Staff",
+    path: "/field-staff-login",
+  },
+  {
+    name: "Vendor Login",
+    path: "/vendor-login",
+  },
   ];
 
   return (
