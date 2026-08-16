@@ -1669,7 +1669,7 @@ Please contact the customer regarding this inquiry.
         "Your inquiry has been submitted successfully!"
       );
 
-      navigate("/customerdashboard");
+      navigate("/customer-dashboard");
 
     } catch (error) {
       console.error(
