@@ -1,112 +1,47 @@
-// // src/components/Login/Login.jsx
-
-// import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import './Login.css'; // Import custom CSS if needed
-
-// const Login = () => {
-//     const [username, setUsername] = useState('');
-//     const [password, setPassword] = useState('');
-//     const [error, setError] = useState('');
-
-//     const navigate = useNavigate();
-
-//     const handleLogin = (e) => {
-//         e.preventDefault();
-
-//         // Validate username and password
-//         if ( password === 'niss123') {
-//             // Redirect to the dashboard
-//             navigate('/dashboard');
-//         } else {
-//             // Show error message
-//             setError('Invalid username or password');
-//         }
-//     };
-
-//     return (
-//         <div className="login-page">
-         
-//             <form className="login-form" onSubmit={handleLogin}>
-//             <h1 >Login</h1>
-//                 {/* <div className="form-group">
-//                     <label htmlFor="username">Username</label>
-//                     <input
-//                         type="text"
-//                         id="username"
-//                         value={username}
-//                         onChange={(e) => setUsername(e.target.value)}
-//                         placeholder="Enter your username"
-//                         required
-//                     />
-//                 </div> */}
-//                 <div className="form-group">
-//                     <label htmlFor="password">Password</label>
-//                     <input
-//                         type="password"
-//                         id="password"
-//                         value={password}
-//                         onChange={(e) => setPassword(e.target.value)}
-//                         placeholder="Enter your password"
-//                         required
-//                     />
-//                 </div>
-//                 {error && <p className="error-message">{error}</p>}
-//                 <button type="submit" className="btn btn-primary">Login</button>
-//             </form>
-//         </div>
-//     );
-// };
-
-// export default Login;
-
-
-
-// src/components/Login/Login.jsx
-
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-
-import './Login.css';
-import Navbar from '../Navbar/Navbar';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+// import Navbar from "../Navbar/Navbar";
+import "./Login.css";
 
 const Login = () => {
-
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-
   const navigate = useNavigate();
 
-  // LOGIN FUNCTION
-  const handleLogin = (e) => {
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  const handleLogin = (e) => {
     e.preventDefault();
 
-    // PASSWORD CHECK
-    if (password === 'niss123') {
+    setError("");
+    setLoading(true);
 
-      localStorage.setItem("isLoggedIn", true);
+    // ADMIN PASSWORD
+    if (password === "niss123") {
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("adminLoggedIn", "true");
 
-      navigate('/dashboard');
-
+      // Go to Admin Dashboard
+      navigate("/dashboard");
     } else {
-
-      setError('Invalid Password ❌');
-
+      setError("Invalid Admin Password ❌");
+      setLoading(false);
     }
   };
 
   return (
+    <div className="niss-admin-login-page">
 
-    <div className="login-page">
-<Navbar></Navbar>
-      {/* VIDEO BACKGROUND */}
+      {/* <Navbar /> */}
+
+      {/* BACKGROUND VIDEO */}
       <video
-        className="login-video"
+        className="niss-admin-login-video"
         autoPlay
         muted
         loop
+        playsInline
       >
         <source
           src="/videos/marvv96.mp4"
@@ -114,103 +49,141 @@ const Login = () => {
         />
       </video>
 
-      {/* DARK OVERLAY */}
-      <div className="login-overlay"></div>
+      {/* OVERLAY */}
+      <div className="niss-admin-login-overlay"></div>
 
-      {/* MAIN CONTAINER */}
-      <div className="login-container">
+      {/* MAIN */}
+      <main className="niss-admin-login-container">
 
-        {/* LEFT SIDE */}
-        <div className="login-left">
+        {/* LEFT */}
+        <section className="niss-admin-login-info">
 
-          <span className="login-tag">
-            NISS Admin Panel
+          <span className="niss-admin-login-badge">
+            NISS TECHNOLOGIES
           </span>
 
           <h1>
-            Welcome Back To
-            <span> NISS Dashboard</span>
+            Welcome To
+            <span> Admin Panel</span>
           </h1>
 
           <p>
-            Manage projects, clients,
-            business data, analytics
-            and reports securely from
-            one smart admin dashboard.
+            Securely manage your customers, enquiries,
+            projects, contacts and business records
+            from one powerful administration dashboard.
           </p>
 
-          {/* STATS */}
-          <div className="login-stats">
+          <div className="niss-admin-login-features">
 
-            <div className="login-stat-card">
-              <h2>500+</h2>
-              <p>Projects</p>
+            <div className="niss-admin-feature">
+              <span>📊</span>
+              <div>
+                <strong>Business Dashboard</strong>
+                <small>
+                  Manage your complete business data
+                </small>
+              </div>
             </div>
 
-            <div className="login-stat-card">
-              <h2>100+</h2>
-              <p>Clients</p>
+            <div className="niss-admin-feature">
+              <span>👥</span>
+              <div>
+                <strong>Customer Management</strong>
+                <small>
+                  View customer enquiries and orders
+                </small>
+              </div>
             </div>
 
-            <div className="login-stat-card">
-              <h2>24/7</h2>
-              <p>Security</p>
+            <div className="niss-admin-feature">
+              <span>🔐</span>
+              <div>
+                <strong>Secure Admin Access</strong>
+                <small>
+                  Restricted access for administration
+                </small>
+              </div>
             </div>
 
           </div>
 
-        </div>
+        </section>
 
-        {/* RIGHT SIDE */}
-        <div className="login-right">
+        {/* RIGHT LOGIN CARD */}
+        <section className="niss-admin-login-card">
 
-          <form
-            className="login-form"
-            onSubmit={handleLogin}
-          >
+          <div className="niss-admin-login-icon">
+            🔐
+          </div>
 
-            <h2>Admin Login</h2>
+          <h2>Admin Login</h2>
 
-            <p className="login-subtitle">
-              Enter secure password to continue
-            </p>
+          <p className="niss-admin-login-subtitle">
+            Sign in to access your company dashboard
+          </p>
 
-            {/* PASSWORD */}
-            <div className="form-group">
+          <form onSubmit={handleLogin}>
 
+            <div className="niss-admin-input-group">
 
-              <input
-                type="password"
-                value={password}
-                onChange={(e) =>
-                  setPassword(e.target.value)
-                }
-                placeholder="Enter Password"
-                required
-              />
+              <label>
+                Admin Password
+              </label>
+
+              <div className="niss-admin-password-box">
+
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    setError("");
+                  }}
+                  placeholder="Enter admin password"
+                  required
+                  autoComplete="current-password"
+                />
+
+                <button
+                  type="button"
+                  className="niss-admin-show-password"
+                  onClick={() =>
+                    setShowPassword(!showPassword)
+                  }
+                >
+                  {showPassword ? "🙈" : "👁️"}
+                </button>
+
+              </div>
 
             </div>
 
-            {/* ERROR */}
             {error && (
-              <p className="error-message">
+              <div className="niss-admin-login-error">
                 {error}
-              </p>
+              </div>
             )}
 
-            {/* BUTTON */}
             <button
               type="submit"
-              className="login-btn"
+              className="niss-admin-login-button"
+              disabled={loading}
             >
-              Login Dashboard
+              {loading
+                ? "Opening Dashboard..."
+                : "Login to Admin Panel →"}
             </button>
 
           </form>
 
-        </div>
+          <div className="niss-admin-login-footer">
+            <span>🔒</span>
+            Authorized company administration only
+          </div>
 
-      </div>
+        </section>
+
+      </main>
 
     </div>
   );

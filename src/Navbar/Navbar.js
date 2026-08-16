@@ -257,8 +257,8 @@ const Navbar = () => {
 
   const moreItems = [
     {
-      name: "Data Entry",
-      path: "/data-entry",
+      name: "My Account",
+      path: "/customerlogin",
     },
     {
       name: "Dashboard",

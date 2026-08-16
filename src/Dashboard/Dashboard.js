@@ -2069,7 +2069,7 @@
 
 import React, { useState, useEffect } from "react";
 import * as XLSX from "xlsx";
-import NavBar from "../Navbar/Navbar";
+// import NavBar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import "./Dashboard.css";
 
@@ -2402,7 +2402,7 @@ const Dashboard = () => {
 
     <div className="dashboard-page">
 
-      <NavBar />
+      {/* <NavBar /> */}
 
 
       {/* VIDEO */}
