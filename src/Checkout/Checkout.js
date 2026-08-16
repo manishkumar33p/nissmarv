@@ -1,201 +1,4 @@
 
-// // import React, { useState } from 'react';
-// // import './Checkout.css';
-// // import { useNavigate } from 'react-router-dom';
-// // import NavBar from '../Navbar/Navbar';
-// // import Footer from '../Footer/Footer';
-
-// // const Checkout = () => {
-
-// //   const [address, setAddress] = useState({
-// //     firstName: '',
-// //     lastName: '',
-// //     street: '',
-// //     addressLine2: '',
-// //     city: '',
-// //     district: '',
-// //     state: '',
-// //     country: '',
-// //     pincode: ''
-// //   });
-
-// //   const navigate = useNavigate();
-
-// //   const handleChange = (e) => {
-// //     setAddress({
-// //       ...address,
-// //       [e.target.name]: e.target.value
-// //     });
-// //   };
-
-// //   const handlePayment = (e) => {
-// //     e.preventDefault();
-
-// //     const requiredFields = [
-// //       'firstName',
-// //       'lastName',
-// //       'street',
-// //       'city',
-// //       'state',
-// //       'country',
-// //       'pincode'
-// //     ];
-
-// //     const isValid = requiredFields.every(
-// //       (field) => address[field].trim() !== ''
-// //     );
-
-// //     if (isValid) {
-// //       alert("Redirecting to payment gateway...");
-// //       navigate('/paymentgateway');
-// //     } else {
-// //       alert("Please fill all required fields.");
-// //     }
-// //   };
-
-// //   return (
-
-// //     <div className="checkout-page">
-
-// //       {/* HEADER */}
-// //       <NavBar />
-
-// //       {/* BACKGROUND */}
-// //       <div className="checkout-bg"></div>
-
-// //       {/* MAIN */}
-// //       <div className="checkout-container">
-
-// //         {/* LEFT INFO */}
-// //         <div className="checkout-left">
-
-// //           <h1>
-// //             Secure <span>Checkout</span>
-// //           </h1>
-
-// //           <p>
-// //             Enter your delivery details carefully
-// //             to complete your order securely.
-// //           </p>
-
-// //           <div className="checkout-box-info">
-
-// //             <h3>Why us?</h3>
-
-// //             <ul>
-// //               <li>✔ Fast Delivery</li>
-// //               <li>✔ Secure Payment</li>
-// //               <li>✔ Verified Products</li>
-// //               <li>✔ 24/7 Support</li>
-// //             </ul>
-
-// //           </div>
-
-// //         </div>
-
-// //         {/* FORM */}
-// //         <div className="checkout-right">
-
-// //           <form className="checkout-form" onSubmit={handlePayment}>
-
-// //             <h2>Delivery Details</h2>
-
-// //             <div className="grid-2">
-
-// //               <input
-// //                 name="firstName"
-// //                 placeholder="First Name"
-// //                 value={address.firstName}
-// //                 onChange={handleChange}
-// //               />
-
-// //               <input
-// //                 name="lastName"
-// //                 placeholder="Last Name"
-// //                 value={address.lastName}
-// //                 onChange={handleChange}
-// //               />
-
-// //             </div>
-
-// //             <input
-// //               name="street"
-// //               placeholder="Street Address"
-// //               value={address.street}
-// //               onChange={handleChange}
-// //             />
-
-// //             <input
-// //               name="addressLine2"
-// //               placeholder="Apartment / Optional"
-// //               value={address.addressLine2}
-// //               onChange={handleChange}
-// //             />
-
-// //             <div className="grid-2">
-
-// //               <input
-// //                 name="city"
-// //                 placeholder="City"
-// //                 value={address.city}
-// //                 onChange={handleChange}
-// //               />
-
-// //               <input
-// //                 name="district"
-// //                 placeholder="District"
-// //                 value={address.district}
-// //                 onChange={handleChange}
-// //               />
-
-// //             </div>
-
-// //             <div className="grid-2">
-
-// //               <input
-// //                 name="state"
-// //                 placeholder="State"
-// //                 value={address.state}
-// //                 onChange={handleChange}
-// //               />
-
-// //               <input
-// //                 name="country"
-// //                 placeholder="Country"
-// //                 value={address.country}
-// //                 onChange={handleChange}
-// //               />
-
-// //             </div>
-
-// //             <input
-// //               name="pincode"
-// //               placeholder="Pincode"
-// //               value={address.pincode}
-// //               onChange={handleChange}
-// //             />
-
-// //             <button type="submit" className="checkout-btn">
-// //               Proceed to Payment
-// //             </button>
-
-// //           </form>
-
-// //         </div>
-
-// //       </div>
-
-// //       {/* FOOTER */}
-// //       <Footer />
-
-// //     </div>
-// //   );
-// // };
-
-// // export default Checkout;
-
-
-
 // import React, { useState } from "react";
 // import "./Checkout.css";
 // import { useNavigate } from "react-router-dom";
@@ -209,6 +12,8 @@
 //   const [address, setAddress] = useState({
 //     firstName: "",
 //     lastName: "",
+//     phone: "",
+//     email: "",
 //     street: "",
 //     addressLine2: "",
 //     city: "",
@@ -218,10 +23,7 @@
 //     pincode: ""
 //   });
 
-
-//   // ==========================================
-//   // HANDLE INPUT
-//   // ==========================================
+//   const [loading, setLoading] = useState(false);
 
 //   const handleChange = (e) => {
 
@@ -233,20 +35,69 @@
 //   };
 
 
-//   // ==========================================
-//   // CHECKOUT SUBMIT
-//   // ==========================================
+//   const getCart = () => {
 
-//   const handlePayment = (e) => {
+//     return (
+//       JSON.parse(
+//         localStorage.getItem("cart")
+//       ) || []
+//     );
+
+//   };
+
+
+//   const getItemTotal = (item) => {
+
+//     if (
+//       item.pricePerHour &&
+//       item.hours
+//     ) {
+
+//       return (
+//         Number(item.pricePerHour) *
+//         Number(item.hours)
+//       );
+
+//     }
+
+//     if (item.totalPrice) {
+
+//       return Number(item.totalPrice);
+
+//     }
+
+//     if (item.price) {
+
+//       if (
+//         typeof item.price === "number"
+//       ) {
+
+//         return item.price;
+
+//       }
+
+//       return (
+//         parseFloat(
+//           String(item.price)
+//             .replace(/[^\d.]/g, "")
+//         ) || 0
+//       );
+
+//     }
+
+//     return 0;
+
+//   };
+
+
+//   const handleSubmit = (e) => {
 
 //     e.preventDefault();
-
-
-//     // REQUIRED FIELDS
 
 //     const requiredFields = [
 //       "firstName",
 //       "lastName",
+//       "phone",
 //       "street",
 //       "city",
 //       "state",
@@ -255,10 +106,11 @@
 //     ];
 
 
-//     const isValid = requiredFields.every(
-//       (field) =>
-//         address[field].trim() !== ""
-//     );
+//     const isValid =
+//       requiredFields.every(
+//         (field) =>
+//           address[field].trim() !== ""
+//       );
 
 
 //     if (!isValid) {
@@ -268,17 +120,11 @@
 //       );
 
 //       return;
+
 //     }
 
 
-//     // ==========================================
-//     // GET CART
-//     // ==========================================
-
-//     const cart =
-//       JSON.parse(
-//         localStorage.getItem("cart")
-//       ) || [];
+//     const cart = getCart();
 
 
 //     if (cart.length === 0) {
@@ -290,75 +136,16 @@
 //       navigate("/cart");
 
 //       return;
+
 //     }
 
 
-//     // ==========================================
-//     // CALCULATE TOTAL
-//     // ==========================================
-
-//     const getItemTotal = (item) => {
-
-//       // Hourly service
-
-//       if (
-//         item.pricePerHour &&
-//         item.hours
-//       ) {
-
-//         return (
-//           Number(item.pricePerHour) *
-//           Number(item.hours)
-//         );
-
-//       }
+//     setLoading(true);
 
 
-//       // Service total price
-
-//       if (item.totalPrice) {
-
-//         return Number(
-//           item.totalPrice
-//         );
-
-//       }
-
-
-//       // Normal product
-
-//       if (item.price) {
-
-//         if (
-//           typeof item.price === "number"
-//         ) {
-
-//           return item.price;
-
-//         }
-
-
-//         if (
-//           typeof item.price === "string"
-//         ) {
-
-//           return (
-//             parseFloat(
-//               item.price.replace(
-//                 /[^\d.]/g,
-//                 ""
-//               )
-//             ) || 0
-//           );
-
-//         }
-
-//       }
-
-
-//       return 0;
-//     };
-
+//     /* =========================================
+//        TOTAL
+//     ========================================= */
 
 //     const total = cart.reduce(
 //       (sum, item) =>
@@ -367,125 +154,220 @@
 //     );
 
 
-//     // ==========================================
-//     // CUSTOMER ORDER
-//     // ==========================================
+//     /* =========================================
+//        ORDER ID
+//     ========================================= */
 
-//     const order = {
+//     const orderId =
+//       "NISS-" +
+//       Date.now();
 
-//       id:
-//         Date.now(),
 
-//       firstName:
-//         address.firstName,
+//     /* =========================================
+//        DATE
+//     ========================================= */
 
-//       lastName:
-//         address.lastName,
+//     const orderDate =
+//       new Date().toLocaleString(
+//         "en-IN"
+//       );
 
-//       fullName:
-//         `${address.firstName} ${address.lastName}`,
 
-//       street:
-//         address.street,
+//     /* =========================================
+//        CUSTOMER DATA
+//     ========================================= */
 
-//       addressLine2:
-//         address.addressLine2,
+//     const customerName =
+//       `${address.firstName} ${address.lastName}`;
 
-//       city:
-//         address.city,
 
-//       district:
-//         address.district,
+//     /* =========================================
+//        INQUIRY OBJECT
+//     ========================================= */
 
-//       state:
-//         address.state,
+//     const inquiry = {
 
-//       country:
-//         address.country,
+//       orderId,
 
-//       pincode:
-//         address.pincode,
+//       date: orderDate,
 
-//       items:
-//         cart,
+//       customerName,
 
-//       total:
-//         total,
+//       phone: address.phone,
 
-//       orderStatus:
-//         "New",
+//       email: address.email,
 
-//       orderDate:
-//         new Date().toISOString()
+//       address: {
+
+//         street:
+//           address.street,
+
+//         addressLine2:
+//           address.addressLine2,
+
+//         city:
+//           address.city,
+
+//         district:
+//           address.district,
+
+//         state:
+//           address.state,
+
+//         country:
+//           address.country,
+
+//         pincode:
+//           address.pincode
+
+//       },
+
+//       items: cart.map(
+//         (item) => ({
+
+//           name:
+//             item.title ||
+//             item.name ||
+//             "Selected Service",
+
+//           category:
+//             item.category ||
+//             item.type ||
+//             "Service",
+
+//           price:
+//             getItemTotal(item),
+
+//           hours:
+//             item.hours || "",
+
+//           date:
+//             item.date || "",
+
+//           location:
+//             item.location || ""
+
+//         })
+//       ),
+
+//       total
 
 //     };
 
 
-//     // ==========================================
-//     // SAVE ORDER TO LOCAL STORAGE
-//     // ==========================================
+//     /* =========================================
+//        SAVE TO DASHBOARD
+//     ========================================= */
 
-//     const existingOrders =
+//     const oldInquiries =
 //       JSON.parse(
 //         localStorage.getItem(
-//           "nissOrders"
+//           "nissInquiries"
 //         )
 //       ) || [];
 
 
-//     existingOrders.push(order);
+//     oldInquiries.push(inquiry);
 
 
 //     localStorage.setItem(
-//       "nissOrders",
+//       "nissInquiries",
 //       JSON.stringify(
-//         existingOrders
+//         oldInquiries
 //       )
 //     );
 
 
-//     // ==========================================
-//     // WHATSAPP MESSAGE
-//     // ==========================================
+//     /* =========================================
+//        WHATSAPP MESSAGE
+//     ========================================= */
 
-//     const itemDetails =
-//       cart
-//         .map((item, index) => {
+//     let itemsMessage = "";
 
-//           const itemName =
-//             item.title ||
+
+//     cart.forEach(
+//       (item, index) => {
+
+//         itemsMessage +=
+//           `\n${index + 1}. ` +
+//           `${item.title ||
 //             item.name ||
-//             "Selected Service";
+//             "Service"}`;
 
-//           return `${index + 1}. ${itemName}`;
+//         if (
+//           item.hours
+//         ) {
 
-//         })
-//         .join("\n");
+//           itemsMessage +=
+//             ` | ${item.hours} Hours`;
+
+//         }
+
+//         if (
+//           item.date
+//         ) {
+
+//           itemsMessage +=
+//             ` | Date: ${item.date}`;
+
+//         }
+
+//         if (
+//           item.location
+//         ) {
+
+//           itemsMessage +=
+//             ` | Location: ${item.location}`;
+
+//         }
+
+//         itemsMessage +=
+//           ` | ₹${getItemTotal(item)}`;
+
+//       }
+//     );
+
+
+//     const fullAddress = `
+
+// ${address.street}
+// ${address.addressLine2}
+// ${address.city}
+// ${address.district}
+// ${address.state}
+// ${address.country}
+// Pincode: ${address.pincode}
+// `;
 
 
 //     const whatsappMessage = `
 
-// *NEW NISS ORDER / BOOKING*
+// *NEW NISS CUSTOMER INQUIRY* 🚨
 
-// Customer:
-// ${order.fullName}
+// *Order ID:* ${orderId}
 
-// Address:
-// ${order.street}
-// ${order.addressLine2}
-// ${order.city}, ${order.district}
-// ${order.state}, ${order.country}
-// Pincode: ${order.pincode}
+// *Customer Name:*
+// ${customerName}
 
-// Items:
-// ${itemDetails}
+// *Phone:*
+// ${address.phone}
 
-// Total Amount:
+// *Email:*
+// ${address.email || "Not Provided"}
+
+// *Selected Services / Products:*
+// ${itemsMessage}
+
+// *Total Amount:*
 // ₹${total.toLocaleString("en-IN")}
 
-// Order ID:
-// ${order.id}
+// *Customer Address:*
+// ${fullAddress}
 
+// *Order Date:*
+// ${orderDate}
+
+// Please contact the customer regarding this inquiry.
 // `;
 
 
@@ -495,9 +377,18 @@
 //       )}`;
 
 
-//     // ==========================================
-//     // OPEN WHATSAPP
-//     // ==========================================
+//     /* =========================================
+//        CLEAR CART
+//     ========================================= */
+
+//     localStorage.removeItem(
+//       "cart"
+//     );
+
+
+//     /* =========================================
+//        WHATSAPP
+//     ========================================= */
 
 //     window.open(
 //       whatsappURL,
@@ -506,27 +397,21 @@
 //     );
 
 
-//     // ==========================================
-//     // CLEAR CART
-//     // ==========================================
+//     /* =========================================
+//        SUCCESS
+//     ========================================= */
 
-//     localStorage.removeItem(
-//       "cart"
-//     );
+//     setTimeout(() => {
 
+//       setLoading(false);
 
-//     // ==========================================
-//     // GO TO DASHBOARD
-//     // ==========================================
+//       alert(
+//         "Your inquiry has been submitted successfully!"
+//       );
 
-//     alert(
-//       "Order submitted successfully!"
-//     );
+//       navigate("/dashboard");
 
-
-//     navigate(
-//       "/dashboard"
-//     );
+//     }, 700);
 
 //   };
 
@@ -535,17 +420,10 @@
 
 //     <div className="checkout-page">
 
-//       {/* HEADER */}
-
 //       <NavBar />
-
-
-//       {/* BACKGROUND */}
 
 //       <div className="checkout-bg"></div>
 
-
-//       {/* MAIN */}
 
 //       <div className="checkout-container">
 
@@ -554,41 +432,44 @@
 
 //         <div className="checkout-left">
 
+//           <span className="checkout-small-title">
+//             NISS TECHNOLOGIES
+//           </span>
+
 //           <h1>
-//             Secure <span>Checkout</span>
+//             Complete Your
+//             <span> Inquiry</span>
 //           </h1>
 
-
 //           <p>
-//             Enter your delivery details
-//             carefully to complete your
-//             order securely.
+//             Please enter your details below.
+//             Your inquiry will be sent to our
+//             team and recorded in the dashboard.
 //           </p>
 
 
 //           <div className="checkout-box-info">
 
 //             <h3>
-//               Why us?
+//               What happens next?
 //             </h3>
-
 
 //             <ul>
 
 //               <li>
-//                 ✔ Fast Delivery
+//                 ✔ Your inquiry is saved
 //               </li>
 
 //               <li>
-//                 ✔ Secure Payment
+//                 ✔ Our dashboard receives it
 //               </li>
 
 //               <li>
-//                 ✔ Verified Products
+//                 ✔ WhatsApp notification is sent
 //               </li>
 
 //               <li>
-//                 ✔ 24/7 Support
+//                 ✔ Our team will contact you
 //               </li>
 
 //             </ul>
@@ -598,17 +479,17 @@
 //         </div>
 
 
-//         {/* RIGHT FORM */}
+//         {/* FORM */}
 
 //         <div className="checkout-right">
 
 //           <form
 //             className="checkout-form"
-//             onSubmit={handlePayment}
+//             onSubmit={handleSubmit}
 //           >
 
 //             <h2>
-//               Customer Information
+//               Customer Details
 //             </h2>
 
 
@@ -616,7 +497,7 @@
 
 //               <input
 //                 name="firstName"
-//                 placeholder="First Name"
+//                 placeholder="First Name *"
 //                 value={
 //                   address.firstName
 //                 }
@@ -626,10 +507,9 @@
 //                 required
 //               />
 
-
 //               <input
 //                 name="lastName"
-//                 placeholder="Last Name"
+//                 placeholder="Last Name *"
 //                 value={
 //                   address.lastName
 //                 }
@@ -642,9 +522,61 @@
 //             </div>
 
 
+//             <div className="grid-2">
+
+//               <input
+//                 type="tel"
+//                 name="phone"
+//                 placeholder="Mobile Number *"
+//                 value={
+//                   address.phone
+//                 }
+//                 onChange={(e) => {
+
+//                   const value =
+//                     e.target.value
+//                       .replace(
+//                         /\D/g,
+//                         ""
+//                       )
+//                       .slice(
+//                         0,
+//                         10
+//                       );
+
+//                   setAddress({
+//                     ...address,
+//                     phone: value
+//                   });
+
+//                 }}
+//                 required
+//               />
+
+
+//               <input
+//                 type="email"
+//                 name="email"
+//                 placeholder="Email Address"
+//                 value={
+//                   address.email
+//                 }
+//                 onChange={
+//                   handleChange
+//                 }
+//               />
+
+//             </div>
+
+
+//             <h3 className="checkout-address-title">
+//               Address Details
+//             </h3>
+
+
 //             <input
 //               name="street"
-//               placeholder="Street Address"
+//               placeholder="Street Address *"
 //               value={
 //                 address.street
 //               }
@@ -657,7 +589,7 @@
 
 //             <input
 //               name="addressLine2"
-//               placeholder="Apartment / Optional"
+//               placeholder="Apartment / Landmark / Optional"
 //               value={
 //                 address.addressLine2
 //               }
@@ -671,7 +603,7 @@
 
 //               <input
 //                 name="city"
-//                 placeholder="City"
+//                 placeholder="City *"
 //                 value={
 //                   address.city
 //                 }
@@ -680,7 +612,6 @@
 //                 }
 //                 required
 //               />
-
 
 //               <input
 //                 name="district"
@@ -691,7 +622,6 @@
 //                 onChange={
 //                   handleChange
 //                 }
-//                 required
 //               />
 
 //             </div>
@@ -701,7 +631,7 @@
 
 //               <input
 //                 name="state"
-//                 placeholder="State"
+//                 placeholder="State *"
 //                 value={
 //                   address.state
 //                 }
@@ -711,10 +641,9 @@
 //                 required
 //               />
 
-
 //               <input
 //                 name="country"
-//                 placeholder="Country"
+//                 placeholder="Country *"
 //                 value={
 //                   address.country
 //                 }
@@ -729,7 +658,7 @@
 
 //             <input
 //               name="pincode"
-//               placeholder="Pincode"
+//               placeholder="Pincode *"
 //               value={
 //                 address.pincode
 //               }
@@ -743,9 +672,20 @@
 //             <button
 //               type="submit"
 //               className="checkout-btn"
+//               disabled={loading}
 //             >
-//               Submit Order →
+
+//               {loading
+//                 ? "Submitting..."
+//                 : "Submit Inquiry →"}
+
 //             </button>
+
+
+//             <p className="checkout-note">
+//               🔒 Your information is used only
+//               for processing your inquiry.
+//             </p>
 
 //           </form>
 
@@ -753,8 +693,6 @@
 
 //       </div>
 
-
-//       {/* FOOTER */}
 
 //       <Footer />
 
@@ -764,8 +702,653 @@
 
 // };
 
+// export default Checkout;
+
+
+
+// import React, { useState } from "react";
+// import "./Checkout.css";
+// import { useNavigate } from "react-router-dom";
+// import NavBar from "../Navbar/Navbar";
+// import Footer from "../Footer/Footer";
+
+// import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+// import { db } from "../firebase";
+
+// const Checkout = () => {
+//   const navigate = useNavigate();
+
+//   const [address, setAddress] = useState({
+//     firstName: "",
+//     lastName: "",
+//     phone: "",
+//     email: "",
+//     street: "",
+//     addressLine2: "",
+//     city: "",
+//     district: "",
+//     state: "",
+//     country: "",
+//     pincode: ""
+//   });
+
+//   const [loading, setLoading] = useState(false);
+
+//   const handleChange = (e) => {
+//     setAddress({
+//       ...address,
+//       [e.target.name]: e.target.value
+//     });
+//   };
+
+//   /* =========================================
+//      GET CART
+//   ========================================= */
+
+//   const getCart = () => {
+//     return JSON.parse(localStorage.getItem("cart")) || [];
+//   };
+
+//   /* =========================================
+//      GET ITEM TOTAL
+//   ========================================= */
+
+//   const getItemTotal = (item) => {
+//     if (item.pricePerHour && item.hours) {
+//       return (
+//         Number(item.pricePerHour) *
+//         Number(item.hours)
+//       );
+//     }
+
+//     if (item.totalPrice) {
+//       return Number(item.totalPrice);
+//     }
+
+//     if (item.price) {
+//       if (typeof item.price === "number") {
+//         return item.price;
+//       }
+
+//       return (
+//         parseFloat(
+//           String(item.price).replace(/[^\d.]/g, "")
+//         ) || 0
+//       );
+//     }
+
+//     return 0;
+//   };
+
+//   /* =========================================
+//      SUBMIT INQUIRY
+//   ========================================= */
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     /* =========================================
+//        VALIDATION
+//     ========================================= */
+
+//     const requiredFields = [
+//       "firstName",
+//       "lastName",
+//       "phone",
+//       "street",
+//       "city",
+//       "state",
+//       "country",
+//       "pincode"
+//     ];
+
+//     const isValid = requiredFields.every(
+//       (field) =>
+//         String(address[field]).trim() !== ""
+//     );
+
+//     if (!isValid) {
+//       alert("Please fill all required fields.");
+//       return;
+//     }
+
+//     const cleanPhone = address.phone.replace(/\D/g, "");
+
+//     if (cleanPhone.length !== 10) {
+//       alert("Please enter a valid 10 digit mobile number.");
+//       return;
+//     }
+
+//     /* =========================================
+//        CART
+//     ========================================= */
+
+//     const cart = getCart();
+
+//     if (cart.length === 0) {
+//       alert("Your cart is empty.");
+//       navigate("/cart");
+//       return;
+//     }
+
+//     setLoading(true);
+
+//     try {
+//       /* =========================================
+//          BASIC ORDER INFORMATION
+//       ========================================= */
+
+//       const orderId = "NISS-" + Date.now();
+
+//       const orderDate = new Date().toLocaleString(
+//         "en-IN"
+//       );
+
+//       const customerName =
+//         `${address.firstName} ${address.lastName}`.trim();
+
+//       /* =========================================
+//          TOTAL
+//       ========================================= */
+
+//       const total = cart.reduce(
+//         (sum, item) =>
+//           sum + getItemTotal(item),
+//         0
+//       );
+
+//       /* =========================================
+//          ITEMS
+//       ========================================= */
+
+//       const items = cart.map((item) => ({
+//         name:
+//           item.title ||
+//           item.name ||
+//           "Selected Service",
+
+//         category:
+//           item.category ||
+//           item.type ||
+//           "Service",
+
+//         price: getItemTotal(item),
+
+//         hours: item.hours || "",
+
+//         date: item.date || "",
+
+//         location: item.location || ""
+//       }));
+
+//       /* =========================================
+//          INQUIRY OBJECT
+//       ========================================= */
+
+//       const inquiry = {
+//         orderId,
+
+//         customerName,
+
+//         firstName: address.firstName,
+
+//         lastName: address.lastName,
+
+//         phone: cleanPhone,
+
+//         email: address.email || "",
+
+//         address: {
+//           street: address.street,
+
+//           addressLine2:
+//             address.addressLine2 || "",
+
+//           city: address.city,
+
+//           district:
+//             address.district || "",
+
+//           state: address.state,
+
+//           country: address.country,
+
+//           pincode: address.pincode
+//         },
+
+//         items,
+
+//         total,
+
+//         status: "New",
+
+//         source: "Website",
+
+//         createdAt: serverTimestamp()
+//       };
+
+
+//       const firebaseInquiry = {
+//   ...inquiry,
+
+//   createdAt: serverTimestamp(),
+
+//   status: "Pending",
+
+//   customerPhone: address.phone,
+
+//   customerEmail: address.email || "",
+
+//   customerId:
+//     localStorage.getItem("niss_customer")
+//       ? JSON.parse(
+//           localStorage.getItem("niss_customer")
+//         ).id
+//       : null
+// };
+
+// await addDoc(
+//   collection(db, "inquiries"),
+//   firebaseInquiry
+// );
+//       /* =========================================
+//          1️⃣ SAVE TO FIREBASE
+//       ========================================= */
+
+//       const docRef = await addDoc(
+//         collection(db, "inquiries"),
+//         inquiry
+//       );
+
+//       console.log(
+//         "Firebase Inquiry Saved:",
+//         docRef.id
+//       );
+
+//       /* =========================================
+//          2️⃣ SAVE TO EXISTING LOCAL DASHBOARD
+//       ========================================= */
+
+//       const dashboardInquiry = {
+//         ...inquiry,
+
+//         date: orderDate,
+
+//         firebaseId: docRef.id,
+
+//         createdAt: new Date().toISOString()
+//       };
+
+//       const oldInquiries =
+//         JSON.parse(
+//           localStorage.getItem("nissInquiries")
+//         ) || [];
+
+//       oldInquiries.push(
+//         dashboardInquiry
+//       );
+
+//       localStorage.setItem(
+//         "nissInquiries",
+//         JSON.stringify(oldInquiries)
+//       );
+
+//       /* =========================================
+//          3️⃣ WHATSAPP MESSAGE
+//       ========================================= */
+
+//       let itemsMessage = "";
+
+//       cart.forEach((item, index) => {
+//         itemsMessage +=
+//           `\n${index + 1}. ` +
+//           `${item.title ||
+//             item.name ||
+//             "Service"}`;
+
+//         if (item.hours) {
+//           itemsMessage +=
+//             ` | ${item.hours} Hours`;
+//         }
+
+//         if (item.date) {
+//           itemsMessage +=
+//             ` | Date: ${item.date}`;
+//         }
+
+//         if (item.location) {
+//           itemsMessage +=
+//             ` | Location: ${item.location}`;
+//         }
+
+//         itemsMessage +=
+//           ` | ₹${getItemTotal(item)}`;
+//       });
+
+//       const fullAddress = `
+// ${address.street}
+// ${address.addressLine2 || ""}
+// ${address.city}
+// ${address.district || ""}
+// ${address.state}
+// ${address.country}
+// Pincode: ${address.pincode}
+// `;
+
+//       const whatsappMessage = `
+// *NEW NISS CUSTOMER INQUIRY* 🚨
+
+// *Order ID:*
+// ${orderId}
+
+// *Firebase ID:*
+// ${docRef.id}
+
+// *Customer Name:*
+// ${customerName}
+
+// *Phone:*
+// ${cleanPhone}
+
+// *Email:*
+// ${address.email || "Not Provided"}
+
+// *Selected Services / Products:*
+// ${itemsMessage}
+
+// *Total Amount:*
+// ₹${total.toLocaleString("en-IN")}
+
+// *Customer Address:*
+// ${fullAddress}
+
+// *Order Date:*
+// ${orderDate}
+
+// *Status:*
+// New
+
+// Please contact the customer regarding this inquiry.
+// `;
+
+//       /* =========================================
+//          WHATSAPP URL
+//       ========================================= */
+
+//       const whatsappURL =
+//         `https://wa.me/919958424916?text=${encodeURIComponent(
+//           whatsappMessage
+//         )}`;
+
+//       /* =========================================
+//          CLEAR CART
+//       ========================================= */
+
+//       localStorage.removeItem("cart");
+
+//       /* =========================================
+//          OPEN WHATSAPP
+//       ========================================= */
+
+//       window.open(
+//         whatsappURL,
+//         "_blank",
+//         "noopener,noreferrer"
+//       );
+
+//       /* =========================================
+//          SUCCESS
+//       ========================================= */
+
+//       alert(
+//         "Your inquiry has been submitted successfully!"
+//       );
+
+//       navigate("/dashboard");
+
+//     } catch (error) {
+//       console.error(
+//         "Inquiry submission error:",
+//         error
+//       );
+
+//       alert(
+//         "Inquiry submit nahi ho paayi. Please try again."
+//       );
+
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   return (
+//     <div className="checkout-page">
+
+//       <NavBar />
+
+//       <div className="checkout-bg"></div>
+
+//       <div className="checkout-container">
+
+//         {/* =========================================
+//             LEFT SECTION
+//         ========================================= */}
+
+//         <div className="checkout-left">
+
+//           <span className="checkout-small-title">
+//             NISS TECHNOLOGIES
+//           </span>
+
+//           <h1>
+//             Complete Your
+//             <span> Inquiry</span>
+//           </h1>
+
+//           <p>
+//             Please enter your details below.
+//             Your inquiry will be sent to our
+//             team and recorded in the dashboard.
+//           </p>
+
+//           <div className="checkout-box-info">
+
+//             <h3>
+//               What happens next?
+//             </h3>
+
+//             <ul>
+
+//               <li>
+//                 ✔ Your inquiry is saved
+//               </li>
+
+//               <li>
+//                 ✔ Firebase database receives it
+//               </li>
+
+//               <li>
+//                 ✔ Our dashboard receives it
+//               </li>
+
+//               <li>
+//                 ✔ WhatsApp notification is sent
+//               </li>
+
+//               <li>
+//                 ✔ Our team will contact you
+//               </li>
+
+//             </ul>
+
+//           </div>
+
+//         </div>
+
+//         {/* =========================================
+//             FORM
+//         ========================================= */}
+
+//         <div className="checkout-right">
+
+//           <form
+//             className="checkout-form"
+//             onSubmit={handleSubmit}
+//           >
+
+//             <h2>
+//               Customer Details
+//             </h2>
+
+//             <div className="grid-2">
+
+//               <input
+//                 name="firstName"
+//                 placeholder="First Name *"
+//                 value={address.firstName}
+//                 onChange={handleChange}
+//                 required
+//               />
+
+//               <input
+//                 name="lastName"
+//                 placeholder="Last Name *"
+//                 value={address.lastName}
+//                 onChange={handleChange}
+//                 required
+//               />
+
+//             </div>
+
+//             <div className="grid-2">
+
+//               <input
+//                 type="tel"
+//                 name="phone"
+//                 placeholder="Mobile Number *"
+//                 value={address.phone}
+//                 onChange={(e) => {
+
+//                   const value =
+//                     e.target.value
+//                       .replace(/\D/g, "")
+//                       .slice(0, 10);
+
+//                   setAddress({
+//                     ...address,
+//                     phone: value
+//                   });
+
+//                 }}
+//                 maxLength="10"
+//                 required
+//               />
+
+//               <input
+//                 type="email"
+//                 name="email"
+//                 placeholder="Email Address"
+//                 value={address.email}
+//                 onChange={handleChange}
+//               />
+
+//             </div>
+
+//             <h3 className="checkout-address-title">
+//               Address Details
+//             </h3>
+
+//             <input
+//               name="street"
+//               placeholder="Street Address *"
+//               value={address.street}
+//               onChange={handleChange}
+//               required
+//             />
+
+//             <input
+//               name="addressLine2"
+//               placeholder="Apartment / Landmark / Optional"
+//               value={address.addressLine2}
+//               onChange={handleChange}
+//             />
+
+//             <div className="grid-2">
+
+//               <input
+//                 name="city"
+//                 placeholder="City *"
+//                 value={address.city}
+//                 onChange={handleChange}
+//                 required
+//               />
+
+//               <input
+//                 name="district"
+//                 placeholder="District"
+//                 value={address.district}
+//                 onChange={handleChange}
+//               />
+
+//             </div>
+
+//             <div className="grid-2">
+
+//               <input
+//                 name="state"
+//                 placeholder="State *"
+//                 value={address.state}
+//                 onChange={handleChange}
+//                 required
+//               />
+
+//               <input
+//                 name="country"
+//                 placeholder="Country *"
+//                 value={address.country}
+//                 onChange={handleChange}
+//                 required
+//               />
+
+//             </div>
+
+//             <input
+//               name="pincode"
+//               placeholder="Pincode *"
+//               value={address.pincode}
+//               onChange={handleChange}
+//               required
+//             />
+
+//             <button
+//               type="submit"
+//               className="checkout-btn"
+//               disabled={loading}
+//             >
+//               {loading
+//                 ? "Submitting..."
+//                 : "Submit Inquiry →"}
+//             </button>
+
+//             <p className="checkout-note">
+//               🔒 Your information is used only
+//               for processing your inquiry.
+//             </p>
+
+//           </form>
+
+//         </div>
+
+//       </div>
+
+//       <Footer />
+
+//     </div>
+//   );
+// };
 
 // export default Checkout;
+
 
 
 import React, { useState } from "react";
@@ -774,8 +1357,10 @@ import { useNavigate } from "react-router-dom";
 import NavBar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
-const Checkout = () => {
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase";
 
+const Checkout = () => {
   const navigate = useNavigate();
 
   const [address, setAddress] = useState({
@@ -795,72 +1380,41 @@ const Checkout = () => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-
     setAddress({
       ...address,
       [e.target.name]: e.target.value
     });
-
   };
-
 
   const getCart = () => {
-
-    return (
-      JSON.parse(
-        localStorage.getItem("cart")
-      ) || []
-    );
-
+    return JSON.parse(localStorage.getItem("cart")) || [];
   };
 
-
   const getItemTotal = (item) => {
-
-    if (
-      item.pricePerHour &&
-      item.hours
-    ) {
-
-      return (
-        Number(item.pricePerHour) *
-        Number(item.hours)
-      );
-
+    if (item.pricePerHour && item.hours) {
+      return Number(item.pricePerHour) * Number(item.hours);
     }
 
     if (item.totalPrice) {
-
       return Number(item.totalPrice);
-
     }
 
     if (item.price) {
-
-      if (
-        typeof item.price === "number"
-      ) {
-
+      if (typeof item.price === "number") {
         return item.price;
-
       }
 
       return (
         parseFloat(
-          String(item.price)
-            .replace(/[^\d.]/g, "")
+          String(item.price).replace(/[^\d.]/g, "")
         ) || 0
       );
-
     }
 
     return 0;
-
   };
 
-
-  const handleSubmit = (e) => {
-
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const requiredFields = [
@@ -874,126 +1428,72 @@ const Checkout = () => {
       "pincode"
     ];
 
-
-    const isValid =
-      requiredFields.every(
-        (field) =>
-          address[field].trim() !== ""
-      );
-
+    const isValid = requiredFields.every(
+      (field) => address[field].trim() !== ""
+    );
 
     if (!isValid) {
-
-      alert(
-        "Please fill all required fields."
-      );
-
+      alert("Please fill all required fields.");
       return;
-
     }
-
 
     const cart = getCart();
 
-
     if (cart.length === 0) {
-
-      alert(
-        "Your cart is empty."
-      );
-
+      alert("Your cart is empty.");
       navigate("/cart");
-
       return;
-
     }
-
 
     setLoading(true);
 
+    try {
+      /* ==============================
+         TOTAL
+      ============================== */
 
-    /* =========================================
-       TOTAL
-    ========================================= */
-
-    const total = cart.reduce(
-      (sum, item) =>
-        sum + getItemTotal(item),
-      0
-    );
-
-
-    /* =========================================
-       ORDER ID
-    ========================================= */
-
-    const orderId =
-      "NISS-" +
-      Date.now();
-
-
-    /* =========================================
-       DATE
-    ========================================= */
-
-    const orderDate =
-      new Date().toLocaleString(
-        "en-IN"
+      const total = cart.reduce(
+        (sum, item) => sum + getItemTotal(item),
+        0
       );
 
+      /* ==============================
+         ORDER ID
+      ============================== */
 
-    /* =========================================
-       CUSTOMER DATA
-    ========================================= */
+      const orderId = "NISS-" + Date.now();
 
-    const customerName =
-      `${address.firstName} ${address.lastName}`;
+      const orderDate = new Date().toLocaleString("en-IN");
 
+      const customerName =
+        `${address.firstName} ${address.lastName}`;
 
-    /* =========================================
-       INQUIRY OBJECT
-    ========================================= */
+      /* ==============================
+         ORDER DATA
+      ============================== */
 
-    const inquiry = {
+      const inquiry = {
+        orderId,
 
-      orderId,
+        date: orderDate,
 
-      date: orderDate,
+        customerName,
 
-      customerName,
+        phone: address.phone,
 
-      phone: address.phone,
+        email: address.email,
 
-      email: address.email,
+        address: {
+          street: address.street,
+          addressLine2: address.addressLine2,
+          city: address.city,
+          district: address.district,
+          state: address.state,
+          country: address.country,
+          pincode: address.pincode
+        },
 
-      address: {
-
-        street:
-          address.street,
-
-        addressLine2:
-          address.addressLine2,
-
-        city:
-          address.city,
-
-        district:
-          address.district,
-
-        state:
-          address.state,
-
-        country:
-          address.country,
-
-        pincode:
-          address.pincode
-
-      },
-
-      items: cart.map(
-        (item) => ({
-
+        items: cart.map((item) => ({
           name:
             item.title ||
             item.name ||
@@ -1004,101 +1504,104 @@ const Checkout = () => {
             item.type ||
             "Service",
 
-          price:
-            getItemTotal(item),
+          price: getItemTotal(item),
 
-          hours:
-            item.hours || "",
+          hours: item.hours || "",
 
-          date:
-            item.date || "",
+          date: item.date || "",
 
-          location:
-            item.location || ""
+          location: item.location || ""
+        })),
 
-        })
-      ),
+        total,
 
-      total
+        status: "Pending",
 
-    };
+        createdAt: serverTimestamp()
+      };
 
+      /* ==============================
+         FIREBASE DATABASE
+      ============================== */
 
-    /* =========================================
-       SAVE TO DASHBOARD
-    ========================================= */
+      await addDoc(
+        collection(db, "inquiries"),
+        inquiry
+      );
 
-    const oldInquiries =
-      JSON.parse(
-        localStorage.getItem(
-          "nissInquiries"
-        )
-      ) || [];
+      /* ==============================
+         CUSTOMER ORDER
+      ============================== */
 
+      const oldOrders =
+        JSON.parse(
+          localStorage.getItem("niss_orders")
+        ) || [];
 
-    oldInquiries.push(inquiry);
+      oldOrders.push({
+        id: orderId,
 
+        orderType: "Service Inquiry",
 
-    localStorage.setItem(
-      "nissInquiries",
-      JSON.stringify(
-        oldInquiries
-      )
-    );
+        date: new Date().toISOString(),
 
+        status: "Pending",
 
-    /* =========================================
-       WHATSAPP MESSAGE
-    ========================================= */
+        total,
 
-    let itemsMessage = "";
+        cart,
 
+        address
+      });
 
-    cart.forEach(
-      (item, index) => {
+      localStorage.setItem(
+        "niss_orders",
+        JSON.stringify(oldOrders)
+      );
 
+      /* ==============================
+         OLD DASHBOARD SUPPORT
+      ============================== */
+
+      const oldInquiries =
+        JSON.parse(
+          localStorage.getItem("nissInquiries")
+        ) || [];
+
+      oldInquiries.push(inquiry);
+
+      localStorage.setItem(
+        "nissInquiries",
+        JSON.stringify(oldInquiries)
+      );
+
+      /* ==============================
+         WHATSAPP
+      ============================== */
+
+      let itemsMessage = "";
+
+      cart.forEach((item, index) => {
         itemsMessage +=
           `\n${index + 1}. ` +
-          `${item.title ||
-            item.name ||
-            "Service"}`;
+          `${item.title || item.name || "Service"}`;
 
-        if (
-          item.hours
-        ) {
-
-          itemsMessage +=
-            ` | ${item.hours} Hours`;
-
+        if (item.hours) {
+          itemsMessage += ` | ${item.hours} Hours`;
         }
 
-        if (
-          item.date
-        ) {
-
-          itemsMessage +=
-            ` | Date: ${item.date}`;
-
+        if (item.date) {
+          itemsMessage += ` | Date: ${item.date}`;
         }
 
-        if (
-          item.location
-        ) {
-
-          itemsMessage +=
-            ` | Location: ${item.location}`;
-
+        if (item.location) {
+          itemsMessage += ` | Location: ${item.location}`;
         }
 
-        itemsMessage +=
-          ` | ₹${getItemTotal(item)}`;
+        itemsMessage += ` | ₹${getItemTotal(item)}`;
+      });
 
-      }
-    );
-
-
-    const fullAddress = `
-
+      const fullAddress = `
 ${address.street}
 ${address.addressLine2}
 ${address.city}
@@ -1108,9 +1611,7 @@ ${address.country}
 Pincode: ${address.pincode}
 `;
 
-
-    const whatsappMessage = `
-
+      const whatsappMessage = `
 *NEW NISS CUSTOMER INQUIRY* 🚨
 
 *Order ID:* ${orderId}
@@ -1139,65 +1640,59 @@ ${orderDate}
 Please contact the customer regarding this inquiry.
 `;
 
+      const whatsappURL =
+        `https://wa.me/919958424916?text=${encodeURIComponent(
+          whatsappMessage
+        )}`;
 
-    const whatsappURL =
-      `https://wa.me/919958424916?text=${encodeURIComponent(
-        whatsappMessage
-      )}`;
+      /* ==============================
+         CLEAR CART
+      ============================== */
 
+      localStorage.removeItem("cart");
 
-    /* =========================================
-       CLEAR CART
-    ========================================= */
+      /* ==============================
+         WHATSAPP
+      ============================== */
 
-    localStorage.removeItem(
-      "cart"
-    );
+      window.open(
+        whatsappURL,
+        "_blank",
+        "noopener,noreferrer"
+      );
 
-
-    /* =========================================
-       WHATSAPP
-    ========================================= */
-
-    window.open(
-      whatsappURL,
-      "_blank",
-      "noopener,noreferrer"
-    );
-
-
-    /* =========================================
-       SUCCESS
-    ========================================= */
-
-    setTimeout(() => {
-
-      setLoading(false);
+      /* ==============================
+         SUCCESS
+      ============================== */
 
       alert(
         "Your inquiry has been submitted successfully!"
       );
 
-      navigate("/dashboard");
+      navigate("/customerdashboard");
 
-    }, 700);
+    } catch (error) {
+      console.error(
+        "Firebase inquiry error:",
+        error
+      );
 
+      alert(
+        "Inquiry submit nahi hui. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
-
   return (
-
     <div className="checkout-page">
 
       <NavBar />
 
       <div className="checkout-bg"></div>
 
-
       <div className="checkout-container">
-
-
-        {/* LEFT */}
 
         <div className="checkout-left">
 
@@ -1216,7 +1711,6 @@ Please contact the customer regarding this inquiry.
             team and recorded in the dashboard.
           </p>
 
-
           <div className="checkout-box-info">
 
             <h3>
@@ -1230,7 +1724,7 @@ Please contact the customer regarding this inquiry.
               </li>
 
               <li>
-                ✔ Our dashboard receives it
+                ✔ Firebase database receives it
               </li>
 
               <li>
@@ -1238,7 +1732,7 @@ Please contact the customer regarding this inquiry.
               </li>
 
               <li>
-                ✔ Our team will contact you
+                ✔ Your order appears in My Dashboard
               </li>
 
             </ul>
@@ -1246,9 +1740,6 @@ Please contact the customer regarding this inquiry.
           </div>
 
         </div>
-
-
-        {/* FORM */}
 
         <div className="checkout-right">
 
@@ -1261,35 +1752,25 @@ Please contact the customer regarding this inquiry.
               Customer Details
             </h2>
 
-
             <div className="grid-2">
 
               <input
                 name="firstName"
                 placeholder="First Name *"
-                value={
-                  address.firstName
-                }
-                onChange={
-                  handleChange
-                }
+                value={address.firstName}
+                onChange={handleChange}
                 required
               />
 
               <input
                 name="lastName"
                 placeholder="Last Name *"
-                value={
-                  address.lastName
-                }
-                onChange={
-                  handleChange
-                }
+                value={address.lastName}
+                onChange={handleChange}
                 required
               />
 
             </div>
-
 
             <div className="grid-2">
 
@@ -1297,21 +1778,13 @@ Please contact the customer regarding this inquiry.
                 type="tel"
                 name="phone"
                 placeholder="Mobile Number *"
-                value={
-                  address.phone
-                }
+                value={address.phone}
                 onChange={(e) => {
 
                   const value =
                     e.target.value
-                      .replace(
-                        /\D/g,
-                        ""
-                      )
-                      .slice(
-                        0,
-                        10
-                      );
+                      .replace(/\D/g, "")
+                      .slice(0, 10);
 
                   setAddress({
                     ...address,
@@ -1322,121 +1795,81 @@ Please contact the customer regarding this inquiry.
                 required
               />
 
-
               <input
                 type="email"
                 name="email"
                 placeholder="Email Address"
-                value={
-                  address.email
-                }
-                onChange={
-                  handleChange
-                }
+                value={address.email}
+                onChange={handleChange}
               />
 
             </div>
-
 
             <h3 className="checkout-address-title">
               Address Details
             </h3>
 
-
             <input
               name="street"
               placeholder="Street Address *"
-              value={
-                address.street
-              }
-              onChange={
-                handleChange
-              }
+              value={address.street}
+              onChange={handleChange}
               required
             />
-
 
             <input
               name="addressLine2"
               placeholder="Apartment / Landmark / Optional"
-              value={
-                address.addressLine2
-              }
-              onChange={
-                handleChange
-              }
+              value={address.addressLine2}
+              onChange={handleChange}
             />
-
 
             <div className="grid-2">
 
               <input
                 name="city"
                 placeholder="City *"
-                value={
-                  address.city
-                }
-                onChange={
-                  handleChange
-                }
+                value={address.city}
+                onChange={handleChange}
                 required
               />
 
               <input
                 name="district"
                 placeholder="District"
-                value={
-                  address.district
-                }
-                onChange={
-                  handleChange
-                }
+                value={address.district}
+                onChange={handleChange}
               />
 
             </div>
-
 
             <div className="grid-2">
 
               <input
                 name="state"
                 placeholder="State *"
-                value={
-                  address.state
-                }
-                onChange={
-                  handleChange
-                }
+                value={address.state}
+                onChange={handleChange}
                 required
               />
 
               <input
                 name="country"
                 placeholder="Country *"
-                value={
-                  address.country
-                }
-                onChange={
-                  handleChange
-                }
+                value={address.country}
+                onChange={handleChange}
                 required
               />
 
             </div>
 
-
             <input
               name="pincode"
               placeholder="Pincode *"
-              value={
-                address.pincode
-              }
-              onChange={
-                handleChange
-              }
+              value={address.pincode}
+              onChange={handleChange}
               required
             />
-
 
             <button
               type="submit"
@@ -1450,7 +1883,6 @@ Please contact the customer regarding this inquiry.
 
             </button>
 
-
             <p className="checkout-note">
               🔒 Your information is used only
               for processing your inquiry.
@@ -1462,13 +1894,10 @@ Please contact the customer regarding this inquiry.
 
       </div>
 
-
       <Footer />
 
     </div>
-
   );
-
 };
 
 export default Checkout;

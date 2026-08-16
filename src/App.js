@@ -40,6 +40,8 @@ import EventManagement from './EventManagement/EventManagement';
 import Industry from './Industry/Industry';
 import CustomerLogin from './CustomerLogin/CustomerLogin';
 import ChatBot from "./ChatBot/ChatBot";
+import CustomerDashboard from './CustomerDashboard/CustomerDashboard';
+
 function App() {
   return (
     <Router>
@@ -92,7 +94,14 @@ function App() {
             element={<ChatBot />}
           />
 <Route path="/industry" element={<Industry />} />
+
+<Route
+  path="/customer-dashboard"
+  element={<CustomerDashboard />}
+/>
           </Routes>
+
+
         </div>
      <ChatBot />
     </Router>
