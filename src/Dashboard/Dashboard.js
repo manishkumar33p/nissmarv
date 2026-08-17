@@ -5,7 +5,7 @@ import * as XLSX from "xlsx";
 // import NavBar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import "./Dashboard.css";
-
+import FieldStaffManagement from "../FieldStaffManagement/FieldStaffManagement";
 import {
   collection,
   onSnapshot,
@@ -23,7 +23,7 @@ const Dashboard = () => {
   const [dataEntryData, setDataEntryData] = useState([]);
   const [contactData, setContactData] = useState([]);
   const [inquiries, setInquiries] = useState([]);
-
+const [consultantRequests, setConsultantRequests] = useState([]);
 
   /* =====================================
      LOAD LOCAL DATA + FIREBASE INQUIRIES
@@ -53,7 +53,28 @@ const Dashboard = () => {
       collection(db, "inquiries"),
       orderBy("createdAt", "desc")
     );
+const consultantQuery = query(
+  collection(db, "consultantRequests"),
+  orderBy("createdAt", "desc")
+);
 
+const unsubscribeConsultants = onSnapshot(
+  consultantQuery,
+  (snapshot) => {
+    const firebaseConsultants = snapshot.docs.map((item) => ({
+      id: item.id,
+      ...item.data()
+    }));
+
+    setConsultantRequests(firebaseConsultants);
+  },
+  (error) => {
+    console.error(
+      "Firebase consultant request error:",
+      error
+    );
+  }
+);
 
     const unsubscribe = onSnapshot(
       inquiriesQuery,
@@ -90,7 +111,7 @@ const Dashboard = () => {
     return () => {
 
       unsubscribe();
-
+     unsubscribeConsultants();
     };
 
   }, []);
@@ -398,6 +419,20 @@ const Dashboard = () => {
             </p>
 
           </div>
+ <div className="dashboard-stat-card">
+
+  <h2>
+    {consultantRequests.length}
+  </h2>
+
+  <p>
+    Consultant Requests
+  </p>
+
+</div>
+
+
+
 
 
           <div className="dashboard-stat-card">
@@ -701,7 +736,118 @@ const Dashboard = () => {
 
         </div>
 
+{/* =====================================
+    CONSULTANT REQUESTS
+===================================== */}
 
+<div className="dashboard-section">
+
+  <div className="section-header">
+
+    <h2>
+      Free Consultant Requests
+    </h2>
+
+  </div>
+
+  <div className="table-wrapper">
+
+    <table className="dashboard-table">
+
+      <thead>
+
+        <tr>
+
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Service</th>
+          <th>Requirement</th>
+          <th>Budget</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Address</th>
+          <th>Status</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        {consultantRequests.length > 0 ? (
+
+          consultantRequests.map((item) => (
+
+            <tr key={item.id}>
+
+              <td>
+                <strong>
+                  {item.name || "-"}
+                </strong>
+              </td>
+
+              <td>
+                {item.phone || "-"}
+              </td>
+
+              <td>
+                {item.email || "-"}
+              </td>
+
+              <td>
+                {item.service || "-"}
+              </td>
+
+              <td>
+                {item.requirement || "-"}
+              </td>
+
+              <td>
+                {item.budget || "-"}
+              </td>
+
+              <td>
+                {item.date || "-"}
+              </td>
+
+              <td>
+                {item.time || "-"}
+              </td>
+
+              <td>
+                {item.address || "-"}
+              </td>
+
+              <td>
+                <strong>
+                  {item.status || "New"}
+                </strong>
+              </td>
+
+            </tr>
+
+          ))
+
+        ) : (
+
+          <tr>
+
+            <td colSpan="10">
+              No Consultant Requests Found
+            </td>
+
+          </tr>
+
+        )}
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
         {/* =====================================
             CONTACT
         ===================================== */}
@@ -1009,6 +1155,7 @@ const Dashboard = () => {
         </div>
 
 <VendorManagement />
+<FieldStaffManagement />
       </div>
 
 

@@ -46,7 +46,7 @@ import FieldStaffDashboard from "./FieldStaffDashboard/FieldStaffDashboard";
 import AddVendor from "./AddVendor/AddVendor";
 import VendorLogin from "./VendorLogin/VendorLogin";
 import VendorDashboard from "./VendorDashboard/VendorDashboard";
-
+import GlobalConsultantPopup from "./GlobalConsultantPopup/GlobalConsultantPopup";
 
 function App() {
   return (
@@ -132,6 +132,7 @@ function App() {
 
 
         </div>
+          <GlobalConsultantPopup />
      <ChatBot />
     </Router>
   );
