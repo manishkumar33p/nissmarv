@@ -1,639 +1,360 @@
-// import React, { useState } from "react";
+
+
+// import React, { useEffect, useState } from "react";
 // import "./Property.css";
-// import NavBar from "../Navbar/Navbar";
+// // import NavBar from "../Navbar/Navbar";
 // import Footer from "../Footer/Footer";
 
-// const properties = [
+// const defaultProperties = [
 //   {
 //     id: 1,
-//     title: "Luxury Residential Villa",
-//     category: "Residential",
-//     type: "Buy",
+//     title: "Luxury 3 BHK House",
+//     category: "Buy",
+//     type: "Residential",
 //     location: "Ghaziabad, Uttar Pradesh",
 //     price: "₹85 Lakh",
 //     image:
 //       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
 //     description:
-//       "Beautiful modern residential villa with premium interiors and excellent location.",
+//       "Beautiful 3 BHK residential property with modern facilities.",
 //   },
 //   {
 //     id: 2,
 //     title: "Premium Commercial Office",
 //     category: "Commercial",
-//     type: "Buy",
-//     location: "Noida, Uttar Pradesh",
-//     price: "₹1.25 Crore",
+//     type: "Commercial",
+//     location: "Nehru Nagar, Ghaziabad",
+//     price: "₹45,000 / Month",
 //     image:
 //       "https://images.unsplash.com/photo-1497366811353-6870744d04b2",
 //     description:
-//       "Modern commercial office space suitable for companies, startups and businesses.",
+//       "Fully furnished commercial office suitable for business use.",
 //   },
 //   {
 //     id: 3,
 //     title: "Residential Plot",
-//     category: "Plots",
-//     type: "Buy",
-//     location: "Greater Noida, Uttar Pradesh",
-//     price: "₹45 Lakh",
+//     category: "Plot",
+//     type: "Land",
+//     location: "Raj Nagar Extension",
+//     price: "₹32 Lakh",
 //     image:
 //       "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
 //     description:
-//       "Residential plot in a developing location with excellent future investment potential.",
+//       "Excellent residential plot in a developing location.",
 //   },
 //   {
 //     id: 4,
-//     title: "Premium Apartment",
-//     category: "Residential",
-//     type: "Rent",
-//     location: "Indirapuram, Ghaziabad",
-//     price: "₹25,000/month",
-//     image:
-//       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
-//     description:
-//       "Fully furnished premium apartment available for rent in a prime location.",
-//   },
-//   {
-//     id: 5,
-//     title: "PG Accommodation",
+//     title: "Boys PG Accommodation",
 //     category: "PG",
-//     type: "Rent",
-//     location: "Noida Sector 62",
-//     price: "₹8,500/month",
+//     type: "PG",
+//     location: "Nehru Nagar, Ghaziabad",
+//     price: "₹7,500 / Month",
 //     image:
-//       "https://images.unsplash.com/photo-1554995207-c18c203602cb",
+//       "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
 //     description:
-//       "Clean and comfortable PG accommodation with modern facilities.",
-//   },
-//   {
-//     id: 6,
-//     title: "Commercial Building",
-//     category: "Commercial",
-//     type: "Buy",
-//     location: "Ghaziabad",
-//     price: "₹3.5 Crore",
-//     image:
-//       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
-//     description:
-//       "Prime commercial building suitable for office, showroom or investment.",
+//       "Clean and comfortable PG accommodation with basic facilities.",
 //   },
 // ];
 
 // const Property = () => {
+//   const [properties, setProperties] = useState([]);
 //   const [category, setCategory] = useState("All");
-//   const [type, setType] = useState("All");
 //   const [search, setSearch] = useState("");
-//   const [selectedProperty, setSelectedProperty] = useState(null);
+
+//   useEffect(() => {
+//     const saved = localStorage.getItem("niss_properties");
+
+//     if (saved) {
+//       setProperties(JSON.parse(saved));
+//     } else {
+//       localStorage.setItem(
+//         "niss_properties",
+//         JSON.stringify(defaultProperties)
+//       );
+
+//       setProperties(defaultProperties);
+//     }
+//   }, []);
+
+//   // Admin se property add/edit/delete hone par page update hoga
+//   useEffect(() => {
+//     const updateProperties = () => {
+//       const saved = localStorage.getItem("niss_properties");
+
+//       if (saved) {
+//         setProperties(JSON.parse(saved));
+//       }
+//     };
+
+//     window.addEventListener("storage", updateProperties);
+
+//     return () => {
+//       window.removeEventListener("storage", updateProperties);
+//     };
+//   }, []);
 
 //   const filteredProperties = properties.filter((property) => {
 //     const categoryMatch =
 //       category === "All" || property.category === category;
 
-//     const typeMatch =
-//       type === "All" || property.type === type;
-
 //     const searchMatch =
 //       property.title.toLowerCase().includes(search.toLowerCase()) ||
-//       property.location.toLowerCase().includes(search.toLowerCase());
+//       property.location.toLowerCase().includes(search.toLowerCase()) ||
+//       property.type.toLowerCase().includes(search.toLowerCase());
 
-//     return categoryMatch && typeMatch && searchMatch;
+//     return categoryMatch && searchMatch;
 //   });
-
-//   const openWhatsApp = () => {
-//     const phone = "919958424916";
-
-//     const message = selectedProperty
-//       ? `Hello NISS Property, I am interested in ${selectedProperty.title} located at ${selectedProperty.location}. Please share more details.`
-//       : "Hello NISS Property, I am interested in your property services.";
-
-//     window.open(
-//       `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-//       "_blank"
-//     );
-//   };
 
 //   return (
 //     <div className="property-page">
 
-//       <NavBar />
+//       {/* <NavBar /> */}
 
-//       {/* ================= HERO ================= */}
-
+//       {/* HERO */}
 //       <section className="property-hero">
 
-//         <div className="hero-content">
+//         <div className="property-hero-content">
 
-//           <div className="hero-logo">
-//             <div className="logo-circle">N</div>
+//           <span>NISS PROPERTY</span>
 
-//             <div>
-//               <h1>NISS</h1>
-//               <h2>PROPERTY</h2>
-//               <p>SMART HOMES. BETTER TOMORROW.</p>
-//             </div>
-//           </div>
+//           <h1>
+//             Your Trusted
+//             <br />
+//             <strong>Real Estate Partner</strong>
+//           </h1>
 
-//           <h3>Your Trusted</h3>
-
-//           <h4>REAL ESTATE PARTNER</h4>
-
-//           <div className="hero-services">
-//             BUY <span>•</span>
-//             SELL <span>•</span>
-//             INVEST <span>•</span>
-//             RENT <span>•</span>
-//             PG
-//           </div>
-
-//           <p className="hero-description">
-//             Residential &nbsp; | &nbsp;
-//             Commercial &nbsp; | &nbsp;
-//             Plots &nbsp; | &nbsp;
-//             Investment Advisory
+//           <p>
+//             Buy • Sell • Rent • PG • Commercial • Plots
 //           </p>
 
-//           <div className="hero-buttons">
-
-//             <button onClick={() => setType("Buy")}>
-//               🏠 Buy Property
+//           <div className="property-hero-buttons">
+//             <button
+//               onClick={() => setCategory("Buy")}
+//             >
+//               Buy Property
 //             </button>
 
-//             <button onClick={() => setType("Rent")}>
-//               🔑 Rent Property
+//             <button
+//               onClick={() => setCategory("Rent")}
+//             >
+//               Rent Property
 //             </button>
 
-//             <button onClick={() => setCategory("Plots")}>
-//               🌳 Plots & Land
+//             <button
+//               onClick={() => setCategory("PG")}
+//             >
+//               PG
 //             </button>
-
-//           </div>
-
-//         </div>
-
-//         <div className="hero-image">
-//           <img
-//             src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
-//             alt="Luxury Property"
-//           />
-//         </div>
-
-//       </section>
-
-//       {/* ================= QUICK SERVICES ================= */}
-
-//       <section className="quick-services">
-
-//         <div
-//           onClick={() => setType("Buy")}
-//           className="quick-service"
-//         >
-//           <span>🏠</span>
-//           <strong>Buy</strong>
-//           <p>Property</p>
-//         </div>
-
-//         <div
-//           onClick={() => setType("Sell")}
-//           className="quick-service"
-//         >
-//           <span>🤝</span>
-//           <strong>Sell</strong>
-//           <p>Property</p>
-//         </div>
-
-//         <div
-//           onClick={() => setType("Rent")}
-//           className="quick-service"
-//         >
-//           <span>🔑</span>
-//           <strong>Rent</strong>
-//           <p>Property</p>
-//         </div>
-
-//         <div
-//           onClick={() => setCategory("PG")}
-//           className="quick-service"
-//         >
-//           <span>🛏️</span>
-//           <strong>PG</strong>
-//           <p>Accommodation</p>
-//         </div>
-
-//         <div className="quick-service">
-//           <span>📍</span>
-//           <strong>Prime</strong>
-//           <p>Locations</p>
-//         </div>
-
-//         <div className="quick-service">
-//           <span>📈</span>
-//           <strong>Investment</strong>
-//           <p>Advisory</p>
-//         </div>
-
-//       </section>
-
-//       {/* ================= SERVICES ================= */}
-
-//       <section className="property-services">
-
-//         <div className="section-heading">
-//           <span></span>
-//           <h2>OUR PROPERTY SERVICES</h2>
-//           <span></span>
-//         </div>
-
-//         <div className="services-list">
-
-//           <div>
-//             <h3>✓ Property Sales & Purchase</h3>
-//             <p>Residential and commercial property buying & selling.</p>
-//           </div>
-
-//           <div>
-//             <h3>✓ Residential & Commercial</h3>
-//             <p>Premium properties in prime locations.</p>
-//           </div>
-
-//           <div>
-//             <h3>✓ Plot & Land Deals</h3>
-//             <p>Verified plots and land investment opportunities.</p>
-//           </div>
-
-//           <div>
-//             <h3>✓ Rent Properties</h3>
-//             <p>Homes, offices and commercial spaces on rent.</p>
-//           </div>
-
-//           <div>
-//             <h3>✓ PG Accommodation</h3>
-//             <p>Comfortable PG options for students and professionals.</p>
-//           </div>
-
-//           <div>
-//             <h3>✓ Investment Advisory</h3>
-//             <p>Property investment guidance according to your budget.</p>
-//           </div>
-
-//           <div>
-//             <h3>✓ RERA Compliant Services</h3>
-//             <p>Transparent and reliable property transactions.</p>
-//           </div>
-
-//           <div>
-//             <h3>✓ Site Visit Assistance</h3>
-//             <p>Schedule a property visit with our team.</p>
 //           </div>
 
 //         </div>
 
 //       </section>
 
-//       {/* ================= WHY CHOOSE ================= */}
+//       {/* SEARCH */}
+//       <section className="property-search-section">
 
-//       <section className="why-property">
-
-//         <div className="why-box">
-
-//           <h2>WHY CHOOSE NISS PROPERTY?</h2>
-
-//           <p>✓ Trusted Real Estate Experts</p>
-//           <p>✓ 100% Transparent Dealings</p>
-//           <p>✓ Best Location Properties</p>
-//           <p>✓ Hassle-Free Documentation</p>
-
-//         </div>
-
-//         <div className="why-box">
-
-//           <h2>OUR COMMITMENT</h2>
-
-//           <p>✓ Customer-Centric Approach</p>
-//           <p>✓ Verified Properties</p>
-//           <p>✓ Professional Assistance</p>
-//           <p>✓ Long-Term Value</p>
-
-//         </div>
+//         <input
+//           type="text"
+//           placeholder="Search property, location..."
+//           value={search}
+//           onChange={(e) => setSearch(e.target.value)}
+//         />
 
 //       </section>
 
-//       {/* ================= PROPERTY CATEGORIES ================= */}
-
+//       {/* CATEGORY */}
 //       <section className="property-categories">
 
-//         <div className="section-heading">
-//           <span></span>
-//           <h2>EXPLORE PROPERTIES</h2>
-//           <span></span>
-//         </div>
-
-//         <div className="category-grid">
-
-//           <div
-//             className="category-card"
-//             onClick={() => setCategory("Residential")}
+//         {[
+//           "All",
+//           "Buy",
+//           "Sell",
+//           "Rent",
+//           "PG",
+//           "Commercial",
+//           "Plot",
+//         ].map((item) => (
+//           <button
+//             key={item}
+//             className={category === item ? "active-category" : ""}
+//             onClick={() => setCategory(item)}
 //           >
-//             <img
-//               src="https://images.unsplash.com/photo-1600585154526-990dced4db0d"
-//               alt="Residential"
-//             />
-
-//             <div>
-//               <h3>RESIDENTIAL PROPERTIES</h3>
-//               <p>Homes • Flats • Villas • Apartments</p>
-//             </div>
-//           </div>
-
-//           <div
-//             className="category-card"
-//             onClick={() => setCategory("Commercial")}
-//           >
-//             <img
-//               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"
-//               alt="Commercial"
-//             />
-
-//             <div>
-//               <h3>COMMERCIAL PROPERTIES</h3>
-//               <p>Offices • Shops • Buildings • Warehouses</p>
-//             </div>
-//           </div>
-
-//           <div
-//             className="category-card"
-//             onClick={() => setCategory("Plots")}
-//           >
-//             <img
-//               src="https://images.unsplash.com/photo-1500382017468-9049fed747ef"
-//               alt="Plots"
-//             />
-
-//             <div>
-//               <h3>PLOTS & LAND</h3>
-//               <p>Residential • Commercial • Investment</p>
-//             </div>
-//           </div>
-
-//         </div>
+//             {item}
+//           </button>
+//         ))}
 
 //       </section>
 
-//       {/* ================= SEARCH ================= */}
+//       {/* PROPERTY LIST */}
+//       <section className="property-section">
 
-//       <section className="property-search">
+//         <div className="property-heading">
 
-//         <div className="section-heading">
-//           <span></span>
-//           <h2>FIND YOUR PROPERTY</h2>
-//           <span></span>
-//         </div>
+//           <span>OUR PROPERTIES</span>
 
-//         <div className="search-box">
+//           <h2>
+//             Find Your Perfect Property
+//           </h2>
 
-//           <input
-//             type="text"
-//             placeholder="Search property or location..."
-//             value={search}
-//             onChange={(e) => setSearch(e.target.value)}
-//           />
-
-//           <select
-//             value={category}
-//             onChange={(e) => setCategory(e.target.value)}
-//           >
-//             <option value="All">All Categories</option>
-//             <option value="Residential">Residential</option>
-//             <option value="Commercial">Commercial</option>
-//             <option value="Plots">Plots</option>
-//             <option value="PG">PG</option>
-//           </select>
-
-//           <select
-//             value={type}
-//             onChange={(e) => setType(e.target.value)}
-//           >
-//             <option value="All">Buy / Rent</option>
-//             <option value="Buy">Buy</option>
-//             <option value="Rent">Rent</option>
-//           </select>
+//           <p>
+//             Residential, Commercial, PG, Rent, Buy & Plot properties
+//           </p>
 
 //         </div>
 
-//       </section>
+//         <div className="property-grid">
 
-//       {/* ================= PROPERTY LIST ================= */}
+//           {filteredProperties.length === 0 ? (
 
-//       <section className="property-list">
+//             <div className="no-property">
+//               <h3>No Property Found</h3>
+//               <p>
+//                 Try another category or search location.
+//               </p>
+//             </div>
 
-//         {filteredProperties.length === 0 ? (
+//           ) : (
 
-//           <div className="no-property">
-//             <h2>No Property Found</h2>
-//             <p>Please try another search or category.</p>
-//           </div>
+//             filteredProperties.map((property) => (
 
-//         ) : (
+//               <div
+//                 className="property-card"
+//                 key={property.id}
+//               >
 
-//           filteredProperties.map((property) => (
+//                 <div className="property-image">
 
-//             <div className="property-card" key={property.id}>
+//                   <img
+//                     src={property.image}
+//                     alt={property.title}
+//                   />
 
-//               <img
-//                 src={property.image}
-//                 alt={property.title}
-//               />
+//                   <span>
+//                     {property.category}
+//                   </span>
 
-//               <div className="property-card-content">
+//                 </div>
 
-//                 <span className="property-badge">
-//                   {property.type}
-//                 </span>
+//                 <div className="property-info">
 
-//                 <h2>{property.title}</h2>
+//                   <h3>
+//                     {property.title}
+//                   </h3>
 
-//                 <p className="location">
-//                   📍 {property.location}
-//                 </p>
+//                   <p className="property-location">
+//                     📍 {property.location}
+//                   </p>
 
-//                 <p className="property-description">
-//                   {property.description}
-//                 </p>
+//                   <p className="property-description">
+//                     {property.description}
+//                   </p>
 
-//                 <h3>{property.price}</h3>
+//                   <div className="property-bottom">
 
-//                 <button
-//                   onClick={() => setSelectedProperty(property)}
-//                 >
-//                   View Details
-//                 </button>
+//                     <strong>
+//                       {property.price}
+//                     </strong>
+
+//                     <button>
+//                       Enquire Now
+//                     </button>
+
+//                   </div>
+
+//                 </div>
 
 //               </div>
 
-//             </div>
+//             ))
 
-//           ))
-
-//         )}
-
-//       </section>
-
-//       {/* ================= INVESTMENT CTA ================= */}
-
-//       <section className="investment-section">
-
-//         <div>
-
-//           <h2>Make the Right Move</h2>
-
-//           <h3>
-//             with <span>NISS Property</span>
-//           </h3>
-
-//           <p>
-//             Buy • Sell • Rent • Invest with confidence.
-//           </p>
-
-//           <button onClick={openWhatsApp}>
-//             📞 Talk to Property Expert
-//           </button>
+//           )}
 
 //         </div>
 
 //       </section>
 
-//       {/* ================= WHY US ================= */}
+//       {/* SERVICES */}
+//       <section className="property-services">
 
-//       <section className="property-features">
+//         <h2>
+//           OUR PROPERTY SERVICES
+//         </h2>
 
-//         <h2>WHY CHOOSE NISS TECHNOLOGIES?</h2>
+//         <div className="property-services-grid">
 
-//         <div>
+//           <div>
+//             🏠
+//             <h3>Buy Property</h3>
+//             <p>
+//               Residential and commercial properties.
+//             </p>
+//           </div>
 
-//           <article>
-//             <span>🛡️</span>
-//             <strong>Trusted</strong>
-//             <p>& Reliable</p>
-//           </article>
+//           <div>
+//             🤝
+//             <h3>Sell Property</h3>
+//             <p>
+//               Get the right buyer for your property.
+//             </p>
+//           </div>
 
-//           <article>
-//             <span>👥</span>
-//             <strong>Experienced</strong>
-//             <p>Professionals</p>
-//           </article>
+//           <div>
+//             🔑
+//             <h3>Rent Property</h3>
+//             <p>
+//               Houses, flats, offices and shops.
+//             </p>
+//           </div>
 
-//           <article>
-//             <span>⭐</span>
-//             <strong>Quality</strong>
-//             <p>Assurance</p>
-//           </article>
+//           <div>
+//             🛏️
+//             <h3>PG Accommodation</h3>
+//             <p>
+//               Comfortable PG options for students and professionals.
+//             </p>
+//           </div>
 
-//           <article>
-//             <span>⏱️</span>
-//             <strong>On-Time</strong>
-//             <p>Service</p>
-//           </article>
+//           <div>
+//             🏢
+//             <h3>Commercial</h3>
+//             <p>
+//               Offices, shops, warehouses and buildings.
+//             </p>
+//           </div>
 
-//           <article>
-//             <span>📈</span>
-//             <strong>Business</strong>
-//             <p>Growth</p>
-//           </article>
-
-//         </div>
-
-//       </section>
-
-//       {/* ================= CONTACT ================= */}
-
-//       <section className="property-contact">
-
-//         <div>
-
-//           <h2>Let's Find Your Perfect Property</h2>
-
-//           <p>
-//             Our property experts are ready to help you.
-//           </p>
-
-//           <div className="contact-buttons">
-
-//             <a href="tel:+919958424916">
-//               📞 +91 99584 24916
-//             </a>
-
-//             <button onClick={openWhatsApp}>
-//               💬 WhatsApp Us
-//             </button>
-
+//           <div>
+//             🌳
+//             <h3>Plots & Land</h3>
+//             <p>
+//               Residential and commercial land deals.
+//             </p>
 //           </div>
 
 //         </div>
 
 //       </section>
 
-//       {/* ================= MODAL ================= */}
+//       {/* CTA */}
+//       <section className="property-cta">
 
-//       {selectedProperty && (
+//         <div>
 
-//         <div
-//           className="property-modal-overlay"
-//           onClick={() => setSelectedProperty(null)}
-//         >
+//           <h2>
+//             Looking For Your Dream Property?
+//           </h2>
 
-//           <div
-//             className="property-modal"
-//             onClick={(e) => e.stopPropagation()}
-//           >
-
-//             <button
-//               className="close-modal"
-//               onClick={() => setSelectedProperty(null)}
-//             >
-//               ✕
-//             </button>
-
-//             <img
-//               src={selectedProperty.image}
-//               alt={selectedProperty.title}
-//             />
-
-//             <h2>{selectedProperty.title}</h2>
-
-//             <p>
-//               📍 {selectedProperty.location}
-//             </p>
-
-//             <h3>{selectedProperty.price}</h3>
-
-//             <p>
-//               {selectedProperty.description}
-//             </p>
-
-//             <div className="modal-buttons">
-
-//               <a href="tel:+919958424916">
-//                 📞 Call Now
-//               </a>
-
-//               <button onClick={openWhatsApp}>
-//                 💬 WhatsApp
-//               </button>
-
-//               <button
-//                 onClick={() => {
-//                   alert("Site visit request received!");
-//                   setSelectedProperty(null);
-//                 }}
-//               >
-//                 📅 Book Site Visit
-//               </button>
-
-//             </div>
-
-//           </div>
+//           <p>
+//             Our team will help you find the right property.
+//           </p>
 
 //         </div>
 
-//       )}
+//         <button>
+//           Contact Us
+//         </button>
+
+//       </section>
 
 //       <Footer />
 
@@ -645,11 +366,17 @@
 
 
 
-
 import React, { useEffect, useState } from "react";
 import "./Property.css";
-// import NavBar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+
+import {
+  addDoc,
+  collection,
+  serverTimestamp,
+} from "firebase/firestore";
+
+import { db } from "../firebase";
 
 const defaultProperties = [
   {
@@ -707,6 +434,25 @@ const Property = () => {
   const [category, setCategory] = useState("All");
   const [search, setSearch] = useState("");
 
+  const [selectedProperty, setSelectedProperty] = useState(null);
+
+  const [customer, setCustomer] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
+    requirement: "",
+    budget: "",
+    date: "",
+    time: "",
+  });
+
+  const [message, setMessage] = useState("");
+
+  /* =========================
+     LOAD PROPERTIES
+  ========================= */
+
   useEffect(() => {
     const saved = localStorage.getItem("niss_properties");
 
@@ -722,7 +468,10 @@ const Property = () => {
     }
   }, []);
 
-  // Admin se property add/edit/delete hone par page update hoga
+  /* =========================
+     UPDATE PROPERTIES
+  ========================= */
+
   useEffect(() => {
     const updateProperties = () => {
       const saved = localStorage.getItem("niss_properties");
@@ -732,31 +481,219 @@ const Property = () => {
       }
     };
 
+    // Existing storage event
     window.addEventListener("storage", updateProperties);
+
+    // Custom event from PropertyAdmin
+    window.addEventListener(
+      "niss-properties-updated",
+      updateProperties
+    );
 
     return () => {
       window.removeEventListener("storage", updateProperties);
+
+      window.removeEventListener(
+        "niss-properties-updated",
+        updateProperties
+      );
     };
   }, []);
+
+  /* =========================
+     FILTER
+  ========================= */
 
   const filteredProperties = properties.filter((property) => {
     const categoryMatch =
       category === "All" || property.category === category;
 
+    const searchText = search.toLowerCase();
+
     const searchMatch =
-      property.title.toLowerCase().includes(search.toLowerCase()) ||
-      property.location.toLowerCase().includes(search.toLowerCase()) ||
-      property.type.toLowerCase().includes(search.toLowerCase());
+      property.title.toLowerCase().includes(searchText) ||
+      property.location.toLowerCase().includes(searchText) ||
+      property.type.toLowerCase().includes(searchText);
 
     return categoryMatch && searchMatch;
   });
 
+  /* =========================
+     OPEN ENQUIRY
+  ========================= */
+
+  const openEnquiry = (property) => {
+    setSelectedProperty(property);
+
+    setCustomer((prev) => ({
+      ...prev,
+      requirement:
+        prev.requirement ||
+        `I am interested in ${property.title}.`,
+      budget:
+        prev.budget || property.price,
+    }));
+  };
+
+  /* =========================
+     CLOSE ENQUIRY
+  ========================= */
+
+  const closeEnquiry = () => {
+    setSelectedProperty(null);
+  };
+
+  /* =========================
+     FORM CHANGE
+  ========================= */
+
+  const handleCustomerChange = (e) => {
+    const { name, value } = e.target;
+
+    setCustomer((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  /* =========================
+     SUBMIT ENQUIRY
+  ========================= */
+
+  const submitEnquiry = async (e) => {
+    e.preventDefault();
+
+    if (
+      !customer.name.trim() ||
+      !customer.phone.trim() ||
+      !customer.address.trim() ||
+      !customer.requirement.trim()
+    ) {
+      setMessage(
+        "Please fill Name, Mobile, Address and Requirement."
+      );
+
+      setTimeout(() => setMessage(""), 3000);
+
+      return;
+    }
+
+    try {
+      const enquiryData = {
+        name: customer.name.trim(),
+
+        phone: customer.phone.trim(),
+
+        email: customer.email.trim(),
+
+        service:
+          selectedProperty?.title ||
+          "Property Enquiry",
+
+        requirement:
+          customer.requirement.trim(),
+
+        budget:
+          customer.budget ||
+          selectedProperty?.price ||
+          "",
+
+        date: customer.date || "",
+
+        time: customer.time || "",
+
+        address: customer.address.trim(),
+
+        propertyId:
+          selectedProperty?.id || "",
+
+        propertyTitle:
+          selectedProperty?.title || "",
+
+        propertyCategory:
+          selectedProperty?.category || "",
+
+        propertyType:
+          selectedProperty?.type || "",
+
+        propertyLocation:
+          selectedProperty?.location || "",
+
+        propertyPrice:
+          selectedProperty?.price || "",
+
+        source: "Property Page",
+
+        status: "New",
+
+        createdAt: serverTimestamp(),
+      };
+
+      /* =========================
+         FIREBASE
+      ========================= */
+
+      await addDoc(
+        collection(db, "consultantRequests"),
+        enquiryData
+      );
+
+      /* =========================
+         SAVE CUSTOMER
+      ========================= */
+
+      localStorage.setItem(
+        "propertyCustomer",
+        JSON.stringify(customer)
+      );
+
+      setSelectedProperty(null);
+
+      setMessage(
+        "Enquiry submitted successfully! Our property team will contact you."
+      );
+
+      setTimeout(() => setMessage(""), 4000);
+
+    } catch (error) {
+      console.error(
+        "Property enquiry error:",
+        error
+      );
+
+      setMessage(
+        "Enquiry submit nahi ho payi. Please try again."
+      );
+
+      setTimeout(() => setMessage(""), 3000);
+    }
+  };
+
+  /* =========================
+     LOAD CUSTOMER
+  ========================= */
+
+  useEffect(() => {
+    const savedCustomer =
+      JSON.parse(
+        localStorage.getItem("propertyCustomer")
+      ) || null;
+
+    if (savedCustomer) {
+      setCustomer((prev) => ({
+        ...prev,
+        ...savedCustomer,
+      }));
+    }
+  }, []);
+
   return (
     <div className="property-page">
 
-      {/* <NavBar /> */}
+      {/* =========================
+          HERO
+      ========================= */}
 
-      {/* HERO */}
       <section className="property-hero">
 
         <div className="property-hero-content">
@@ -774,6 +711,7 @@ const Property = () => {
           </p>
 
           <div className="property-hero-buttons">
+
             <button
               onClick={() => setCategory("Buy")}
             >
@@ -791,25 +729,56 @@ const Property = () => {
             >
               PG
             </button>
+
           </div>
 
         </div>
 
       </section>
 
-      {/* SEARCH */}
+      {/* =========================
+          STAFF PANEL
+      ========================= */}
+
+      <div className="property-staff-panel">
+
+        <a href="/property-admin">
+          🔐 Staff Property Panel
+        </a>
+
+      </div>
+
+      {/* =========================
+          MESSAGE
+      ========================= */}
+
+      {message && (
+        <div className="property-message">
+          {message}
+        </div>
+      )}
+
+      {/* =========================
+          SEARCH
+      ========================= */}
+
       <section className="property-search-section">
 
         <input
           type="text"
           placeholder="Search property, location..."
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) =>
+            setSearch(e.target.value)
+          }
         />
 
       </section>
 
-      {/* CATEGORY */}
+      {/* =========================
+          CATEGORY
+      ========================= */}
+
       <section className="property-categories">
 
         {[
@@ -821,18 +790,29 @@ const Property = () => {
           "Commercial",
           "Plot",
         ].map((item) => (
+
           <button
             key={item}
-            className={category === item ? "active-category" : ""}
-            onClick={() => setCategory(item)}
+            className={
+              category === item
+                ? "active-category"
+                : ""
+            }
+            onClick={() =>
+              setCategory(item)
+            }
           >
             {item}
           </button>
+
         ))}
 
       </section>
 
-      {/* PROPERTY LIST */}
+      {/* =========================
+          PROPERTY LIST
+      ========================= */}
+
       <section className="property-section">
 
         <div className="property-heading">
@@ -844,7 +824,8 @@ const Property = () => {
           </h2>
 
           <p>
-            Residential, Commercial, PG, Rent, Buy & Plot properties
+            Residential, Commercial, PG, Rent,
+            Buy & Plot properties
           </p>
 
         </div>
@@ -854,10 +835,14 @@ const Property = () => {
           {filteredProperties.length === 0 ? (
 
             <div className="no-property">
+
               <h3>No Property Found</h3>
+
               <p>
-                Try another category or search location.
+                Try another category or
+                search location.
               </p>
+
             </div>
 
           ) : (
@@ -902,7 +887,11 @@ const Property = () => {
                       {property.price}
                     </strong>
 
-                    <button>
+                    <button
+                      onClick={() =>
+                        openEnquiry(property)
+                      }
+                    >
                       Enquire Now
                     </button>
 
@@ -920,7 +909,10 @@ const Property = () => {
 
       </section>
 
-      {/* SERVICES */}
+      {/* =========================
+          SERVICES
+      ========================= */}
+
       <section className="property-services">
 
         <h2>
@@ -957,7 +949,8 @@ const Property = () => {
             🛏️
             <h3>PG Accommodation</h3>
             <p>
-              Comfortable PG options for students and professionals.
+              Comfortable PG options for students
+              and professionals.
             </p>
           </div>
 
@@ -981,7 +974,10 @@ const Property = () => {
 
       </section>
 
-      {/* CTA */}
+      {/* =========================
+          CTA
+      ========================= */}
+
       <section className="property-cta">
 
         <div>
@@ -991,12 +987,23 @@ const Property = () => {
           </h2>
 
           <p>
-            Our team will help you find the right property.
+            Our team will help you find
+            the right property.
           </p>
 
         </div>
 
-        <button>
+        <button
+          onClick={() =>
+            setSelectedProperty({
+              title: "General Property Consultation",
+              category: "Property",
+              type: "General",
+              location: "",
+              price: "",
+            })
+          }
+        >
           Contact Us
         </button>
 
@@ -1004,8 +1011,230 @@ const Property = () => {
 
       <Footer />
 
+      {/* =========================
+          PROPERTY ENQUIRY MODAL
+      ========================= */}
+
+      {selectedProperty && (
+
+        <div
+          className="property-modal-overlay"
+          onClick={closeEnquiry}
+        >
+
+          <div
+            className="property-modal"
+            onClick={(e) =>
+              e.stopPropagation()
+            }
+          >
+
+            <button
+              className="property-modal-close"
+              onClick={closeEnquiry}
+            >
+              ×
+            </button>
+
+            <div className="property-modal-heading">
+
+              <span>
+                NISS PROPERTY
+              </span>
+
+              <h2>
+                Property Enquiry
+              </h2>
+
+              <p>
+                {selectedProperty.title}
+              </p>
+
+              {selectedProperty.location && (
+                <small>
+                  📍 {selectedProperty.location}
+                </small>
+              )}
+
+            </div>
+
+            <form
+              onSubmit={submitEnquiry}
+            >
+
+              <div className="property-form-row">
+
+                <div className="property-form-group">
+
+                  <label>
+                    Your Name *
+                  </label>
+
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name"
+                    value={customer.name}
+                    onChange={handleCustomerChange}
+                  />
+
+                </div>
+
+                <div className="property-form-group">
+
+                  <label>
+                    Mobile Number *
+                  </label>
+
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Enter mobile number"
+                    value={customer.phone}
+                    onChange={handleCustomerChange}
+                  />
+
+                </div>
+
+              </div>
+
+              <div className="property-form-row">
+
+                <div className="property-form-group">
+
+                  <label>
+                    Email
+                  </label>
+
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter email"
+                    value={customer.email}
+                    onChange={handleCustomerChange}
+                  />
+
+                </div>
+
+                <div className="property-form-group">
+
+                  <label>
+                    Address *
+                  </label>
+
+                  <input
+                    type="text"
+                    name="address"
+                    placeholder="City / Area / Address"
+                    value={customer.address}
+                    onChange={handleCustomerChange}
+                  />
+
+                </div>
+
+              </div>
+
+              <div className="property-form-group">
+
+                <label>
+                  Requirement *
+                </label>
+
+                <textarea
+                  name="requirement"
+                  rows="3"
+                  placeholder="Tell us what property you are looking for..."
+                  value={customer.requirement}
+                  onChange={handleCustomerChange}
+                />
+
+              </div>
+
+              <div className="property-form-row">
+
+                <div className="property-form-group">
+
+                  <label>
+                    Budget
+                  </label>
+
+                  <input
+                    type="text"
+                    name="budget"
+                    placeholder="Example: ₹50 Lakh"
+                    value={customer.budget}
+                    onChange={handleCustomerChange}
+                  />
+
+                </div>
+
+                <div className="property-form-group">
+
+                  <label>
+                    Preferred Date
+                  </label>
+
+                  <input
+                    type="date"
+                    name="date"
+                    value={customer.date}
+                    onChange={handleCustomerChange}
+                  />
+
+                </div>
+
+              </div>
+
+              <div className="property-form-group">
+
+                <label>
+                  Preferred Time
+                </label>
+
+                <select
+                  name="time"
+                  value={customer.time}
+                  onChange={handleCustomerChange}
+                >
+
+                  <option value="">
+                    Select Time
+                  </option>
+
+                  <option value="Morning">
+                    Morning
+                  </option>
+
+                  <option value="Afternoon">
+                    Afternoon
+                  </option>
+
+                  <option value="Evening">
+                    Evening
+                  </option>
+
+                </select>
+
+              </div>
+
+              <button
+                type="submit"
+                className="property-submit-btn"
+              >
+                Submit Enquiry →
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      )}
+
     </div>
   );
 };
 
 export default Property;
+

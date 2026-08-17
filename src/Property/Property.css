@@ -400,3 +400,263 @@
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   STAFF PANEL BUTTON
+========================= */
+
+.property-staff-panel {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 5%;
+  background: #ffffff;
+}
+
+.property-staff-panel a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 10px;
+  background: #111827;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.property-staff-panel a:hover {
+  transform: translateY(-2px);
+  background: #2563eb;
+}
+
+/* =========================
+   SUCCESS MESSAGE
+========================= */
+
+.property-message {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  z-index: 9999;
+  max-width: 420px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  background: #111827;
+  color: #ffffff;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+
+/* =========================
+   MODAL OVERLAY
+========================= */
+
+.property-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  overflow-y: auto;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.property-modal {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 35px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+}
+
+.property-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #111827;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.property-modal-close:hover {
+  background: #111827;
+  color: #ffffff;
+}
+
+/* =========================
+   MODAL HEADING
+========================= */
+
+.property-modal-heading {
+  margin-bottom: 25px;
+  padding-right: 35px;
+}
+
+.property-modal-heading span {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.property-modal-heading h2 {
+  margin: 0 0 8px;
+  font-size: 30px;
+  color: #111827;
+}
+
+.property-modal-heading p {
+  margin: 0 0 5px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.property-modal-heading small {
+  color: #64748b;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.property-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.property-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.property-form-group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.property-form-group input,
+.property-form-group select,
+.property-form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #dbe2ea;
+  border-radius: 10px;
+  outline: none;
+  background: #ffffff;
+  color: #111827;
+  font-size: 14px;
+  font-family: inherit;
+  transition: 0.2s ease;
+}
+
+.property-form-group input:focus,
+.property-form-group select:focus,
+.property-form-group textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.property-form-group textarea {
+  resize: vertical;
+}
+
+/* =========================
+   SUBMIT
+========================= */
+
+.property-submit-btn {
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 11px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.property-submit-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  .property-staff-panel {
+    justify-content: center;
+    padding: 15px;
+  }
+
+  .property-staff-panel a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .property-modal-overlay {
+    padding: 10px;
+  }
+
+  .property-modal {
+    max-height: 95vh;
+    padding: 25px 18px;
+    border-radius: 16px;
+  }
+
+  .property-modal-heading h2 {
+    font-size: 24px;
+  }
+
+  .property-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .property-message {
+    left: 15px;
+    right: 15px;
+    top: 80px;
+    max-width: none;
+  }
+}
+
