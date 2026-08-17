@@ -866,3 +866,351 @@
     font-size: 13px;
   }
 }
+
+
+
+
+/* =====================================================
+   INTERIOR INQUIRY MODAL - MOBILE SAFE FIX
+===================================================== */
+
+.inquiry-modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100dvh;
+
+  background: rgba(0, 0, 0, 0.72);
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 20px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  box-sizing: border-box;
+
+  z-index: 99999;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* ================= MODAL ================= */
+
+.inquiry-modal {
+  position: relative;
+
+  width: min(850px, 100%);
+
+  max-height: calc(100dvh - 40px);
+
+  margin: auto;
+
+  background: #ffffff;
+
+  border-radius: 22px;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.35);
+
+  animation: interiorModalIn 0.25s ease;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* ================= ANIMATION ================= */
+
+@keyframes interiorModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* ================= CLOSE BUTTON ================= */
+
+.inquiry-modal .modal-close {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #111827;
+
+  color: #ffffff;
+
+  font-size: 25px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 10;
+}
+
+
+/* ================= FORM ================= */
+
+.inquiry-modal form {
+  width: 100%;
+}
+
+
+/* ================= FORM ROW ================= */
+
+.inquiry-modal .form-row {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+
+  width: 100%;
+}
+
+
+/* ================= FORM GROUP ================= */
+
+.inquiry-modal .form-group {
+  width: 100%;
+  min-width: 0;
+
+  margin-bottom: 18px;
+}
+
+
+/* ================= INPUTS ================= */
+
+.inquiry-modal input,
+.inquiry-modal textarea,
+.inquiry-modal select {
+  width: 100%;
+
+  max-width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 14px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #111827;
+
+  font-size: 15px;
+
+  outline: none;
+}
+
+
+/* ================= TEXTAREA ================= */
+
+.inquiry-modal textarea {
+  min-height: 100px;
+
+  resize: vertical;
+}
+
+
+/* ================= FOCUS ================= */
+
+.inquiry-modal input:focus,
+.inquiry-modal textarea:focus,
+.inquiry-modal select:focus {
+  border-color: #111827;
+
+  box-shadow:
+    0 0 0 3px rgba(17, 24, 39, 0.08);
+}
+
+
+/* ================= SUBMIT ================= */
+
+.inquiry-modal .submit-inquiry {
+  width: 100%;
+
+  border: none;
+
+  border-radius: 12px;
+
+  padding: 15px 20px;
+
+  background: #111827;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.inquiry-modal .submit-inquiry:hover {
+  transform: translateY(-1px);
+
+  background: #000000;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .inquiry-modal-overlay {
+    padding: 14px;
+  }
+
+  .inquiry-modal {
+    width: 100%;
+
+    max-height: calc(100dvh - 28px);
+
+    padding: 24px 18px;
+
+    border-radius: 18px;
+  }
+
+  .inquiry-modal .form-row {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .inquiry-modal .modal-close {
+    top: 10px;
+    right: 10px;
+
+    width: 36px;
+    height: 36px;
+
+    font-size: 22px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .inquiry-modal-overlay {
+    padding: 8px;
+  }
+
+  .inquiry-modal {
+    width: 100%;
+
+    max-height: calc(100dvh - 16px);
+
+    padding: 22px 14px 18px;
+
+    border-radius: 16px;
+  }
+
+  .inquiry-modal .modal-heading {
+    padding-right: 38px;
+  }
+
+  .inquiry-modal .modal-heading h2 {
+    font-size: 23px;
+
+    line-height: 1.2;
+  }
+
+  .inquiry-modal .modal-heading p {
+    font-size: 13px;
+
+    line-height: 1.5;
+  }
+
+  .inquiry-modal label {
+    font-size: 13px;
+  }
+
+  .inquiry-modal input,
+  .inquiry-modal textarea,
+  .inquiry-modal select {
+    font-size: 14px;
+
+    padding: 12px;
+  }
+
+  .inquiry-modal textarea {
+    min-height: 90px;
+  }
+
+  .inquiry-modal .submit-inquiry {
+    padding: 14px;
+
+    font-size: 15px;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .inquiry-modal-overlay {
+    padding: 5px;
+  }
+
+  .inquiry-modal {
+    max-height: calc(100dvh - 10px);
+
+    padding: 20px 12px 15px;
+
+    border-radius: 14px;
+  }
+
+  .inquiry-modal .modal-heading h2 {
+    font-size: 20px;
+  }
+
+  .inquiry-modal input,
+  .inquiry-modal textarea,
+  .inquiry-modal select {
+    font-size: 13px;
+  }
+}

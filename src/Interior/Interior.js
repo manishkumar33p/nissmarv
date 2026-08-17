@@ -1,467 +1,4 @@
 
-
-// import React, { useState, useEffect } from "react";
-// import "./Interior.css";
-// import NavBar from "../Navbar/Navbar";
-// import Footer from "../Footer/Footer";
-// import Marvv99 from "../marvv99.mp4";
-
-// import marv13 from "../marv13.jpg";
-// import marv14 from "../marv14.jpg";
-// import marv16 from "../marv16.jpg";
-// import marv17 from "../marv17.jpg";
-// import marv18 from "../marv18.jpg";
-// import marv19 from "../marv19.jpg";
-// import marv20 from "../marv20.jpg";
-// import marv21 from "../marv21.jpg";
-// import marv22 from "../marv22.jpg";
-// import marv23 from "../marv23.jpg";
-// import marv24 from "../marv24.jpg";
-// import marv25 from "../marv25.jpg";
-// import marv26 from "../marv26.jpg";
-// import marv27 from "../marv27.jpg";
-// import marv28 from "../marv28.jpg";
-// import marv29 from "../marv29.jpg";
-// import marv30 from "../marv30.jpg";
-// import marv31 from "../marv31.jpg";
-// import marv32 from "../marv32.jpg";
-
-// const interiorItems = [
-//   {
-//     id: 1,
-//     name: "Modern Sofa Set",
-//     category: "Furniture",
-//     price: 45000,
-//     image: marv13,
-//   },
-//   {
-//     id: 2,
-//     name: "Wall Panel Design",
-//     category: "Wall Design",
-//     price: 12500,
-//     image: marv14,
-//   },
-//   {
-//     id: 3,
-//     name: "Wooden Flooring",
-//     category: "Flooring",
-//     price: 90000,
-//     image: marv16,
-//   },
-//   {
-//     id: 4,
-//     name: "Printed Wallpaper",
-//     category: "Wallpaper",
-//     price: 8500,
-//     image: marv17,
-//   },
-//   {
-//     id: 5,
-//     name: "False Ceiling Work",
-//     category: "Ceiling",
-//     price: 55000,
-//     image: marv18,
-//   },
-//   {
-//     id: 6,
-//     name: "PVC Ceiling Panels",
-//     category: "Ceiling",
-//     price: 35000,
-//     image: marv19,
-//   },
-//   {
-//     id: 7,
-//     name: "Vinyl Flooring",
-//     category: "Flooring",
-//     price: 28000,
-//     image: marv20,
-//   },
-//   {
-//     id: 8,
-//     name: "Designer Blinds",
-//     category: "Decor",
-//     price: 6500,
-//     image: marv21,
-//   },
-//   {
-//     id: 9,
-//     name: "Luxury Bedroom Set",
-//     category: "Furniture",
-//     price: 120000,
-//     image: marv22,
-//   },
-//   {
-//     id: 10,
-//     name: "Premium Floor Tiles",
-//     category: "Flooring",
-//     price: 40000,
-//     image: marv23,
-//   },
-//   {
-//     id: 11,
-//     name: "Artificial Turf",
-//     category: "Garden",
-//     price: 18000,
-//     image: marv24,
-//   },
-//   {
-//     id: 12,
-//     name: "Wall Tiles Design",
-//     category: "Wall Design",
-//     price: 22000,
-//     image: marv25,
-//   },
-//   {
-//     id: 13,
-//     name: "Roller Blinds",
-//     category: "Decor",
-//     price: 7500,
-//     image: marv26,
-//   },
-//   {
-//     id: 14,
-//     name: "Luxury Paint Service",
-//     category: "Painting",
-//     price: 15000,
-//     image: marv27,
-//   },
-//   {
-//     id: 15,
-//     name: "Wall Art Painting",
-//     category: "Decor",
-//     price: 25000,
-//     image: marv28,
-//   },
-//   {
-//     id: 16,
-//     name: "PVC Marble Sheet",
-//     category: "Wall Design",
-//     price: 60000,
-//     image: marv29,
-//   },
-//   {
-//     id: 17,
-//     name: "Grid Ceiling Tiles",
-//     category: "Ceiling",
-//     price: 32000,
-//     image: marv30,
-//   },
-//   {
-//     id: 18,
-//     name: "LED Ceiling Design",
-//     category: "Ceiling",
-//     price: 70000,
-//     image: marv31,
-//   },
-//   {
-//     id: 19,
-//     name: "Wooden Temple",
-//     category: "Decor",
-//     price: 18500,
-//     image: marv32,
-//   },
-//   {
-//     id: 20,
-//     name: "Modular Kitchen",
-//     category: "Kitchen",
-//     price: 180000,
-//     image: marv13,
-//   },
-// ];
-
-// const Interior = () => {
-//   const [cart, setCart] = useState([]);
-//   const [search, setSearch] = useState("");
-//   const [category, setCategory] = useState("All");
-
-//   useEffect(() => {
-//     const savedCart =
-//       JSON.parse(localStorage.getItem("cart")) || [];
-
-//     setCart(savedCart);
-//   }, []);
-
-//   const addToCart = (item) => {
-//     const updatedCart = [...cart, item];
-
-//     setCart(updatedCart);
-
-//     localStorage.setItem(
-//       "cart",
-//       JSON.stringify(updatedCart)
-//     );
-
-//     alert(`${item.name} Added To Cart`);
-//   };
-
-//   const filteredItems = interiorItems.filter(
-//     (item) => {
-//       const matchesSearch =
-//         item.name
-//           .toLowerCase()
-//           .includes(search.toLowerCase());
-
-//       const matchesCategory =
-//         category === "All" ||
-//         item.category === category;
-
-//       return (
-//         matchesSearch &&
-//         matchesCategory
-//       );
-//     }
-//   );
-
-
-//     return (
-//     <div className="interior-page">
-
-//       <NavBar />
-
-//       {/* HERO SECTION */}
-//       <section className="interior-hero">
-
-//         <video
-//           className="hero-video"
-//           autoPlay
-//           muted
-//           loop
-//         >
-//           <source
-//             src={Marvv99}
-//             type="video/mp4"
-//           />
-//         </video>
-
-//         <div className="hero-overlay">
-
-//           <span className="hero-tag">
-//             Premium Interior Solutions
-//           </span>
-
-//           <h1>
-//             Transform Your Home With
-//             <span> Luxury Interiors</span>
-//           </h1>
-
-//           <p>
-//             Modern Interior Design,
-//             False Ceiling, Flooring,
-//             Wallpapers, Blinds,
-//             Modular Kitchen &
-//             Home Decor Services.
-//           </p>
-
-//           <div className="hero-buttons">
-
-//             <button>
-//               Get Quote
-//             </button>
-
-//             <button>
-//               View Projects
-//             </button>
-
-//           </div>
-
-//         </div>
-
-//       </section>
-
-//       {/* FILTER SECTION */}
-//       <section className="filter-section">
-
-//         <input
-//           type="text"
-//           placeholder="Search Products..."
-//           value={search}
-//           onChange={(e) =>
-//             setSearch(
-//               e.target.value
-//             )
-//           }
-//         />
-
-//         <select
-//           value={category}
-//           onChange={(e) =>
-//             setCategory(
-//               e.target.value
-//             )
-//           }
-//         >
-//           <option>All</option>
-//           <option>Furniture</option>
-//           <option>Wall Design</option>
-//           <option>Flooring</option>
-//           <option>Wallpaper</option>
-//           <option>Ceiling</option>
-//           <option>Decor</option>
-//           <option>Kitchen</option>
-//           <option>Garden</option>
-//           <option>Painting</option>
-//         </select>
-
-//       </section>
-
-//       {/* PRODUCTS */}
-//       <section className="products-section">
-
-//         <h2>
-//           Our Interior Products
-//         </h2>
-
-//         <div className="products-grid">
-
-//           {filteredItems.map(
-//             (item) => (
-//               <div
-//                 className="product-card"
-//                 key={item.id}
-//               >
-//                 <img
-//                   src={item.image}
-//                   alt={item.name}
-//                 />
-
-//                 <div className="product-info">
-
-//                   <span>
-//                     {item.category}
-//                   </span>
-
-//                   <h3>
-//                     {item.name}
-//                   </h3>
-
-//                   <h4>
-//                     ₹ {item.price.toLocaleString()}
-//                   </h4>
-
-//                   <button
-//                     onClick={() =>
-//                       addToCart(
-//                         item
-//                       )
-//                     }
-//                   >
-//                     Add To Cart
-//                   </button>
-
-//                 </div>
-
-//               </div>
-//             )
-//           )}
-
-//         </div>
-
-//       </section>
-
-//       {/* SERVICES */}
-//       <section className="services-section">
-
-//         <h2>
-//           Interior Services
-//         </h2>
-
-//         <div className="services-grid">
-
-//           <div className="service-card">
-//             False Ceiling
-//           </div>
-
-//           <div className="service-card">
-//             Wallpaper
-//           </div>
-
-//           <div className="service-card">
-//             Modular Kitchen
-//           </div>
-
-//           <div className="service-card">
-//             Flooring
-//           </div>
-
-//           <div className="service-card">
-//             Wall Panels
-//           </div>
-
-//           <div className="service-card">
-//             Home Decor
-//           </div>
-
-//         </div>
-
-//       </section>
-
-//       {/* REVIEWS */}
-//       <section className="reviews-section">
-
-//         <h2>
-//           What Clients Say
-//         </h2>
-
-//         <div className="reviews-grid">
-
-//           <div className="review-card">
-//             ⭐⭐⭐⭐⭐
-//             <p>
-//               Amazing Interior Work.
-//               Very Professional Team.
-//             </p>
-//             <h4>
-//               Rahul Sharma
-//             </h4>
-//           </div>
-
-//           <div className="review-card">
-//             ⭐⭐⭐⭐⭐
-//             <p>
-//               Modular Kitchen &
-//               Wallpaper quality
-//               was excellent.
-//             </p>
-//             <h4>
-//               Priya Singh
-//             </h4>
-//           </div>
-
-//           <div className="review-card">
-//             ⭐⭐⭐⭐⭐
-//             <p>
-//               Best Interior
-//               Services In Delhi NCR.
-//             </p>
-//             <h4>
-//               Amit Verma
-//             </h4>
-//           </div>
-
-//         </div>
-
-//       </section>
-
-//       {/* CART */}
-//       <section className="cart-section">
-
-//         <h2>
-//           Cart Items :
-//           {cart.length}
-//         </h2>
-
-//       </section>
-
-//       <Footer />
-
-//     </div>
-//   );
-// };
-
-// export default Interior;
-
-
-
 import React, { useEffect, useMemo, useState } from "react";
 import "./Interior.css";
 
@@ -488,7 +25,13 @@ import marv29 from "../marv29.jpg";
 import marv30 from "../marv30.jpg";
 import marv31 from "../marv31.jpg";
 import marv32 from "../marv32.jpg";
+import {
+  addDoc,
+  collection,
+  serverTimestamp,
+} from "firebase/firestore";
 
+import { db } from "../firebase";
 /* =========================
    INTERIOR PRODUCTS
 ========================= */
@@ -868,48 +411,109 @@ const Interior = () => {
      SUBMIT INQUIRY
   ========================= */
 
-  const submitInquiry = (e) => {
-    e.preventDefault();
+ const submitInquiry = async (e) => {
+  e.preventDefault();
 
-    if (
-      !customer.name ||
-      !customer.phone ||
-      !customer.location ||
-      !customer.requirement
-    ) {
-      showMessage(
-        "Please fill Name, Mobile, Location and Requirement."
-      );
-      return;
-    }
+  if (
+    !customer.name.trim() ||
+    !customer.phone.trim() ||
+    !customer.location.trim() ||
+    !customer.requirement.trim()
+  ) {
+    showMessage(
+      "Please fill Name, Mobile, Location and Requirement."
+    );
+    return;
+  }
 
+  try {
     const inquiry = {
-      id: Date.now(),
+      // Dashboard compatible fields
+      orderId: "INT-" + Date.now(),
 
-      customerName: customer.name,
-      phone: customer.phone,
-      email: customer.email,
-      location: customer.location,
+      date:
+        customer.date ||
+        new Date().toLocaleDateString("en-IN"),
 
-      requirement: customer.requirement,
-      budget: customer.budget,
-      preferredDate: customer.date,
+      customerName: customer.name.trim(),
 
+      phone: customer.phone.trim(),
+
+      email: customer.email.trim(),
+
+      // Dashboard address structure
+      address: {
+        street: customer.location.trim(),
+        addressLine2: "",
+        city: customer.location.trim(),
+        district: "",
+        state: "",
+        country: "India",
+        pincode: "",
+      },
+
+      // Interior-specific information
       service:
         selectedInquiry?.title ||
         selectedInquiry?.name ||
-        "Interior Inquiry",
+        "Interior Consultation",
 
       category:
         selectedInquiry?.category ||
         "Interior",
 
-      createdAt: new Date().toLocaleString(),
+      requirement:
+        customer.requirement.trim(),
+
+      budget:
+        customer.budget || "",
+
+      preferredDate:
+        customer.date || "",
+
+      source: "Interior Page",
+
+      inquiryType:
+        selectedInquiry?.title ===
+        "Complete Interior Consultation"
+          ? "Free Consultation"
+          : "Interior Inquiry",
 
       status: "New",
+
+      // Dashboard-compatible items
+      items: [
+        {
+          name:
+            selectedInquiry?.title ||
+            selectedInquiry?.name ||
+            "Interior Consultation",
+
+          price: 0,
+        },
+      ],
+
+      total: 0,
+
+      createdAt: serverTimestamp(),
     };
 
-    /* Save inquiry */
+    // ===============================
+    // SAVE TO FIREBASE DASHBOARD
+    // ===============================
+
+    await addDoc(
+      collection(db, "inquiries"),
+      inquiry
+    );
+
+    // Save customer locally for next inquiry
+    localStorage.setItem(
+      "interiorCustomer",
+      JSON.stringify(customer)
+    );
+
+    // Also keep local history if needed
     const oldInquiries =
       JSON.parse(
         localStorage.getItem("interiorInquiries")
@@ -918,23 +522,34 @@ const Interior = () => {
     localStorage.setItem(
       "interiorInquiries",
       JSON.stringify([
-        inquiry,
+        {
+          ...inquiry,
+          createdAt:
+            new Date().toISOString(),
+        },
         ...oldInquiries,
       ])
     );
 
-    /* Save customer for future inquiries */
-    localStorage.setItem(
-      "interiorCustomer",
-      JSON.stringify(customer)
-    );
-
+    // Close popup
     setSelectedInquiry(null);
 
+    // Success message
     showMessage(
       "Inquiry submitted successfully! Our team will contact you."
     );
-  };
+
+  } catch (error) {
+    console.error(
+      "Interior inquiry Firebase error:",
+      error
+    );
+
+    showMessage(
+      "Inquiry submit nahi ho payi. Please try again."
+    );
+  }
+};
 
   /* =========================
      MESSAGE

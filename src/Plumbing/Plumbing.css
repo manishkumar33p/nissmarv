@@ -39,7 +39,7 @@
   position: relative;
   z-index: 2;
 
-  min-height: 720px;
+  min-height: 420px;
 
   max-width: 1400px;
   margin: auto;
@@ -1281,6 +1281,924 @@
 
   .carpenter-highlight-grid {
     grid-template-columns: 1fr;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   MOBILE RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* =========================
+     MAIN PAGE
+  ========================= */
+
+  .plumbing-page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+
+  /* =========================
+     PLUMBING HERO
+  ========================= */
+
+  .plumbing-hero {
+    position: relative;
+    min-height: auto;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .fullscreen-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  .plumbing-overlay-bg {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.68);
+
+    z-index: 1;
+  }
+
+  .plumbing-overlay {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    min-height: auto;
+
+    padding: 30px 18px 35px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 25px;
+  }
+
+
+  /* =========================
+     LEFT HERO
+  ========================= */
+
+  .plumbing-left {
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plumbing-tag {
+    display: inline-block;
+
+    width: fit-content;
+
+    font-size: 12px;
+
+    padding: 8px 14px;
+
+    margin-bottom: 14px;
+
+    border-radius: 30px;
+  }
+
+  .plumbing-left h1 {
+    font-size: 40px;
+    line-height: 1.05;
+
+    margin: 0 0 16px;
+
+    word-break: normal;
+  }
+
+  .plumbing-left h1 span {
+    display: block;
+
+    font-size: 40px;
+    line-height: 1.05;
+  }
+
+  .plumbing-left p {
+    font-size: 15px;
+    line-height: 1.7;
+
+    margin: 0 0 20px;
+
+    color: #ffffff;
+  }
+
+
+  /* =========================
+     SEARCH BOX
+  ========================= */
+
+  .plumbing-search-box {
+    width: 100%;
+
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    box-sizing: border-box;
+  }
+
+  .plumbing-search-box select,
+  .plumbing-search-box input,
+  .plumbing-search-box button {
+    width: 100%;
+
+    min-height: 48px;
+
+    box-sizing: border-box;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+  }
+
+  .plumbing-search-box select {
+    padding: 0 12px;
+  }
+
+  .plumbing-search-box input {
+    padding: 0 14px;
+  }
+
+  .plumbing-search-box button {
+    border: none;
+
+    font-weight: 700;
+
+    cursor: pointer;
+  }
+
+
+  /* =========================
+     HERO BUTTONS
+  ========================= */
+
+  .plumbing-buttons {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 12px;
+  }
+
+  .plumbing-buttons button {
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 10px 8px;
+
+    font-size: 13px;
+
+    border-radius: 10px;
+
+    white-space: normal;
+  }
+
+
+  /* =========================
+     RIGHT HERO
+  ========================= */
+
+  .plumbing-right {
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .plumbing-hero-card {
+    width: 100%;
+
+    height: 230px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+  }
+
+  .plumbing-hero-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+  }
+
+
+  /* =========================
+     SMALL STAT CARDS
+  ========================= */
+
+  .plumbing-small-cards {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+  }
+
+  .plumbing-small-card {
+    min-height: 90px;
+
+    padding: 15px 8px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    border-radius: 14px;
+  }
+
+  .plumbing-small-card h3 {
+    font-size: 27px;
+
+    margin: 0 0 5px;
+  }
+
+  .plumbing-small-card p {
+    font-size: 12px;
+
+    line-height: 1.3;
+
+    margin: 0;
+  }
+
+
+  /* =========================
+     SECTION HEADING
+  ========================= */
+
+  .section-heading {
+    width: 100%;
+
+    padding: 45px 18px 25px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+  }
+
+  .section-heading span {
+    font-size: 12px;
+
+    letter-spacing: 2px;
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+
+    line-height: 1.15;
+
+    margin: 10px 0;
+  }
+
+  .section-heading p {
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin: 0 auto;
+
+    max-width: 340px;
+  }
+
+
+  /* =========================
+     PLUMBING FILTERS
+  ========================= */
+
+  .plumbing-filters {
+    width: 100%;
+
+    padding: 0 18px 25px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .plumbing-filters input {
+    width: 100%;
+
+    min-height: 48px;
+
+    box-sizing: border-box;
+
+    padding: 0 14px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+  }
+
+
+  /* =========================
+     PLUMBING GRID
+  ========================= */
+
+  .plumbing-grid {
+    width: 100%;
+
+    padding: 0 15px 40px;
+
+    box-sizing: border-box;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .service-card {
+    width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+  }
+
+  .service-image {
+    width: 100%;
+
+    height: 210px;
+  }
+
+  .service-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+  }
+
+  .service-content {
+    padding: 16px;
+  }
+
+  .service-content h3 {
+    font-size: 18px;
+
+    line-height: 1.3;
+
+    margin: 7px 0;
+  }
+
+  .service-price {
+    font-size: 18px;
+
+    margin: 8px 0 14px;
+  }
+
+  .service-actions {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+  }
+
+  .service-actions button {
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 8px 5px;
+
+    font-size: 12px;
+
+    border-radius: 8px;
+  }
+
+
+  /* =========================
+     NO SERVICE
+  ========================= */
+
+  .no-service {
+    width: 100%;
+
+    padding: 40px 15px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+  }
+
+  .no-service h2 {
+    font-size: 20px;
+  }
+
+
+  /* =========================
+     DIVIDER
+  ========================= */
+
+  .service-divider {
+    width: 100%;
+
+    padding: 35px 15px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+  }
+
+  .service-divider span {
+    flex: 1;
+  }
+
+  .service-divider h2 {
+    font-size: 13px;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+
+  /* =========================
+     CARPENTER SECTION
+  ========================= */
+
+  .carpenter-section {
+    width: 100%;
+
+    padding: 35px 15px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+  }
+
+  .carpenter-heading {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .carpenter-tag {
+    font-size: 11px;
+  }
+
+  .carpenter-heading h2 {
+    font-size: 30px;
+
+    line-height: 1.15;
+
+    margin: 12px 0;
+  }
+
+  .carpenter-heading h2 span {
+    display: block;
+  }
+
+  .carpenter-heading p {
+    font-size: 14px;
+
+    line-height: 1.5;
+  }
+
+
+  /* =========================
+     CARPENTER FILTER
+  ========================= */
+
+  .carpenter-filter {
+    width: 100%;
+
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+
+    padding: 15px 0;
+
+    scrollbar-width: none;
+  }
+
+  .carpenter-filter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carpenter-filter button {
+    flex: 0 0 auto;
+
+    min-height: 40px;
+
+    padding: 8px 15px;
+
+    font-size: 13px;
+
+    border-radius: 20px;
+
+    white-space: nowrap;
+  }
+
+
+  /* =========================
+     CARPENTER GRID
+  ========================= */
+
+  .carpenter-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .carpenter-card {
+    width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+  }
+
+  .carpenter-image {
+    width: 100%;
+
+    height: 210px;
+  }
+
+  .carpenter-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+  }
+
+  .carpenter-info {
+    padding: 16px;
+  }
+
+  .carpenter-info h3 {
+    font-size: 18px;
+
+    line-height: 1.3;
+  }
+
+  .carpenter-info button {
+    width: 100%;
+
+    min-height: 46px;
+
+    margin-top: 10px;
+
+    border-radius: 9px;
+  }
+
+
+  /* =========================
+     CARPENTER HIGHLIGHT
+  ========================= */
+
+  .carpenter-highlight {
+    width: 100%;
+
+    margin-top: 35px;
+
+    padding: 25px 18px;
+
+    box-sizing: border-box;
+
+    border-radius: 18px;
+  }
+
+  .carpenter-highlight h2 {
+    font-size: 23px;
+
+    text-align: center;
+
+    line-height: 1.3;
+  }
+
+  .carpenter-highlight-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    margin-top: 18px;
+  }
+
+  .carpenter-highlight-grid > div {
+    padding: 12px;
+
+    font-size: 14px;
+
+    border-radius: 9px;
+  }
+
+
+  /* =========================
+     BOOKING MODAL
+  ========================= */
+
+  .modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow-y: auto;
+  }
+
+  .modal-box {
+    width: 100%;
+
+    max-width: 430px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    padding: 22px 18px;
+
+    border-radius: 18px;
+
+    position: relative;
+  }
+
+  .modal-box h2 {
+    font-size: 22px;
+
+    line-height: 1.3;
+
+    padding-right: 30px;
+  }
+
+  .modal-box input {
+    width: 100%;
+
+    min-height: 46px;
+
+    box-sizing: border-box;
+  }
+
+  .modal-actions {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+  }
+
+  .modal-actions button {
+    width: 100%;
+
+    min-height: 46px;
+
+    font-size: 13px;
+  }
+
+  .quick-hours {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 5px;
+  }
+
+  .quick-hours button {
+    min-height: 40px;
+
+    padding: 5px;
+
+    font-size: 12px;
+  }
+
+
+  /* =========================
+     MESSAGE
+  ========================= */
+
+  .service-message {
+    position: fixed;
+
+    left: 15px;
+    right: 15px;
+
+    bottom: 20px;
+
+    z-index: 100000;
+
+    text-align: center;
+
+    padding: 13px 15px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .plumbing-overlay {
+    padding: 25px 14px 30px;
+  }
+
+  .plumbing-left h1,
+  .plumbing-left h1 span {
+    font-size: 34px;
+  }
+
+  .plumbing-left p {
+    font-size: 14px;
+
+    line-height: 1.65;
+  }
+
+  .plumbing-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .plumbing-hero-card {
+    height: 200px;
+  }
+
+  .plumbing-small-card {
+    min-height: 80px;
+  }
+
+  .plumbing-small-card h3 {
+    font-size: 24px;
+  }
+
+  .section-heading {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .section-heading h2 {
+    font-size: 27px;
+  }
+
+  .plumbing-grid {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .service-image {
+    height: 190px;
+  }
+
+  .service-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .service-actions button {
+    min-height: 46px;
+  }
+
+  .carpenter-section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .carpenter-heading h2 {
+    font-size: 27px;
+  }
+
+  .carpenter-image {
+    height: 190px;
+  }
+
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  .modal-box {
+    max-height: 92vh;
+
+    padding: 20px 15px;
+  }
+
+  .modal-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-hours {
+    grid-template-columns: repeat(3, 1fr);
   }
 
 }
