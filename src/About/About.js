@@ -29,6 +29,7 @@ import N from "../N.jpeg";
 
 import logo27 from "../logo27.png";
 import logo28 from "../logo28.jpeg";
+import logo33 from "../logo33.png";
 // import CustomerLogin from './CustomerLogin/CustomerLogin';
 
 /* =====================================================
@@ -720,7 +721,7 @@ Phone: ${phone}
 
 
             <h2>
-              Welcome to NISS Technologies
+              Welcome to NISS Technology
             </h2>
 
 
@@ -1156,7 +1157,7 @@ Phone: ${phone}
           </h1>
 
           <p>
-            NISS Technologies is your trusted partner
+            NISS Technology is your trusted partner
             for technology, services and solutions
             that help your business grow, scale and succeed.
           </p>
@@ -1210,7 +1211,7 @@ Phone: ${phone}
           <div className="niss-building-wrapper">
 
             <img
-              src={logo28}
+              src={logo33}
               alt="NISS Technologies"
               className="niss-building"
             />
@@ -1394,7 +1395,7 @@ Phone: ${phone}
       <section className="niss-why-section">
 
         <h2>
-          WHY CHOOSE NISS TECHNOLOGIES?
+          WHY CHOOSE NISS TECHNOLOGY?
         </h2>
 
 
@@ -1471,7 +1472,7 @@ Phone: ${phone}
           <div className="niss-carousel-note">
 
             <h3>
-              Welcome to NISS Technologies!
+              Welcome to NISS Technology!
             </h3>
 
             <p>
@@ -1564,7 +1565,7 @@ Phone: ${phone}
             </h1>
 
             <p>
-              NISS Technologies is a multi-service company
+              NISS Technology is a multi-service company
               dedicated to providing innovative solutions in
               Software Development, Property Buying & Selling,
               Rental Services, PG Accommodation, Interior Design,

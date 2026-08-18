@@ -180,7 +180,7 @@ const ContactUs = () => {
         <div className="contact-hero-content">
 
           <span className="contact-tag">
-            NISS TECHNOLOGIES
+            NISS TECHNOLOGY
           </span>
 
           <h1>

@@ -128,7 +128,7 @@ const Footer = () => {
           </div>
 
           <div className="niss-footer-brand-text">
-            <h2>NISS TECHNOLOGIES</h2>
+            <h2>NISS TECHNOLOGY</h2>
 
             <span>
               NEW INDIA SOFTWARE SOLUTIONS
@@ -218,7 +218,7 @@ const Footer = () => {
           <h3>Connect With Us</h3>
 
           <p>
-            Follow NISS Technologies and stay connected
+            Follow NISS Technology and stay connected
             with our latest updates.
           </p>
 
@@ -279,7 +279,7 @@ const Footer = () => {
         <div className="niss-footer-bottom-container">
 
           <p>
-            © {new Date().getFullYear()} NISS Technologies.
+            © {new Date().getFullYear()} NISS Technology.
             All Rights Reserved.
           </p>
 
