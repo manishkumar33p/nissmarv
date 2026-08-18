@@ -91,43 +91,16 @@ function App() {
 <Route path ="/laundry" element={<Laundry />} />
 <Route path ="/property" element={<Property />} />
 <Route path="/property-admin" element={<PropertyAdmin />} />
-<Route   path="/events"    element={<EventManagement />}
-/>
-<Route
-  path="/field-staff-login"
-  element={<FieldStaffLogin />}
-/>
-
-<Route
-  path="/field-staff-dashboard"
-  element={<FieldStaffDashboard />}
-/>
+<Route path="/events"    element={<EventManagement />}/>
+<Route path="/field-staff-login"   element={<FieldStaffLogin />}/>
+<Route path="/field-staff-dashboard"  element={<FieldStaffDashboard />}/>
 <Route path="/customerlogin" element={<CustomerLogin />} />
- <Route
-            path="/chatbot"
-            element={<ChatBot />}
-          />
+<Route path="/chatbot"     element={<ChatBot />}          />
 <Route path="/industry" element={<Industry />} />
-
-<Route
-  path="/customer-dashboard"
-  element={<CustomerDashboard />}
-/>
-
-<Route
-  path="/add-vendor"
-  element={<AddVendor />}
-/>
-
-<Route
-  path="/vendor-login"
-  element={<VendorLogin />}
-/>
-
-<Route
-  path="/vendor-dashboard"
-  element={<VendorDashboard />}
-/>
+<Route path="/customer-dashboard"   element={<CustomerDashboard />}/>
+<Route path="/add-vendor"   element={<AddVendor />}/>
+<Route path="/vendor-login"   element={<VendorLogin />} />
+<Route   path="/vendor-dashboard"   element={<VendorDashboard />}/>
           </Routes>
 
 
