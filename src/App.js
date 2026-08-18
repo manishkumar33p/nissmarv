@@ -47,7 +47,10 @@ import AddVendor from "./AddVendor/AddVendor";
 import VendorLogin from "./VendorLogin/VendorLogin";
 import VendorDashboard from "./VendorDashboard/VendorDashboard";
 import GlobalConsultantPopup from "./GlobalConsultantPopup/GlobalConsultantPopup";
-
+import FieldStaffAdmin from "./FieldStaffAdmin/FieldStaffAdmin";
+import FieldStaffManagement from "./FieldStaffManagement/FieldStaffManagement";
+import VendorAdmin from "./VendorAdmin/VendorAdmin";
+import VendorPackageAdmin from "./VendorPackageAdmin/VendorPackageAdmin";
 function App() {
   return (
     <Router>
@@ -101,6 +104,30 @@ function App() {
 <Route path="/add-vendor"   element={<AddVendor />}/>
 <Route path="/vendor-login"   element={<VendorLogin />} />
 <Route   path="/vendor-dashboard"   element={<VendorDashboard />}/>
+<Route
+  path="/field-staff-admin"
+  element={<FieldStaffAdmin />}
+/>
+
+<Route
+  path="/field-staff-management"
+  element={<FieldStaffAdmin />}
+/>
+
+// without navbar ye sab h
+<Route
+  path="/vendor-admin"
+  element={<VendorAdmin />}
+/>
+<Route
+  path="/vendor-dashboard/:vendorId"
+  element={<VendorDashboard />}
+/>
+
+<Route
+  path="/vendor-package-admin"
+  element={<VendorPackageAdmin />}
+/>
           </Routes>
 
 

@@ -261,6 +261,10 @@ const Navbar = () => {
       path: "/customerlogin",
     },
     {
+    name: " Packages",
+    path: "/packages",
+  },
+    {
       name: "Dashboard",
       path: "/login",
     },
@@ -271,6 +275,10 @@ const Navbar = () => {
   {
     name: "Vendor Login",
     path: "/vendor-login",
+  },
+  {
+    name: " field Staff Admin",
+    path: "/field-staff-admin",
   },
   ];
 
