@@ -276,10 +276,10 @@ const Navbar = () => {
     name: "Vendor Login",
     path: "/vendor-login",
   },
-  {
-    name: " field Staff Admin",
-    path: "/field-staff-admin",
-  },
+  // {
+  //   name: " field Staff Admin",
+  //   path: "/field-staff-admin",
+  // },
   ];
 
   return (
