@@ -1723,10 +1723,10 @@ Phone: ${phone}
         </h2>
 
 
-        <div className="niss-team-members">
+       
 
 
-          <div className="niss-team-member">
+          {/* <div className="niss-team-member">
 
             <img
               src={Marv55Image}
@@ -1741,12 +1741,12 @@ Phone: ${phone}
               CEO, Marv
             </p>
 
-          </div>
+          </div> */}
 
 
           <div className="niss-team-member">
 
-            <img
+            {/* <img
               src={Marv56Image}
               alt="Vineet Kumar"
             />
@@ -1759,7 +1759,7 @@ Phone: ${phone}
               CFO, Marv
             </p>
 
-          </div>
+          </div> */}
 
 
           <div className="niss-team-member">
@@ -1770,11 +1770,11 @@ Phone: ${phone}
             />
 
             <h4>
-              MANISH KUMAR SINGH
+             Manish Kumar Singh
             </h4>
 
             <p>
-              CEO, NISS
+              CEO, NISS Technology
             </p>
 
           </div>
@@ -1782,7 +1782,7 @@ Phone: ${phone}
 
           <div className="niss-team-member">
 
-            <img
+            {/* <img
               src={N}
               alt="K.R. Roushan"
             />
@@ -1794,7 +1794,7 @@ Phone: ${phone}
             <p>
               CFO, NISS
             </p>
-
+ */}
           </div>
 
         </div>
@@ -1830,7 +1830,7 @@ Phone: ${phone}
             </p>
 
             <h4>
-              John Doe
+              Hemanth Kumar
             </h4>
 
             <span>
@@ -1853,7 +1853,7 @@ Phone: ${phone}
             </p>
 
             <h4>
-              Jane Smith
+             Ashish Kumar
             </h4>
 
             <span>
@@ -1876,7 +1876,7 @@ Phone: ${phone}
             </p>
 
             <h4>
-              Michael Brown
+              Rahul Bhalla
             </h4>
 
             <span>
@@ -1899,7 +1899,7 @@ Phone: ${phone}
             </p>
 
             <h4>
-              Alice Green
+              Jitennder Singh
             </h4>
 
             <span>

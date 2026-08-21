@@ -51,6 +51,7 @@ import FieldStaffAdmin from "./FieldStaffAdmin/FieldStaffAdmin";
 import FieldStaffManagement from "./FieldStaffManagement/FieldStaffManagement";
 import VendorAdmin from "./VendorAdmin/VendorAdmin";
 import VendorPackageAdmin from "./VendorPackageAdmin/VendorPackageAdmin";
+import OfferLetterGenerator from "./OfferLetterGenerator/OfferLetterGenerator";
 function App() {
   return (
     <Router>
@@ -127,6 +128,11 @@ function App() {
 <Route
   path="/vendor-package-admin"
   element={<VendorPackageAdmin />}
+/>
+
+<Route
+  path="/offer-letter-generator"
+  element={<OfferLetterGenerator />}
 />
           </Routes>
 
