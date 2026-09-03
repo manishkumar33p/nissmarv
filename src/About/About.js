@@ -5,7 +5,7 @@ import "./About.css";
 import { NavLink } from "react-router-dom";
 import CustomerLogin from "../CustomerLogin/CustomerLogin";
 import MarvVideo2 from "../marvv3.mp4";
-import logo30 from "../logo30.png";
+
 import MarvImage from "../marv.jpg";
 import Marv1Image from "../marv1.jpeg";
 import Marv2Image from "../marv2.jpeg";
@@ -1764,14 +1764,17 @@ Phone: ${phone}
 
           <div className="niss-team-member">
 
-             <img src={logo30} alt="CEO" />
+            <img
+              src={Marv57Image}
+              alt="Manish Kumar Singh"
+            />
 
-            <h3>Sweta Kumari</h3>
-
-            <span>Managing Director & CEO</span>
+            <h4>
+             Manish Kumar Singh
+            </h4>
 
             <p>
-              Leading innovation and business strategy.
+              CEO, NISS Technology
             </p>
 
           </div>
