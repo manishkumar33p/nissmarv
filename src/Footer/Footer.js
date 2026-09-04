@@ -225,7 +225,7 @@ const Footer = () => {
           <div className="niss-footer-socials">
 
             <a
-              href="#facebook"
+              href="https://www.facebook.com/profile.php?id=61593512231484#"
               aria-label="Facebook"
               className="niss-footer-social facebook"
             >
@@ -233,7 +233,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="#instagram"
+              href="https://www.instagram.com/nisstechnology/"
               aria-label="Instagram"
               className="niss-footer-social instagram"
             >

@@ -2202,3 +2202,1543 @@
   }
 
 }
+
+
+
+
+
+
+* =========================================================
+   NISS QUICKFIX - ALL 5 SERVICES CSS
+   Works with the updated Plumbing.jsx / QuickFix component
+   Services:
+   Plumbing | Electrical | AC Repair & Service
+   Carpentry & Painting | Cleaning Services
+   ========================================================= */
+
+:root {
+  --qf-navy: #071f4b;
+  --qf-navy-2: #0d2f68;
+  --qf-orange: #ff4b12;
+  --qf-orange-2: #ff6a00;
+  --qf-white: #ffffff;
+  --qf-light: #f5f7fb;
+  --qf-border: #d9deea;
+  --qf-text: #10234b;
+  --qf-muted: #667085;
+  --qf-shadow: 0 12px 35px rgba(7, 31, 75, 0.12);
+  --qf-radius: 18px;
+}
+
+/* ================= GLOBAL ================= */
+
+.plumbing-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+  color: var(--qf-text);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.plumbing-page *,
+.plumbing-page *::before,
+.plumbing-page *::after {
+  box-sizing: border-box;
+}
+
+.plumbing-page button,
+.plumbing-page input {
+  font: inherit;
+}
+
+.plumbing-page button {
+  cursor: pointer;
+}
+
+/* ================= HERO ================= */
+
+.plumbing-section {
+  width: 100%;
+}
+
+.plumbing-hero {
+  position: relative;
+  min-height: 520px;
+  background:
+    linear-gradient(100deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.95) 47%, rgba(7,31,75,.10) 100%),
+    linear-gradient(135deg, #ffffff 0%, #f4f7fc 100%);
+  overflow: hidden;
+}
+
+.plumbing-overlay-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 82% 45%, rgba(255, 75, 18, .10), transparent 25%),
+    radial-gradient(circle at 70% 90%, rgba(7, 31, 75, .10), transparent 30%);
+}
+
+.plumbing-overlay {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  min-height: 520px;
+  margin: 0 auto;
+  padding: 70px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.plumbing-left {
+  width: min(680px, 100%);
+}
+
+.plumbing-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background: var(--qf-navy);
+  color: #fff;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1.4px;
+  margin-bottom: 18px;
+}
+
+.plumbing-left h1 {
+  margin: 0;
+  color: var(--qf-navy);
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: .98;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.plumbing-left h1 span {
+  display: block;
+  color: var(--qf-orange);
+  margin-top: 8px;
+}
+
+.plumbing-left > p {
+  max-width: 600px;
+  margin: 24px 0;
+  color: #344054;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+/* ================= SERVICE PILLS ================= */
+
+.quickfix-service-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 22px 0;
+}
+
+.quickfix-service-pills span {
+  padding: 9px 13px;
+  border: 1px solid #dce2ee;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--qf-navy);
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 5px 15px rgba(7, 31, 75, .06);
+}
+
+/* ================= HERO SEARCH ================= */
+
+.plumbing-search-box {
+  width: min(610px, 100%);
+  min-height: 58px;
+  display: flex;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid #e1e5ed;
+  border-radius: 14px;
+  box-shadow: var(--qf-shadow);
+}
+
+.plumbing-search-box input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  padding: 0 16px;
+  color: var(--qf-text);
+  background: transparent;
+}
+
+.plumbing-search-box input::placeholder {
+  color: #98a2b3;
+}
+
+.plumbing-search-box button {
+  border: 0;
+  border-radius: 10px;
+  padding: 0 28px;
+  background: var(--qf-orange);
+  color: #fff;
+  font-weight: 800;
+  transition: .25s ease;
+}
+
+.plumbing-search-box button:hover {
+  background: #e83e09;
+  transform: translateY(-1px);
+}
+
+/* ================= HERO BUTTONS ================= */
+
+.plumbing-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.plumbing-btn-primary,
+.plumbing-btn-secondary {
+  min-height: 50px;
+  padding: 0 24px;
+  border-radius: 10px;
+  font-weight: 800;
+  transition: .25s ease;
+}
+
+.plumbing-btn-primary {
+  border: 2px solid var(--qf-orange);
+  background: var(--qf-orange);
+  color: #fff;
+}
+
+.plumbing-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 22px rgba(255, 75, 18, .25);
+}
+
+.plumbing-btn-secondary {
+  border: 2px solid var(--qf-navy);
+  background: #fff;
+  color: var(--qf-navy);
+}
+
+.plumbing-btn-secondary:hover {
+  background: var(--qf-navy);
+  color: #fff;
+}
+
+/* ================= HERO RIGHT ================= */
+
+.plumbing-right {
+  width: min(440px, 100%);
+}
+
+.quickfix-hero-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.quickfix-hero-service-grid div {
+  min-height: 145px;
+  padding: 25px 16px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid #e0e5ef;
+  box-shadow: var(--qf-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: var(--qf-orange);
+  font-size: 40px;
+  text-align: center;
+}
+
+.quickfix-hero-service-grid div:nth-child(2),
+.quickfix-hero-service-grid div:nth-child(4) {
+  color: var(--qf-navy);
+}
+
+.quickfix-hero-service-grid div:last-child {
+  grid-column: 1 / -1;
+}
+
+.quickfix-hero-service-grid strong {
+  color: var(--qf-navy);
+  font-size: 14px;
+  letter-spacing: .7px;
+}
+
+/* ================= TRUST BAR ================= */
+
+.quickfix-trust-bar {
+  position: relative;
+  z-index: 5;
+  max-width: 1300px;
+  margin: -30px auto 0;
+  min-height: 82px;
+  padding: 12px 25px;
+  border-radius: 15px;
+  background: var(--qf-navy);
+  color: #fff;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  box-shadow: 0 14px 35px rgba(7, 31, 75, .22);
+}
+
+.quickfix-trust-bar div {
+  min-height: 48px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-right: 1px solid rgba(255,255,255,.35);
+  font-size: 14px;
+  text-align: center;
+}
+
+.quickfix-trust-bar div:last-child {
+  border-right: 0;
+}
+
+.quickfix-trust-bar div::first-letter {
+  font-size: 24px;
+}
+
+/* ================= SECTION HEADING ================= */
+
+.section-heading {
+  max-width: 1200px;
+  margin: 75px auto 28px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.section-heading span {
+  color: var(--qf-orange);
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  font-size: 13px;
+}
+
+.section-heading h2 {
+  margin: 8px 0 8px;
+  color: var(--qf-navy);
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.1;
+  font-weight: 900;
+}
+
+.section-heading p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--qf-muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ================= CATEGORY FILTER ================= */
+
+.quickfix-category-filter {
+  max-width: 1250px;
+  margin: 25px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.quickfix-category-filter button {
+  border: 1px solid #d7ddea;
+  border-radius: 999px;
+  padding: 11px 17px;
+  background: #fff;
+  color: var(--qf-navy);
+  font-size: 13px;
+  font-weight: 800;
+  transition: .22s ease;
+}
+
+.quickfix-category-filter button:hover {
+  border-color: var(--qf-orange);
+  color: var(--qf-orange);
+  transform: translateY(-1px);
+}
+
+.quickfix-category-filter .active-category {
+  border-color: var(--qf-navy);
+  background: var(--qf-navy);
+  color: #fff;
+}
+
+/* ================= FILTERS ================= */
+
+.plumbing-filters {
+  max-width: 1250px;
+  margin: 20px auto 35px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 230px;
+  gap: 12px;
+}
+
+.plumbing-filters input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid #d9deea;
+  border-radius: 11px;
+  outline: none;
+  background: #fff;
+  color: var(--qf-text);
+  transition: .2s ease;
+}
+
+.plumbing-filters input:focus {
+  border-color: var(--qf-orange);
+  box-shadow: 0 0 0 4px rgba(255,75,18,.08);
+}
+
+/* ================= SERVICE GRID ================= */
+
+.plumbing-grid {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 20px 70px;
+}
+
+.quickfix-all-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* ================= SERVICE CARD ================= */
+
+.service-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e3e7ef;
+  border-radius: var(--qf-radius);
+  box-shadow: 0 7px 25px rgba(7,31,75,.07);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 17px 38px rgba(7,31,75,.14);
+}
+
+.service-image {
+  position: relative;
+  width: 100%;
+  height: 185px;
+  overflow: hidden;
+  background: #eef2f7;
+}
+
+.service-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+
+.service-card:hover .service-image img {
+  transform: scale(1.06);
+}
+
+.service-content {
+  padding: 17px;
+}
+
+.service-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--qf-orange);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+}
+
+.service-content h3 {
+  min-height: 44px;
+  margin: 0;
+  color: var(--qf-navy);
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 850;
+}
+
+.service-price {
+  margin: 12px 0 15px;
+  color: var(--qf-orange);
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.service-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.service-actions button {
+  min-height: 42px;
+  border-radius: 9px;
+  border: 1px solid var(--qf-orange);
+  background: var(--qf-orange);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  transition: .2s ease;
+}
+
+.service-actions button:hover {
+  background: #e83e09;
+}
+
+.service-actions .cart-button {
+  border-color: var(--qf-navy);
+  background: #fff;
+  color: var(--qf-navy);
+}
+
+.service-actions .cart-button:hover {
+  background: var(--qf-navy);
+  color: #fff;
+}
+
+/* ================= NO SERVICE ================= */
+
+.no-service {
+  grid-column: 1 / -1;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed #ccd3df;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.no-service h2 {
+  margin: 0 0 7px;
+  color: var(--qf-navy);
+}
+
+.no-service p {
+  margin: 0;
+  color: var(--qf-muted);
+}
+
+/* ================= FIVE SERVICES ================= */
+
+.quickfix-five-services {
+  padding: 30px 20px 80px;
+  background: #f7f9fc;
+}
+
+.quickfix-five-services .section-heading {
+  margin-top: 25px;
+}
+
+.quickfix-five-grid {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.quickfix-category-card {
+  min-height: 235px;
+  padding: 25px 18px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid #e1e5ed;
+  box-shadow: 0 8px 25px rgba(7,31,75,.07);
+  cursor: pointer;
+  text-align: center;
+  transition: .25s ease;
+}
+
+.quickfix-category-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 17px 35px rgba(7,31,75,.13);
+}
+
+.quickfix-category-card.orange {
+  border-top: 5px solid var(--qf-orange);
+}
+
+.quickfix-category-card.navy {
+  border-top: 5px solid var(--qf-navy);
+}
+
+.quickfix-category-icon {
+  width: 66px;
+  height: 66px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: var(--qf-navy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 31px;
+}
+
+.quickfix-category-card.orange .quickfix-category-icon {
+  background: var(--qf-orange);
+}
+
+.quickfix-category-card h3 {
+  margin: 0 0 9px;
+  color: var(--qf-navy);
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 900;
+}
+
+.quickfix-category-card p {
+  margin: 0 0 14px;
+  min-height: 58px;
+  color: var(--qf-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.quickfix-category-card strong {
+  color: var(--qf-orange);
+  font-size: 13px;
+}
+
+/* ================= BOOKING SECTION ================= */
+
+.quickfix-booking-section {
+  max-width: 1250px;
+  margin: 55px auto;
+  padding: 35px;
+  border-radius: 22px;
+  background: var(--qf-navy);
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.quickfix-booking-section h2 {
+  margin: 0 0 25px;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.quickfix-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.quickfix-steps div {
+  min-height: 120px;
+  padding: 18px 12px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 14px;
+  background: rgba(255,255,255,.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.quickfix-steps span {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--qf-orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.quickfix-steps strong {
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.quickfix-urgent-box {
+  padding: 30px;
+  border-radius: 18px;
+  background: #fff;
+  color: var(--qf-navy);
+}
+
+.quickfix-urgent-box h2 {
+  margin-bottom: 8px;
+  color: var(--qf-orange);
+  font-size: 26px;
+}
+
+.quickfix-urgent-box p {
+  margin: 0 0 15px;
+  font-weight: 800;
+}
+
+.quickfix-urgent-box strong {
+  display: inline-flex;
+  padding: 11px 16px;
+  border-radius: 8px;
+  background: var(--qf-orange);
+  color: #fff;
+  font-size: 14px;
+}
+
+/* ================= BOOKING MODAL ================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  padding: 20px;
+  background: rgba(3, 12, 29, .72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  backdrop-filter: blur(4px);
+}
+
+.modal-box {
+  position: relative;
+  width: min(500px, 100%);
+  padding: 32px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 25px 70px rgba(0,0,0,.25);
+  animation: quickfixModalIn .25s ease;
+}
+
+@keyframes quickfixModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 13px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: #f1f3f7;
+  color: var(--qf-navy);
+  font-size: 25px;
+  line-height: 1;
+}
+
+.modal-box h2 {
+  margin: 4px 35px 5px 0;
+  color: var(--qf-navy);
+  font-size: 27px;
+  line-height: 1.2;
+}
+
+.modal-box > p {
+  margin: 0 0 24px;
+  color: var(--qf-orange);
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.modal-box label {
+  display: block;
+  margin: 14px 0 7px;
+  color: var(--qf-navy);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.modal-box input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 13px;
+  border: 1px solid #d8deea;
+  border-radius: 9px;
+  outline: none;
+}
+
+.modal-box input:focus {
+  border-color: var(--qf-orange);
+  box-shadow: 0 0 0 4px rgba(255,75,18,.08);
+}
+
+.modal-total {
+  margin: 22px 0 15px;
+  color: var(--qf-navy);
+  font-size: 19px;
+}
+
+.modal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 10px;
+}
+
+.modal-actions button {
+  min-height: 48px;
+  border-radius: 9px;
+  font-weight: 800;
+}
+
+.cancel-btn {
+  border: 1px solid #ccd3df;
+  background: #fff;
+  color: var(--qf-navy);
+}
+
+.confirm-btn {
+  border: 1px solid var(--qf-orange);
+  background: var(--qf-orange);
+  color: #fff;
+}
+
+/* ================= MESSAGE ================= */
+
+.service-message {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 10000;
+  max-width: calc(100vw - 44px);
+  padding: 14px 20px;
+  border-radius: 10px;
+  background: var(--qf-navy);
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,.2);
+  font-size: 14px;
+  font-weight: 800;
+  animation: quickfixToast .25s ease;
+}
+
+@keyframes quickfixToast {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+  .plumbing-overlay {
+    padding: 55px 4%;
+  }
+
+  .quickfix-all-services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .quickfix-five-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .quickfix-booking-section {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 850px) {
+  .plumbing-hero,
+  .plumbing-overlay {
+    min-height: auto;
+  }
+
+  .plumbing-overlay {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 35px;
+    padding: 55px 25px 75px;
+  }
+
+  .plumbing-right {
+    width: 100%;
+  }
+
+  .quickfix-hero-service-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .quickfix-hero-service-grid div {
+    min-height: 110px;
+    padding: 15px 7px;
+    font-size: 27px;
+  }
+
+  .quickfix-hero-service-grid div:last-child {
+    grid-column: auto;
+  }
+
+  .quickfix-hero-service-grid strong {
+    font-size: 10px;
+  }
+
+  .quickfix-trust-bar {
+    margin: -25px 20px 0;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quickfix-trust-bar div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .quickfix-trust-bar div:nth-child(-n+2) {
+    border-bottom: 1px solid rgba(255,255,255,.25);
+  }
+
+  .plumbing-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .quickfix-all-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quickfix-booking-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .plumbing-left h1 {
+    font-size: 42px;
+    letter-spacing: -1px;
+  }
+
+  .plumbing-left > p {
+    font-size: 15px;
+  }
+
+  .plumbing-search-box {
+    flex-direction: column;
+    padding: 7px;
+  }
+
+  .plumbing-search-box input {
+    min-height: 47px;
+  }
+
+  .plumbing-search-box button {
+    min-height: 45px;
+  }
+
+  .plumbing-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .quickfix-hero-service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quickfix-hero-service-grid div:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .quickfix-trust-bar {
+    grid-template-columns: 1fr;
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .quickfix-trust-bar div {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,.25);
+  }
+
+  .quickfix-trust-bar div:last-child {
+    border-bottom: 0;
+  }
+
+  .section-heading {
+    margin-top: 55px;
+  }
+
+  .quickfix-category-filter {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+  }
+
+  .quickfix-category-filter button {
+    flex: 0 0 auto;
+  }
+
+  .quickfix-all-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-image {
+    height: 220px;
+  }
+
+  .quickfix-five-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quickfix-booking-section {
+    margin: 35px 12px;
+    padding: 25px 18px;
+  }
+
+  .quickfix-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-box {
+    padding: 25px 20px;
+  }
+
+  .modal-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .service-message {
+    right: 12px;
+    bottom: 12px;
+    max-width: calc(100vw - 24px);
+  }
+}
+
+/* ================= REDUCED MOTION ================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .plumbing-page *,
+  .plumbing-page *::before,
+  .plumbing-page *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
+
+/* =====================================================
+   NISS QUICKFIX - TEXT / BUTTON COLOR FIX
+   ===================================================== */
+
+/* Normal text selection ko controlled rakhein */
+.plumbing-page ::selection {
+  background: #ff4b12;
+  color: #ffffff;
+}
+
+/* Hero ke normal text colors */
+.plumbing-page .plumbing-left h1 {
+  color: #071f4b !important;
+}
+
+.plumbing-page .plumbing-left h1 span {
+  color: #ff4b12 !important;
+}
+
+.plumbing-page .plumbing-left > p {
+  color: #344054 !important;
+}
+
+/* QUICKFIX TAG */
+.plumbing-page .plumbing-tag {
+  background: #071f4b !important;
+  color: #ffffff !important;
+}
+
+/* Service pills */
+.plumbing-page .quickfix-service-pills span {
+  background: #ffffff !important;
+  color: #071f4b !important;
+  border: 1px solid #dce2ee;
+}
+
+/* Hero service boxes */
+.plumbing-page .quickfix-hero-service-grid div {
+  background: #ffffff !important;
+  color: #071f4b !important;
+}
+
+.plumbing-page .quickfix-hero-service-grid div strong {
+  color: #071f4b !important;
+}
+
+/* ================= SEARCH ================= */
+
+.plumbing-page .plumbing-search-box {
+  background: #ffffff !important;
+}
+
+.plumbing-page .plumbing-search-box input {
+  background: #ffffff !important;
+  color: #071f4b !important;
+}
+
+.plumbing-page .plumbing-search-box input::placeholder {
+  color: #98a2b3 !important;
+}
+
+.plumbing-page .plumbing-search-box button {
+  background: #ff4b12 !important;
+  color: #ffffff !important;
+}
+
+/* ================= HERO BUTTONS ================= */
+
+.plumbing-page .plumbing-btn-primary {
+  background: #ff4b12 !important;
+  border-color: #ff4b12 !important;
+  color: #ffffff !important;
+}
+
+.plumbing-page .plumbing-btn-secondary {
+  background: #ffffff !important;
+  border-color: #071f4b !important;
+  color: #071f4b !important;
+}
+
+/* ================= CATEGORY FILTER ================= */
+
+.plumbing-page .quickfix-category-filter button {
+  background: #ffffff !important;
+  color: #071f4b !important;
+  border-color: #d7ddea !important;
+}
+
+.plumbing-page .quickfix-category-filter button.active-category {
+  background: #071f4b !important;
+  color: #ffffff !important;
+  border-color: #071f4b !important;
+}
+
+/* ================= FILTER INPUTS ================= */
+
+.plumbing-page .plumbing-filters input {
+  background: #ffffff !important;
+  color: #071f4b !important;
+}
+
+.plumbing-page .plumbing-filters input::placeholder {
+  color: #98a2b3 !important;
+}
+
+/* ================= SERVICE CARD ================= */
+
+.plumbing-page .service-card {
+  background: #ffffff !important;
+}
+
+.plumbing-page .service-content {
+  background: #ffffff !important;
+}
+
+.plumbing-page .service-label {
+  color: #ff4b12 !important;
+}
+
+.plumbing-page .service-content h3 {
+  color: #071f4b !important;
+}
+
+.plumbing-page .service-price {
+  color: #ff4b12 !important;
+}
+
+/* ================= BOOK NOW ================= */
+
+.plumbing-page .service-actions button {
+  background: #ff4b12 !important;
+  border-color: #ff4b12 !important;
+  color: #ffffff !important;
+}
+
+.plumbing-page .service-actions button:hover {
+  background: #e83e09 !important;
+  color: #ffffff !important;
+}
+
+/* ADD TO CART */
+.plumbing-page .service-actions .cart-button {
+  background: #ffffff !important;
+  border-color: #071f4b !important;
+  color: #071f4b !important;
+}
+
+.plumbing-page .service-actions .cart-button:hover {
+  background: #071f4b !important;
+  color: #ffffff !important;
+}
+
+/* ================= FIVE SERVICE CARDS ================= */
+
+.plumbing-page .quickfix-category-card {
+  background: #ffffff !important;
+  color: #071f4b !important;
+}
+
+.plumbing-page .quickfix-category-card h3 {
+  color: #071f4b !important;
+}
+
+.plumbing-page .quickfix-category-card p {
+  color: #667085 !important;
+}
+
+.plumbing-page .quickfix-category-card strong {
+  color: #ff4b12 !important;
+}
+
+/* ================= BOOKING MODAL ================= */
+
+.plumbing-page .modal-box {
+  background: #ffffff !important;
+  color: #071f4b !important;
+}
+
+.plumbing-page .modal-box h2 {
+  color: #071f4b !important;
+}
+
+.plumbing-page .modal-box > p {
+  color: #ff4b12 !important;
+}
+
+.plumbing-page .modal-box label {
+  color: #071f4b !important;
+}
+
+.plumbing-page .modal-box input {
+  background: #ffffff !important;
+  color: #071f4b !important;
+}
+
+.plumbing-page .modal-total {
+  color: #071f4b !important;
+}
+
+/* Modal buttons */
+.plumbing-page .cancel-btn {
+  background: #ffffff !important;
+  color: #071f4b !important;
+  border-color: #ccd3df !important;
+}
+
+.plumbing-page .confirm-btn {
+  background: #ff4b12 !important;
+  color: #ffffff !important;
+  border-color: #ff4b12 !important;
+}
+
+/* ================= IMPORTANT ================= */
+
+/* Browser ke accidental text-selection effect ko remove
+   karne ke liye page ke clickable UI par selection disable */
+.plumbing-page button,
+.plumbing-page .service-card,
+.plumbing-page .quickfix-category-card,
+.plumbing-page .quickfix-service-pills span,
+.plumbing-page .quickfix-hero-service-grid div {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+
+/* =========================================================
+   NISS QUICKFIX - FINAL BACKGROUND + CART MESSAGE FIX
+   ========================================================= */
+
+/* ================= BOOK SERVICE SECTION ================= */
+
+.plumbing-page .quickfix-booking-section {
+  width: calc(100% - 40px) !important;
+  max-width: 1250px !important;
+  margin: 55px auto !important;
+  padding: 35px !important;
+
+  background: #071f4b !important;
+  color: #ffffff !important;
+
+  border-radius: 22px !important;
+
+  display: grid !important;
+  grid-template-columns: 1.5fr 1fr !important;
+  gap: 35px !important;
+  align-items: center !important;
+
+  box-shadow: 0 14px 35px rgba(7, 31, 75, 0.18) !important;
+}
+
+/* Book Service heading */
+.plumbing-page .quickfix-booking-section h2 {
+  color: #ffffff !important;
+  background: transparent !important;
+  margin: 0 0 25px !important;
+  font-size: 28px !important;
+  font-weight: 900 !important;
+}
+
+/* Steps */
+.plumbing-page .quickfix-steps {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 15px !important;
+}
+
+.plumbing-page .quickfix-steps div {
+  min-height: 120px !important;
+  padding: 18px 12px !important;
+
+  border: 1px solid rgba(255,255,255,.20) !important;
+  border-radius: 14px !important;
+
+  background: rgba(255,255,255,.07) !important;
+  color: #ffffff !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+
+  text-align: center !important;
+}
+
+.plumbing-page .quickfix-steps div span {
+  width: 40px !important;
+  height: 40px !important;
+
+  border-radius: 50% !important;
+  background: #ff4b12 !important;
+  color: #ffffff !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  font-size: 18px !important;
+  font-weight: 900 !important;
+}
+
+.plumbing-page .quickfix-steps div strong {
+  color: #ffffff !important;
+  background: transparent !important;
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+}
+
+/* ================= URGENT SERVICE BOX ================= */
+
+.plumbing-page .quickfix-urgent-box {
+  padding: 30px !important;
+
+  border-radius: 18px !important;
+  background: #ffffff !important;
+  color: #071f4b !important;
+}
+
+.plumbing-page .quickfix-urgent-box h2 {
+  color: #ff4b12 !important;
+  background: transparent !important;
+  margin: 0 0 8px !important;
+  font-size: 26px !important;
+}
+
+.plumbing-page .quickfix-urgent-box p {
+  color: #071f4b !important;
+  background: transparent !important;
+  margin: 0 0 15px !important;
+  font-weight: 800 !important;
+}
+
+.plumbing-page .quickfix-urgent-box strong {
+  display: inline-flex !important;
+  padding: 11px 16px !important;
+
+  border-radius: 8px !important;
+  background: #ff4b12 !important;
+  color: #ffffff !important;
+
+  font-size: 14px !important;
+}
+
+
+/* =========================================================
+   ADD TO CART SUCCESS MESSAGE
+   ========================================================= */
+
+.plumbing-page .service-message {
+  position: fixed !important;
+  right: 22px !important;
+  bottom: 22px !important;
+  z-index: 10000 !important;
+
+  padding: 14px 22px !important;
+
+  background: #16a34a !important;
+  color: #ffffff !important;
+
+  border: 1px solid #15803d !important;
+  border-radius: 10px !important;
+
+  box-shadow: 0 10px 28px rgba(22, 163, 74, .30) !important;
+
+  font-size: 14px !important;
+  font-weight: 800 !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Message ke andar ka text bhi green background par white */
+.plumbing-page .service-message * {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+
+/* =========================================================
+   NORMAL TEXT COLOR FIX
+   ========================================================= */
+
+/* Headings */
+.plumbing-page h1,
+.plumbing-page h2,
+.plumbing-page h3,
+.plumbing-page h4,
+.plumbing-page p,
+.plumbing-page strong,
+.plumbing-page span {
+  /* inherited white ko uncontrolled hone se roke */
+}
+
+/* Service cards */
+.plumbing-page .service-content h3 {
+  color: #071f4b !important;
+  background: transparent !important;
+}
+
+.plumbing-page .service-content p {
+  color: #667085 !important;
+  background: transparent !important;
+}
+
+
+/* =========================================================
+   BUTTON COLORS
+   ========================================================= */
+
+.plumbing-page .service-actions button:first-child {
+  background: #ff4b12 !important;
+  color: #ffffff !important;
+  border-color: #ff4b12 !important;
+}
+
+.plumbing-page .service-actions button:first-child:hover {
+  background: #e83e09 !important;
+  color: #ffffff !important;
+}
+
+.plumbing-page .service-actions .cart-button {
+  background: #ffffff !important;
+  color: #071f4b !important;
+  border-color: #071f4b !important;
+}
+
+.plumbing-page .service-actions .cart-button:hover {
+  background: #071f4b !important;
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   REMOVE UNWANTED TEXT HIGHLIGHT LOOK
+   ========================================================= */
+
+.plumbing-page .quickfix-booking-section,
+.plumbing-page .quickfix-booking-section h2,
+.plumbing-page .quickfix-booking-section p,
+.plumbing-page .quickfix-booking-section strong,
+.plumbing-page .quickfix-urgent-box {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .plumbing-page .quickfix-booking-section {
+    grid-template-columns: 1fr !important;
+    margin: 35px 20px !important;
+    width: calc(100% - 40px) !important;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .plumbing-page .quickfix-booking-section {
+    padding: 25px 18px !important;
+    margin: 30px 12px !important;
+    width: calc(100% - 24px) !important;
+  }
+
+  .plumbing-page .quickfix-steps {
+    grid-template-columns: 1fr !important;
+  }
+
+  .plumbing-page .quickfix-urgent-box {
+    padding: 22px !important;
+  }
+
+  .plumbing-page .service-message {
+    right: 12px !important;
+    bottom: 12px !important;
+    max-width: calc(100% - 24px) !important;
+  }
+}
