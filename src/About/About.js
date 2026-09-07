@@ -1726,7 +1726,7 @@ Phone: ${phone}
        
 
 
-          {/* <div className="niss-team-member">
+           <div className="niss-team-member">
 
             <img
               src={Marv55Image}
@@ -1738,10 +1738,10 @@ Phone: ${phone}
             </h4>
 
             <p>
-              CEO, Marv
+              COO, NISS Technology
             </p>
 
-          </div> */}
+          </div> 
 
 
           <div className="niss-team-member">
@@ -1782,7 +1782,7 @@ Phone: ${phone}
 
           <div className="niss-team-member">
 
-            {/* <img
+            <img
               src={N}
               alt="K.R. Roushan"
             />
@@ -1792,9 +1792,9 @@ Phone: ${phone}
             </h4>
 
             <p>
-              CFO, NISS
+              CBO, NISS Technology
             </p>
- */}
+
           </div>
 
         </div>
