@@ -296,7 +296,8 @@ const ContactUs = () => {
                 <h3>Email Us</h3>
 
                 <a href="mailto:technologiesniss@gmail.com">
-                  technologiesniss@gmail.com
+                  technologiesniss@gmail.com<br></br>
+                  info@nisstechnology.com
                 </a>
 
               </div>
