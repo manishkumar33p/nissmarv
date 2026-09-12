@@ -821,7 +821,7 @@ Phone: ${phone}
               }
             >
               ×
-            </button> */}
+            </button> 
 
 
             <div className="niss-consultant-header">
@@ -1734,7 +1734,7 @@ Phone: ${phone}
             />
 
             <h4>
-              VIBHASH VAIBHAV
+              Shubham Pandey
             </h4>
 
             <p>
