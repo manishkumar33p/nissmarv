@@ -26,6 +26,7 @@ import Marv57Image from "../marv57.jpeg";
 
 import WhatsAppLogo from "../whatsapp-logo.jfif";
 import N from "../N.jpeg";
+import DeepakImage from "../Deepak.jpeg";
 
 import logo27 from "../logo27.png";
 import logo28 from "../logo28.jpeg";
@@ -1716,7 +1717,7 @@ Phone: ${phone}
           TEAM
       ================================================= */}
 
-      <section className="niss-team-section">
+      {/* <section className="niss-team-section">
 
         <h2>
           Meet Our Team
@@ -1726,40 +1727,12 @@ Phone: ${phone}
        
 
 
-           <div className="niss-team-member">
-
-            <img
-              src={Marv55Image}
-              alt="Vibhash Vaibhav"
-            />
-
-            <h4>
-              Shubham Pandey
-            </h4>
-
-            <p>
-              COO, NISS Technology
-            </p>
-
-          </div> 
+           
 
 
           <div className="niss-team-member">
 
-            {/* <img
-              src={Marv56Image}
-              alt="Vineet Kumar"
-            />
-
-            <h4>
-              VINEET KUMAR
-            </h4>
-
-            <p>
-              CFO, Marv
-            </p>
-
-          </div> */}
+    
 
 
           <div className="niss-team-member">
@@ -1776,6 +1749,22 @@ Phone: ${phone}
             <p>
               CEO, NISS Technology
             </p>
+
+
+
+            <img
+              src={Marv55Image}
+              alt="Vibhash Vaibhav"
+            />
+
+            <h4>
+              Shubham Pandey
+            </h4>
+
+            <p>
+              COO, NISS Technology
+            </p>
+
 
           </div>
 
@@ -1796,12 +1785,112 @@ Phone: ${phone}
             </p>
 
           </div>
+ <div className="niss-team-member">
 
+            <img
+              src={DeepakImage}
+              alt="K.R. Roushan"
+            />
+
+            <h4>
+              Mr. Deepak Kumar
+            </h4>
+
+            <p>
+              Business Head, NISS Technology
+            </p>
+
+          </div>
         </div>
 
-      </section>
+      </section> */}
+
+<section className="niss-team-section">
+
+  <h2>
+    Meet Our Team
+  </h2>
+
+  <div className="niss-team-members">
+
+    {/* MANISH */}
+    <div className="niss-team-member">
+
+      <img
+        src={Marv57Image}
+        alt="Manish Kumar Singh"
+      />
+
+      <h4>
+        Manish Kumar Singh
+      </h4>
+
+      <p>
+        CEO, NISS Technology
+      </p>
+
+    </div>
 
 
+    {/* SHUBHAM */}
+    <div className="niss-team-member">
+
+      <img
+        src={Marv55Image}
+        alt="Shubham Pandey"
+      />
+
+      <h4>
+        Shubham Pandey
+      </h4>
+
+      <p>
+        COO, NISS Technology
+      </p>
+
+    </div>
+
+
+    {/* K.R. ROUSHAN */}
+    <div className="niss-team-member">
+
+      <img
+        src={N}
+        alt="K.R. Roushan"
+      />
+
+      <h4>
+        K.R. ROUSHAN
+      </h4>
+
+      <p>
+        CBO, NISS Technology
+      </p>
+
+    </div>
+
+
+    {/* DEEPAK */}
+    <div className="niss-team-member">
+
+      <img
+        src={DeepakImage}
+        alt="Mr. Deepak Kumar"
+      />
+
+      <h4>
+        Mr. Deepak Kumar
+      </h4>
+
+      <p>
+        Business Head, NISS Technology
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* =================================================
           TESTIMONIALS

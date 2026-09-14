@@ -704,6 +704,8 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
+
+
 .niss-team-member img {
   width: 150px;
   height: 150px;
@@ -1421,6 +1423,117 @@
 
   .niss-whatsapp-floating span {
     display: none;
+  }
+
+}
+
+
+
+
+/* =========================
+   NISS TEAM - ONE ROW
+========================= */
+
+.niss-team-section {
+  width: 100%;
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.niss-team-section > h2 {
+  margin: 0 0 45px;
+  color: #10233f;
+  font-size: 34px;
+}
+
+/* Important */
+.niss-team-section > .niss-team-members {
+  display: contents !important;
+}
+
+/* All team members in one row */
+.niss-team-section {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+  align-items: stretch;
+}
+
+/* Heading takes full width */
+.niss-team-section > h2 {
+  grid-column: 1 / -1;
+}
+
+/* Team card */
+.niss-team-member {
+  width: 100%;
+  min-width: 0;
+  padding: 25px 15px;
+  background: #ffffff;
+  border: 1px solid #edf0f5;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Team image */
+.niss-team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 18px;
+}
+
+/* Name */
+.niss-team-member h4 {
+  margin: 5px 0;
+  color: #10233f;
+  font-size: 16px;
+}
+
+/* Designation */
+.niss-team-member p {
+  margin: 0;
+  color: #f36f21;
+  font-weight: 700;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+  .niss-team-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .niss-team-section > h2 {
+    grid-column: 1 / -1;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+  .niss-team-section {
+    grid-template-columns: 1fr;
+    padding: 50px 18px;
+  }
+
+  .niss-team-section > h2 {
+    grid-column: 1;
   }
 
 }

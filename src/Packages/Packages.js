@@ -8,7 +8,7 @@ import {
 
 import { db } from "../firebase";
 import "./Packages.css";
-
+import qr from "../qr.jpeg";
 const PACKAGES = [
   {
     id: "basic",
@@ -617,7 +617,7 @@ const Packages = () => {
                       */}
 
                       <img
-                        src="/payment-qr.png"
+                        src={qr}
                         alt="NISS Technologies Payment QR"
                       />
 
