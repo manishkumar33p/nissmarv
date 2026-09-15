@@ -645,3 +645,19 @@
     margin: 0;
   }
 }
+
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.brand-logo-image {
+  width: 220px;
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+}

@@ -1879,7 +1879,7 @@ Phone: ${phone}
       />
 
       <h4>
-        Mr. Deepak Kumar
+        Mr. Deepak Nigam
       </h4>
 
       <p>
