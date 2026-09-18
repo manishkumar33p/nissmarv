@@ -1688,7 +1688,7 @@ Please contact the customer regarding this inquiry.
   return (
     <div className="checkout-page">
 
-      <NavBar />
+   
 
       <div className="checkout-bg"></div>
 

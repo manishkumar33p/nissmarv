@@ -107,7 +107,7 @@ input:focus {
   .checkout-bg{
     position: fixed;
     inset: 0;
-    background: linear-gradient(135deg,#0f0f0f,#1c1c1c);
+    background: linear-gradient(135deg,#807e7e,#141414);
     z-index: -1;
   }
   

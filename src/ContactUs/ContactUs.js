@@ -122,7 +122,7 @@ const ContactUs = () => {
     /* SEND EMAIL */
     try {
       await emailjs.sendForm(
-        "service_3z8pkj1",
+        "service_av098v7",
         "template_zfanfmp",
         form.current,
         "dKgJCNwJ0irTaeaZ1"
@@ -593,3 +593,221 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
+
+
+
+// import React, { useState } from "react";
+// import emailjs from "@emailjs/browser";
+// import "./ContactUs.css";
+
+// const ContactUs = () => {
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: "",
+//     phone: "",
+//     service: "",
+//     message: "",
+//   });
+
+//   const [sending, setSending] = useState(false);
+//   const [statusMessage, setStatusMessage] = useState("");
+//   const [statusType, setStatusType] = useState("");
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+
+//     setFormData((previousData) => ({
+//       ...previousData,
+//       [name]: value,
+//     }));
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     if (
+//       !formData.name ||
+//       !formData.email ||
+//       !formData.phone ||
+//       !formData.service ||
+//       !formData.message
+//     ) {
+//       setStatusType("error");
+//       setStatusMessage("Please fill in all fields.");
+//       return;
+//     }
+
+//     setSending(true);
+//     setStatusMessage("");
+//     setStatusType("");
+
+//     const subject = `New Enquiry - ${formData.service}`;
+
+//     const contactRecord = {
+//       ...formData,
+//       subject,
+//       date: new Date().toLocaleString("en-IN"),
+//     };
+
+//     try {
+//       // Save enquiry in browser localStorage
+//       const existingRecords =
+//         JSON.parse(localStorage.getItem("contactData")) || [];
+
+//       localStorage.setItem(
+//         "contactData",
+//         JSON.stringify([...existingRecords, contactRecord])
+//       );
+
+//       // EmailJS template variables
+//       const templateParams = {
+//         name: formData.name,
+//         email: formData.email,
+//         phone: formData.phone,
+//         service: formData.service,
+//         message: formData.message,
+//         subject: subject,
+//         reply_to: formData.email,
+//       };
+
+//       // Send email through EmailJS
+//       await emailjs.send(
+//         "service_3z8pkj1",
+//         "template_zfanfmp",
+//         templateParams,
+//         "dKgJCNwJ0irTaeaZ1"
+//       );
+
+//       setStatusType("success");
+//       setStatusMessage(
+//         "Your enquiry has been sent successfully. We will contact you soon."
+//       );
+
+//       setFormData({
+//         name: "",
+//         email: "",
+//         phone: "",
+//         service: "",
+//         message: "",
+//       });
+//     } catch (error) {
+//       console.error("EmailJS Error:", error);
+
+//       setStatusType("warning");
+//       setStatusMessage(
+//         "Your enquiry has been saved, but email service is temporarily unavailable."
+//       );
+//     } finally {
+//       setSending(false);
+//     }
+//   };
+
+//   return (
+//     <section className="contact-section" id="contact">
+//       <div className="contact-container">
+//         <div className="contact-heading">
+//           <h2>Contact Us</h2>
+//           <p>
+//             Have a project or requirement? Send us your details.
+//           </p>
+//         </div>
+
+//         <form className="contact-form" onSubmit={handleSubmit}>
+//           <div className="form-group">
+//             <label htmlFor="name">Full Name</label>
+//             <input
+//               type="text"
+//               id="name"
+//               name="name"
+//               placeholder="Enter your name"
+//               value={formData.name}
+//               onChange={handleChange}
+//               required
+//             />
+//           </div>
+
+//           <div className="form-group">
+//             <label htmlFor="email">Email Address</label>
+//             <input
+//               type="email"
+//               id="email"
+//               name="email"
+//               placeholder="Enter your email"
+//               value={formData.email}
+//               onChange={handleChange}
+//               required
+//             />
+//           </div>
+
+//           <div className="form-group">
+//             <label htmlFor="phone">Phone Number</label>
+//             <input
+//               type="tel"
+//               id="phone"
+//               name="phone"
+//               placeholder="Enter your phone number"
+//               value={formData.phone}
+//               onChange={handleChange}
+//               required
+//             />
+//           </div>
+
+//           <div className="form-group">
+//             <label htmlFor="service">Select Service</label>
+//             <select
+//               id="service"
+//               name="service"
+//               value={formData.service}
+//               onChange={handleChange}
+//               required
+//             >
+//               <option value="">Select a service</option>
+//               <option value="Website Development">
+//                 Website Development
+//               </option>
+//               <option value="Google Ads">Google Ads</option>
+//               <option value="Meta Ads">Meta Ads</option>
+//               <option value="SEO">SEO</option>
+//               <option value="Google Business Profile">
+//                 Google Business Profile
+//               </option>
+//               <option value="Social Media Marketing">
+//                 Social Media Marketing
+//               </option>
+//               <option value="Other">Other</option>
+//             </select>
+//           </div>
+
+//           <div className="form-group">
+//             <label htmlFor="message">Your Requirement</label>
+//             <textarea
+//               id="message"
+//               name="message"
+//               rows="5"
+//               placeholder="Write your requirement..."
+//               value={formData.message}
+//               onChange={handleChange}
+//               required
+//             ></textarea>
+//           </div>
+
+//           <button
+//             type="submit"
+//             className="contact-submit-btn"
+//             disabled={sending}
+//           >
+//             {sending ? "Sending..." : "Send Enquiry"}
+//           </button>
+
+//           {statusMessage && (
+//             <p className={`contact-status ${statusType}`}>
+//               {statusMessage}
+//             </p>
+//           )}
+//         </form>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default ContactUs;
