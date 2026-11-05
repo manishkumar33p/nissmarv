@@ -249,6 +249,10 @@ const Navbar = () => {
       name: "Catering Services",
       path: "/catering",
     },
+    {
+      name: "CRM Solutions",
+      path: "/crm-solutions",
+    },
   ];
 
   /* =========================

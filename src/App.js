@@ -52,6 +52,7 @@ import FieldStaffManagement from "./FieldStaffManagement/FieldStaffManagement";
 import VendorAdmin from "./VendorAdmin/VendorAdmin";
 import VendorPackageAdmin from "./VendorPackageAdmin/VendorPackageAdmin";
 import OfferLetterGenerator from "./OfferLetterGenerator/OfferLetterGenerator";
+import CRMSolutions from './CRMSolutions/CRMSolutions';
 function App() {
   return (
     <Router>
@@ -60,6 +61,7 @@ function App() {
         <div >
           <Routes>
             <Route path="/" element={<About />} />
+            <Route path="/crm-solutions" element={<CRMSolutions />} />
             <Route path="/data-entry" element={<DataEntry />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/dashboard" element={<Dashboard />} />
@@ -121,7 +123,7 @@ function App() {
   element={<VendorAdmin />}
 />
 <Route
-  path="/vendor-dashboard/:vendorId"
+  path="endorId/vendor-dashboard/:v"
   element={<VendorDashboard />}
 />
 
