@@ -116,7 +116,7 @@ export default function CRMSolutions() {
         <div className="crm-hero-orb crm-orb-two" />
         <div className="crm-hero-inner">
           <div className="crm-eyebrow"><IoSparkles size={15} /> NISS TECHNOLOGY · BUSINESS SOFTWARE</div>
-          <h1>4 Powerful CRMs.<br /><span>One Technology Partner.</span></h1>
+          <h1>5 Powerful CRMs/Dashboard.<br /><span>One Technology Partner.</span></h1>
           <p>Smart Business Management Solutions for Every Industry – Powered by NISS Technology.</p>
           <div className="crm-hero-actions">
             <a href="#our-crms" className="crm-primary-btn">Explore CRM Solutions <IoArrowUp size={18} /></a>
