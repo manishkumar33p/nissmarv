@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   IoArrowUp, IoHeart, IoBagHandle, IoBusiness,
-  IoSchool, IoIoShieldCheckmarkmark, IoCheckmarkCircle,
-  IoLayers, IoHeadset, IoIoSparkles, IoSparkles,
-  IoShieldCheckmark
+  IoSchool, IoCheckmarkCircle, IoLayers,
+  IoHeadset, IoSparkles, IoShieldCheckmark,
+  IoBed, IoCalendar, IoPeople
 } from "react-icons/io5";
 import "./CRMSolutions.css";
 
@@ -48,6 +48,26 @@ const crmSolutions = [
     accent: "violet",
     tag: "Real Estate"
   },
+  {
+  id: "hotel",
+  number: "05",
+  name: "Hotel & PG CRM",
+  subtitle: "Hotel, Hostel & PG Management",
+  description:
+    "A smart and centralised management platform built for hotels, hostels and PG businesses. Manage multiple properties, room availability, guest reservations, customers and employees through one organised workspace.",
+  features: [
+    "Multi-owner & property management",
+    "Room and bed availability tracking",
+    "Guest bookings & reservations",
+    "Customer directory & records",
+    "Employee accounts & role-based access",
+    "Centralised business dashboard"
+  ],
+  url: "https://hotelcrm.nisstechnology.com/",
+  icon: IoBed,
+  accent: "amber",
+  tag: "Hospitality"
+},
   {
     id: "school",
     number: "04",
